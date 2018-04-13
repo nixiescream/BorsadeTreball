@@ -11,17 +11,17 @@ class CreateAlumnesTable extends Migration{
      * @return void
      */
     public function up(){
-        Schema::create('users_alumnes', function (Blueprint $table) {
+        Schema::create('alumnes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('users_nom')->references('name')->on('users')->onDelete('cascade');
-            $table->string('users_email')->references('email')->on('users')->onDelete('cascade')->unique();
-            $table->string('users_password')->references('password')->on('users')->onDelete('cascade');
-            $table->string('users_rol')->references('rol')->on('users')->onDelete('cascade');
-            $table->integer('users_validat')->references('validat')->on('users')->onDelete('cascade');
-    		$table->string('cognom1');
-            $table->string('cognom2');
-            $table->string('dni')->unique();
-            $table->string('estudis');
+            $table->string('alumne_nom');
+            $table->string('alumne_email')->unique();
+            $table->string('alumne_password');
+            $table->string('alumne_rol');
+            $table->integer('alumne_validat')->default(0);
+    		$table->string('alumne_cognom1')->default("");
+            $table->string('alumne_cognom2')->default("");
+            $table->string('alumne_dni')->default("");
+            $table->string('alumne_estudis')->default("");
             $table->timestamps();
         });
     }

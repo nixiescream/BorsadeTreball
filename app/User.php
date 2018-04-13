@@ -4,18 +4,9 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Database\Eloquent\Model;
 
 class User extends Authenticatable{
     use Notifiable;
-
-    /*public function alumnes(){
-        return $this->hasOne('App\Alumne');
-    }
-
-    public function empreses(){
-        return $this->hasOne('App\Empresa');
-    }*/
 
     /**
      * The attributes that are mass assignable.

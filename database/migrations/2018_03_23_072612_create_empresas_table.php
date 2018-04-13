@@ -11,14 +11,14 @@ class CreateEmpresasTable extends Migration{
      * @return void
      */
     public function up(){
-        Schema::create('users_empresas', function (Blueprint $table) {
+        Schema::create('empresas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('users_nom')->references('name')->on('users')->onDelete('cascade');
-            $table->string('users_email')->unique()->references('email')->on('users')->onDelete('cascade');
-            $table->string('users_password')->references('password')->on('users')->onDelete('cascade');
-            $table->string('users_rol')->references('rol')->on('users')->onDelete('cascade');
-            $table->integer('users_validat')->references('validat')->on('users')->onDelete('cascade');
-            $table->string('nif')->unique();
+            $table->string('empresa_nom');
+            $table->string('empresa_email')->unique();
+            $table->string('empresa_password');
+            $table->string('empresa_rol');
+            $table->integer('empresa_validat')->default(0);
+            $table->string('empresa_nif')->default("");
             $table->timestamps();
         });
     }

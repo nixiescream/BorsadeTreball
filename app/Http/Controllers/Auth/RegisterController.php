@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Alumne;
+use App\Empresa;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -27,8 +29,8 @@ class RegisterController extends Controller{
      *
      * @var string
      */
-    protected $redirectTo = '/';
-    //protected $redirectTo = 'login';
+    //protected $redirectTo = '/';
+    protected $redirectTo = 'login';
 
     /**
      * Create a new controller instance.
@@ -61,11 +63,34 @@ class RegisterController extends Controller{
      * @return \App\User
      */
     protected function create(array $data){
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'rol' => $data['rol'],
-        ]);
+
+        if($data['rol'] == 'alumne'){
+            return $crearAlumne = [Alumne::create([
+                'alumne_nom' => $data['name'],
+                'alumne_email' => $data['email'],
+                'alumne_password' => Hash::make($data['password']),
+                'alumne_rol' => $data['rol'],
+            ]),
+            User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+                'rol' => $data['rol'],
+            ])];
+        } else if($data['rol'] == 'empresa'){
+            return $crearEmpresa= [Empresa::create([
+                'empresa_nom' => $data['name'],
+                'empresa_email' => $data['email'],
+                'empresa_password' => Hash::make($data['password']),
+                'empresa_rol' => $data['rol'],
+            ]),
+            User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+                'rol' => $data['rol'],
+            ])];
+        }
     }
+
 }
