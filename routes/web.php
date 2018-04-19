@@ -15,6 +15,14 @@ Route::get('/', function () {
     return view('site.home');
 });
 
+
+
+Route::get('/alumne', 'alumnesController@index')->middleware('isAlumne');
+Route::get('/alumne/editar','alumnesController@linkEditarAlumne')->middleware('isAlumne');
+
+Route::get('/empresa', 'empresesController@index')->middleware('isEmpresa');
+Route::get('/empresa/editar','empresesController@linkEditarEmpresa')->middleware('isEmpresa');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();

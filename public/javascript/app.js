@@ -167,7 +167,7 @@ function setUpUrl(url) {
   $('nav .nav li:has(a[href="' + url.split('?')[0] + '"])').addClass('open');
   $('nav .nav a[href="' + url.split('?')[0] + '"]').addClass('active');
 
-  //loadPage(url);
+  loadPage(url);
 }
 
 function loadPage(url) {

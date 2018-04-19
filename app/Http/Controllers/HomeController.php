@@ -26,8 +26,8 @@ class HomeController extends Controller{
             return view('site.home');
         }else{
             $user=Auth::user();
-            if($user->rol == "alumne") return view ('dashboard.alumne');
-            else if($user->rol == "empresa") return view ('dashboard.empresa');
+            if($user->rol == "alumne") return view ('dashboard.alumne')->with('alumne',$user);
+            else if($user->rol == "empresa") return view ('dashboard.empresa')->with('empresa',$user);
         }
     }
 }

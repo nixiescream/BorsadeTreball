@@ -38,13 +38,15 @@
 
   <?php echo $__env->yieldContent('footer'); ?>
 
+  <script src="<?php echo e(asset('javascript/app.js')); ?>"></script>
+  <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
   <script src="<?php echo e(asset('vendor/jquery.min.js')); ?>"></script>
   <script src="<?php echo e(asset('vendor/popper.min.js')); ?>"></script>
   <script src="<?php echo e(asset('vendor/bootstrap.min.js')); ?>"></script>
   <script src="<?php echo e(asset('vendor/pace.min.js')); ?>"></script>
 
   <script src="<?php echo e(asset('vendor/Chart.min.js')); ?>"></script>
-  <script src="<?php echo e(asset('javascript/app.js')); ?>"></script>
+  <!--<script src="https://npmcdn.com/bootstrap@4.0.0-alpha.5/dist/js/bootstrap.min.js"></script>-->
   <!--<script src="<?php echo e(asset('js/app.js')); ?>"></script>-->
 
 

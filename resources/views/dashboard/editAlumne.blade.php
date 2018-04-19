@@ -1,4 +1,6 @@
-<?php $__env->startSection('header'); ?>
+@extends('layouts.panel')
+
+@section('header')
 <header class="app-header navbar">
     <button class="navbar-toggler mobile-sidebar-toggler d-lg-none mr-auto" type="button">
         <span class="navbar-toggler-icon"></span>
@@ -30,7 +32,7 @@
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                <img src="img/avatars/6.jpg" class="img-avatar" alt="<?php echo e(Auth::user()->email); ?>">
+                <img src="img/avatars/6.jpg" class="img-avatar" alt="{{ Auth::user()->email }}">
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <div class="dropdown-header text-center">
@@ -49,10 +51,9 @@
                 <a class="dropdown-item" href="#"><i class="fa fa-file"></i> Projects<span class="badge badge-primary">42</span></a>
                 <div class="divider"></div>
                 <a class="dropdown-item" href="#"><i class="fa fa-shield"></i> Lock Account</a>
-                <a class="dropdown-item" href="<?php echo e(route('logout')); ?>" onclick="event.preventDefault();
-                         document.getElementById('logout-form').submit();"><i class="fa fa-lock"></i> Logout</a><form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
-                         <?php echo e(csrf_field()); ?>
-
+                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                         document.getElementById('logout-form').submit();"><i class="fa fa-lock"></i> Logout</a><form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                         {{ csrf_field() }}
                      </form>
             </div>
         </li>
@@ -61,10 +62,10 @@
         <span class="navbar-toggler-icon"></span>
     </button>
   </header>
-<?php $__env->stopSection(); ?>
+@endsection
 
 
-<?php $__env->startSection('sidebar'); ?>
+@section('sidebar')
 <div class="sidebar">
       <nav class="sidebar-nav">
         <ul class="nav">
@@ -76,7 +77,7 @@
             Perfil
           </li>
           <li class="nav-item">
-            <a href="<?php echo e(url('/home/editar')); ?>" class="nav-link" active><i class="icon-pencil"></i> Editar perfil</a>
+            <a href="{{ url('/home/editar') }}" class="nav-link"><i class="icon-pencil"></i> Editar perfil</a>
           </li>
           <li class="nav-item">
             <a href="typography.html" class="nav-link"><i class="icon-pencil"></i> Configuració</a>
@@ -85,54 +86,7 @@
             Accions
           </li>
           <li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i>Ofertes</a>
-            <ul class="nav-dropdown-items">
-              <li class="nav-item">
-                <a class="nav-link" href="base/breadcrumb.html"><i class="icon-puzzle"></i> Breadcrumb</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="base/cards.html"><i class="icon-puzzle"></i> Cards</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="base/carousel.html"><i class="icon-puzzle"></i> Carousel</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="base/collapse.html"><i class="icon-puzzle"></i> Collapse</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="base/forms.html"><i class="icon-puzzle"></i> Forms</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="base/jumbotron.html"><i class="icon-puzzle"></i> Jumbotron</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="base/list-group.html"><i class="icon-puzzle"></i> List group</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="base/navs.html"><i class="icon-puzzle"></i> Navs</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="base/pagination.html"><i class="icon-puzzle"></i> Pagination</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="base/popovers.html"><i class="icon-puzzle"></i> Popovers</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="base/progress.html"><i class="icon-puzzle"></i> Progress</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="base/switches.html"><i class="icon-puzzle"></i> Switches</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="base/tables.html"><i class="icon-puzzle"></i> Tables</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="base/tabs.html"><i class="icon-puzzle"></i> Tabs</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="base/tooltips.html"><i class="icon-puzzle"></i> Tooltips</a>
-              </li>
-            </ul>
+            <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i>Crear oferta</a>
           </li>
           <!--<li class="nav-item nav-dropdown">
             <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-cursor"></i>LAlal</a>
@@ -191,20 +145,6 @@
           </li>
           <li class="nav-item nav-dropdown">
             <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-star"></i>Configuració</a>
-            <ul class="nav-dropdown-items">
-              <li class="nav-item">
-                <a class="nav-link" href="views/pages/login.html" target="_top"><i class="icon-star"></i> Usuari</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="views/pages/register.html" target="_top"><i class="icon-star"></i> Dashboard</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="views/pages/404.html" target="_top"><i class="icon-star"></i> Error 404</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="views/pages/500.html" target="_top"><i class="icon-star"></i> Error 500</a>
-              </li>
-            </ul>
           </li>
          <!-- <li class="nav-item mt-auto">
             <a class="nav-link nav-link-success" href="http://coreui.io" target="_top"><i class="icon-cloud-download"></i> Download CoreUI</a>
@@ -217,10 +157,10 @@
       </nav>
       <button class="sidebar-minimizer brand-minimizer" type="button"></button>
     </div>
-<?php $__env->stopSection(); ?>
+@endsection
 
 
-<?php $__env->startSection('breadcrumb'); ?>
+@section('breadcrumb')
 <ol class="breadcrumb">
         <li class="breadcrumb-item">Home</li>
         <li class="breadcrumb-item"><a href="#">Admin</a></li>
@@ -235,19 +175,14 @@
           </div>
         </li>
       </ol>
-<?php $__env->stopSection(); ?>
+@endsection
 
 
-<?php $__env->startSection('content'); ?>
-<form method="post" action="<?php echo e(url('/alumne')); ?>">
-    <?php echo e(csrf_field()); ?>
-
-    <input type="hidden" value="<?php echo e($alumne->id); ?>">
-</form>
+@section('content')
 <div class="content container-fluid">
     <div class="card border-info mb-3 rounded">
         <div class="card-header bg-info">
-            Perfil
+            Editar Perfil
         </div>
         <div class="card-body">
             <h5 class="card-title">Nom Cognom1 Cognom2</h5>
@@ -256,88 +191,10 @@
         </div>
     </div>
 </div>
-<div class="content container-fluid">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card border-info mb-3 rounded">
-                <div class="card-header bg-info">
-                    Estudis
-                </div>
-                <div class="card-body">
-                    <ul class="list-group">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Morbi leo risus</li>
-                        <li class="list-group-item">Porta ac consectetur ac</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card border-info mb-3 rounded">
-                <div class="card-header bg-info">
-                    Idiomes
-                </div>
-                <div class="card-body">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Idioma</th>
-                                <th scope="col">Nivell</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Català</td>
-                                <td>Natiu</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Castellà</td>
-                                <td>Natiu</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Anglès</td>
-                                <td>B2</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card border-info mb-3 rounded">
-                <div class="card-header bg-info">
-                    Extras
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Extra 1</h5>
-                    <ul class="list-group">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Morbi leo risus</li>
-                        <li class="list-group-item">Porta ac consectetur ac</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
-                    </ul>
-                    <h5 class="card-title">Extra 2</h5>
-                    <ul class="list-group">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                    </ul>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-   </div>
-</div>
-<?php $__env->stopSection(); ?>
+@endsection
 
 
-<?php $__env->startSection('aside'); ?>
+@section('aside')
 <aside class="aside-menu">
       <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
@@ -614,14 +471,12 @@
         </div>
       </div>
     </aside>
-<?php $__env->stopSection(); ?>
+@endsection
 
 
-<?php $__env->startSection('footer'); ?>
+@section('footer')
 <footer class="app-footer">
     <span>Enborsa't &copy;.</span>
     <span class="ml-auto">Powered by <a href="#">Enborsa't</a></span>
   </footer>
-<?php $__env->stopSection(); ?>
-
-<?php echo $__env->make('layouts.panel', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+@endsection

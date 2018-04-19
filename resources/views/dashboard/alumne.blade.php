@@ -77,7 +77,7 @@
             Perfil
           </li>
           <li class="nav-item">
-            <a href="colors.html" class="nav-link"><i class="icon-drop"></i> Editar perfil</a>
+            <a href="{{ url('/home/editar') }}" class="nav-link" active><i class="icon-pencil"></i> Editar perfil</a>
           </li>
           <li class="nav-item">
             <a href="typography.html" class="nav-link"><i class="icon-pencil"></i> Configuració</a>
@@ -240,6 +240,10 @@
 
 
 @section('content')
+<form method="post" action="{{ url('/alumne') }}">
+    {{ csrf_field() }}
+    <input type="hidden" value="{{$alumne->id}}">
+</form>
 <div class="content container-fluid">
     <div class="card border-info mb-3 rounded">
         <div class="card-header bg-info">

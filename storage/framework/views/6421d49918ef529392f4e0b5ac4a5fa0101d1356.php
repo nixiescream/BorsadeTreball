@@ -17,11 +17,12 @@
         <?php echo $__env->yieldContent('header'); ?>
         <?php echo $__env->yieldContent('content'); ?>
         <script src="<?php echo e(asset('vendor/jquery/jquery.min.js')); ?>"></script>
+        <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
         <script src="<?php echo e(asset('vendor/bootstrap/js/bootstrap.min.js')); ?>"></script>
         <script src="<?php echo e(asset('vendor/jquery-easing/jquery.easing.min.js')); ?>"></script>
         <script src="<?php echo e(asset('vendor/scrollreveal/scrollreveal.min.js')); ?>"></script>
         <script src="<?php echo e(asset('vendor/magnific-popup/jquery.magnific-popup.min.js')); ?>"></script>
         <script src="<?php echo e(asset('javascript/creative.min.js')); ?>"></script>
-        <script src="<?php echo e(asset('javascript/app.js')); ?>"></script>
+        <!--<script src="<?php echo e(asset('javascript/app.js')); ?>"></script>-->
     </body>
 </html>

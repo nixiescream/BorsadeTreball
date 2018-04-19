@@ -17,11 +17,12 @@
         @yield('header')
         @yield('content')
         <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+        <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
         <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
         <script src="{{ asset('vendor/scrollreveal/scrollreveal.min.js') }}"></script>
         <script src="{{ asset('vendor/magnific-popup/jquery.magnific-popup.min.js') }}"></script>
         <script src="{{ asset('javascript/creative.min.js') }}"></script>
-        <script src="{{ asset('javascript/app.js') }}"></script>
+        <!--<script src="{{ asset('javascript/app.js') }}"></script>-->
     </body>
 </html>
