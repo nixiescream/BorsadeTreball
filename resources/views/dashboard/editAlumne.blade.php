@@ -179,15 +179,69 @@
 
 
 @section('content')
+<form method="post" action="{{ url('/editarAlumne') }}">
+    {{ csrf_field() }}
+    <input type="hidden" value="{{$alumne->id}}">
+</form>
 <div class="content container-fluid">
     <div class="card border-info mb-3 rounded">
         <div class="card-header bg-info">
             Editar Perfil
         </div>
         <div class="card-body">
-            <h5 class="card-title">Nom Cognom1 Cognom2</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <form method="POST" action="{{ route('register') }}">
+                {{ csrf_field() }}
+                <div class="card">
+                        <div class="card-body">
+                            <div class="input-group mb-3 {{ $errors->has('username') ? ' has-error' : '' }}">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="icon-user"></i></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Username" name="name" value="{{ old('name') }}" required autofocus>
+                                @if ($errors->has('name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <div class="input-group mb-3 {{ $errors->has('email') ? ' has-error' : '' }}">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">@</span>
+                                </div>
+                                <input type="email" class="form-control" placeholder="Email" name="email" value="{{ old('email') }}" required>
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <div class="input-group mb-3 {{ $errors->has('password') ? ' has-error' : '' }}">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="icon-lock"></i></span>
+                                </div>
+                                <input type="password" class="form-control" placeholder="Password" name="password" required>
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <div class="input-group mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="icon-lock"></i></span>
+                                </div>
+                                <input type="password" class="form-control" placeholder="Repeat password" name="password_confirmation" required>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="rol" id="rol1" value="alumne">
+                                <label class="form-check-label" for="rol1">Alumne</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="rol" id="rol2" value="empresa">
+                                <label class="form-check-label" for="rol2">Empresa</label>
+                            </div>
+                        <button type="submit" value="register" class="btn btn-block btn-success">Create Account</button>
+                    </div>
         </div>
     </div>
 </div>

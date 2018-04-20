@@ -77,7 +77,7 @@
             Perfil
           </li>
           <li class="nav-item">
-            <a href="{{ url('/home/editar') }}" class="nav-link" active><i class="icon-pencil"></i> Editar perfil</a>
+            <a href="{{ url('/home/editarAlumne',$alumne->id) }}" class="nav-link" active><i class="icon-pencil"></i> Editar perfil</a>
           </li>
           <li class="nav-item">
             <a href="typography.html" class="nav-link"><i class="icon-pencil"></i> Configuració</a>
@@ -135,57 +135,6 @@
               </li>
             </ul>
           </li>
-          <!--<li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-cursor"></i>LAlal</a>
-            <ul class="nav-dropdown-items">
-              <li class="nav-item">
-                <a class="nav-link" href="buttons/buttons.html"><i class="icon-cursor"></i> Buttons</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="buttons/button-group.html"><i class="icon-cursor"></i> Buttons Group</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="buttons/dropdowns.html"><i class="icon-cursor"></i> Dropdowns</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="buttons/social-buttons.html"><i class="icon-cursor"></i> Social Buttons</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="charts.html"><i class="icon-pie-chart"></i> Charts</a>
-          </li>
-          <li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-star"></i> Icons</a>
-            <ul class="nav-dropdown-items">
-              <li class="nav-item">
-                <a class="nav-link" href="icons/flags.html"><i class="icon-star"></i> Flags <span class="badge badge-success">NEW</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="icons/font-awesome.html"><i class="icon-star"></i> Font Awesome <span class="badge badge-secondary">4.7</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="icons/simple-line-icons.html"><i class="icon-star"></i> Simple Line Icons</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-bell"></i> Notifications</a>
-            <ul class="nav-dropdown-items">
-              <li class="nav-item">
-                <a class="nav-link" href="notifications/alerts.html"><i class="icon-bell"></i> Alerts</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="notifications/badge.html"><i class="icon-bell"></i> Badge</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="notifications/modals.html"><i class="icon-bell"></i> Modals</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="widgets.html"><i class="icon-calculator"></i> Widgets <span class="badge badge-primary">NEW</span></a>
-          </li>-->
           <li class="divider"></li>
           <li class="nav-title">
             Extras
@@ -207,13 +156,6 @@
               </li>
             </ul>
           </li>
-         <!-- <li class="nav-item mt-auto">
-            <a class="nav-link nav-link-success" href="http://coreui.io" target="_top"><i class="icon-cloud-download"></i> Download CoreUI</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link nav-link-danger" href="http://coreui.io/pro/" target="_top"><i class="icon-layers"></i> Try CoreUI <strong>PRO</strong></a>
-          </li>-->
-
         </ul>
       </nav>
       <button class="sidebar-minimizer brand-minimizer" type="button"></button>
@@ -240,7 +182,7 @@
 
 
 @section('content')
-<form method="post" action="{{ url('/alumne') }}">
+<form method="post" action="{{ url('/home') }}">
     {{ csrf_field() }}
     <input type="hidden" value="{{$alumne->id}}">
 </form>
@@ -250,9 +192,7 @@
             Perfil
         </div>
         <div class="card-body">
-            <h5 class="card-title">Nom Cognom1 Cognom2</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <h5 class="card-title">{{ $alumne }}</h5>
         </div>
     </div>
 </div>

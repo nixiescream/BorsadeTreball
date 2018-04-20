@@ -19,6 +19,6 @@ class alumnesController extends Controller{
     public function linkEditarAlumne(Request $request){
         $id = $request->id;
         $alumne = Alumne::findOrFail($id);
-        return redirect('dashboard.editAlumne')->with('alumne',$alumne);
+        return view('dashboard.editAlumne')->with('alumne',$alumne);
     }
 }
