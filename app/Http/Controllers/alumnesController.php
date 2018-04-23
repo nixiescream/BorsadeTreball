@@ -21,4 +21,32 @@ class alumnesController extends Controller{
         $alumne = Alumne::findOrFail($id);
         return view('dashboard.editAlumne')->with('alumne',$alumne);
     }
+
+    public function editarAlumne(Request $request){
+        $request->validate([
+			'nom' => 'required|max:30',
+            'cognom1' => 'required|max:80',
+            'cognom2' => 'required|max:80',
+			'email' => 'required',
+			'estudis' => 'required',
+			'password' => 'nullable'
+		]);
+        $id = $request->id;
+        $nom = $request->nom;
+        $cognom1 = $request->cognom1;
+        $cognom2 = $request->cognom2;
+        $email = $request->email;
+        $estudis = $request->estudis;
+        $password = $request->$password;
+
+        $alumne = Alumne::findOrFail($id);
+        $alumne->nom = $nom;
+        $alumne->cognom1 = $cognom1;
+        $alumne->cognom2 = $cognom2;
+        $alumne->email = $email;
+        $alumne->estudis = $estudis;
+        $alumne->password = $password;
+        $alumne->save();
+        return redirect('/home');
+    }
 }

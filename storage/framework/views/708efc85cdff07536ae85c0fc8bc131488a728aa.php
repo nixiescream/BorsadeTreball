@@ -184,7 +184,7 @@
 <form method="post" action="<?php echo e(url('/home')); ?>">
     <?php echo e(csrf_field()); ?>
 
-    <input type="hidden" value="<?php echo e($alumne->id); ?>">
+    <input type="hidden" value="<?php echo e($alumne->id); ?>" name="id">
 </form>
 <div class="content container-fluid">
     <div class="card border-info mb-3 rounded">

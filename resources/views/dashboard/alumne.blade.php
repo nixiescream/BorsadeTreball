@@ -184,7 +184,7 @@
 @section('content')
 <form method="post" action="{{ url('/home') }}">
     {{ csrf_field() }}
-    <input type="hidden" value="{{$alumne->id}}">
+    <input type="hidden" value="{{ $alumne->id }}" name="id">
 </form>
 <div class="content container-fluid">
     <div class="card border-info mb-3 rounded">

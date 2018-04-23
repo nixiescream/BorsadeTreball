@@ -88,57 +88,6 @@
           <li class="nav-item nav-dropdown">
             <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i>Crear oferta</a>
           </li>
-          <!--<li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-cursor"></i>LAlal</a>
-            <ul class="nav-dropdown-items">
-              <li class="nav-item">
-                <a class="nav-link" href="buttons/buttons.html"><i class="icon-cursor"></i> Buttons</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="buttons/button-group.html"><i class="icon-cursor"></i> Buttons Group</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="buttons/dropdowns.html"><i class="icon-cursor"></i> Dropdowns</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="buttons/social-buttons.html"><i class="icon-cursor"></i> Social Buttons</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="charts.html"><i class="icon-pie-chart"></i> Charts</a>
-          </li>
-          <li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-star"></i> Icons</a>
-            <ul class="nav-dropdown-items">
-              <li class="nav-item">
-                <a class="nav-link" href="icons/flags.html"><i class="icon-star"></i> Flags <span class="badge badge-success">NEW</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="icons/font-awesome.html"><i class="icon-star"></i> Font Awesome <span class="badge badge-secondary">4.7</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="icons/simple-line-icons.html"><i class="icon-star"></i> Simple Line Icons</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-bell"></i> Notifications</a>
-            <ul class="nav-dropdown-items">
-              <li class="nav-item">
-                <a class="nav-link" href="notifications/alerts.html"><i class="icon-bell"></i> Alerts</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="notifications/badge.html"><i class="icon-bell"></i> Badge</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="notifications/modals.html"><i class="icon-bell"></i> Modals</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="widgets.html"><i class="icon-calculator"></i> Widgets <span class="badge badge-primary">NEW</span></a>
-          </li>-->
           <li class="divider"></li>
           <li class="nav-title">
             Extras
@@ -146,13 +95,6 @@
           <li class="nav-item nav-dropdown">
             <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-star"></i>Configuració</a>
           </li>
-         <!-- <li class="nav-item mt-auto">
-            <a class="nav-link nav-link-success" href="http://coreui.io" target="_top"><i class="icon-cloud-download"></i> Download CoreUI</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link nav-link-danger" href="http://coreui.io/pro/" target="_top"><i class="icon-layers"></i> Try CoreUI <strong>PRO</strong></a>
-          </li>-->
-
         </ul>
       </nav>
       <button class="sidebar-minimizer brand-minimizer" type="button"></button>
@@ -179,9 +121,9 @@
 
 
 @section('content')
-<form method="post" action="{{ url('/editarAlumne') }}">
+<form method="post" action="{{ url('/home') }}">
     {{ csrf_field() }}
-    <input type="hidden" value="{{$alumne->id}}">
+    <input type="hidden" value="{{ $alumne->id }}" name="id">
 </form>
 <div class="content container-fluid">
     <div class="card border-info mb-3 rounded">
@@ -204,14 +146,68 @@
                                     </span>
                                 @endif
                             </div>
+                            <div class="input-group mb-3 {{ $errors->has('nom') ? ' has-error' : '' }}">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="icon-user"></i></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Nom" name="nom" value="{{ old('nom') }}" required autofocus>
+                                @if ($errors->has('name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <div class="input-group mb-3 {{ $errors->has('cognom1') ? ' has-error' : '' }}">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="icon-user"></i></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Cognom 1" name="cognom1" value="{{ old('cognom1') }}" required autofocus>
+                                @if ($errors->has('name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <div class="input-group mb-3 {{ $errors->has('cognom2') ? ' has-error' : '' }}">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="icon-user"></i></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Cognom 2" name="cognom2" value="{{ old('cognom2') }}" required autofocus>
+                                @if ($errors->has('name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
                             <div class="input-group mb-3 {{ $errors->has('email') ? ' has-error' : '' }}">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">@</span>
                                 </div>
                                 <input type="email" class="form-control" placeholder="Email" name="email" value="{{ old('email') }}" required>
-                                @if ($errors->has('email'))
+                                @if ($errors->has('name'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <div class="input-group mb-3" id="menu1" onchange="carregarElements(this.value)">
+                                <select class="custom-select col-md-4">
+                                    <option value="AG">Família Administració i Gestió</option>
+                                    <option value="CM">Família Comerç i Màrketing</option>
+                                    <option value="IC">Família Informàtia i Comunicacions</option>
+                                    <option value="SC">Família de Serveis a la Comunitat</option>
+                                </select>
+                                <select class="custom-select col-md-4" id="menu2">
+                                    <option value=""></option>
+                                </select>
+                                @if ($errors->has('estudis2'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('estudis') }}</strong>
+                                    </span>
+                                @endif
+                                @if ($errors->has('estudis'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('estudis') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -232,15 +228,7 @@
                                 </div>
                                 <input type="password" class="form-control" placeholder="Repeat password" name="password_confirmation" required>
                             </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="rol" id="rol1" value="alumne">
-                                <label class="form-check-label" for="rol1">Alumne</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="rol" id="rol2" value="empresa">
-                                <label class="form-check-label" for="rol2">Empresa</label>
-                            </div>
-                        <button type="submit" value="register" class="btn btn-block btn-success">Create Account</button>
+                        <button type="submit" value="save" class="btn btn-block btn-success">Guardar</button>
                     </div>
         </div>
     </div>

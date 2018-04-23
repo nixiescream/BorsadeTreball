@@ -39,6 +39,7 @@
   <?php echo $__env->yieldContent('footer'); ?>
 
   <script src="<?php echo e(asset('javascript/app.js')); ?>"></script>
+  <script src="<?php echo e(asset('javascript/estudis.js')); ?>"></script>
   <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
   <script src="<?php echo e(asset('vendor/jquery.min.js')); ?>"></script>
   <script src="<?php echo e(asset('vendor/popper.min.js')); ?>"></script>

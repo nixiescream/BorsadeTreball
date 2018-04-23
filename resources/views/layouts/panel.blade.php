@@ -39,6 +39,7 @@
   @yield('footer')
 
   <script src="{{ asset('javascript/app.js') }}"></script>
+  <script src="{{ asset('javascript/estudis.js') }}"></script>
   <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
   <script src="{{ asset('vendor/jquery.min.js') }}"></script>
   <script src="{{ asset('vendor/popper.min.js') }}"></script>
