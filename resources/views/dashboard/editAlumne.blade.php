@@ -190,8 +190,8 @@
                                     </span>
                                 @endif
                             </div>
-                            <div class="input-group mb-3" id="menu1" onchange="carregarElements(this.value)">
-                                <select class="custom-select col-md-4">
+                            <div class="input-group mb-3">
+                                <select class="custom-select col-md-4" id="menu1" onchange="carregarElements(this.value)">
                                     <option value="AG">Família Administració i Gestió</option>
                                     <option value="CM">Família Comerç i Màrketing</option>
                                     <option value="IC">Família Informàtia i Comunicacions</option>
