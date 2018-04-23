@@ -32,7 +32,7 @@
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                <img src="img/avatars/6.jpg" class="img-avatar" alt="{{ Auth::user()->email }}">
+                <img src="img/avatars/6.jpg" class="fa fa-user" alt="{{ Auth::user()->email }}">
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <div class="dropdown-header text-center">
@@ -58,9 +58,6 @@
             </div>
         </li>
     </ul>
-    <button class="navbar-toggler aside-menu-toggler" type="button">
-        <span class="navbar-toggler-icon"></span>
-    </button>
   </header>
 @endsection
 
@@ -70,7 +67,7 @@
       <nav class="sidebar-nav">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="main.html"><i class="icon-speedometer"></i> Dashboard <span class="badge badge-primary">NEW</span></a>
+            <a class="nav-link" href="{{ url('/home') }}"><i class="icon-speedometer"></i> Dashboard <span class="badge badge-primary">NEW</span></a>
           </li>
 
           <li class="nav-title">
