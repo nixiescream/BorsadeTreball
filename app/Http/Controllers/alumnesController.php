@@ -29,8 +29,8 @@ class alumnesController extends Controller{
             'cognom2' => 'required|max:80',
 			'email' => 'required',
             'dni' => 'required',
-            'familiaE' => 'required',
-			'estudis' => 'required',
+            /*'familiaE' => 'required',
+			'estudis' => 'required',*/
 			'password' => 'nullable'
 		]);
         $id = $request->id;
@@ -39,20 +39,23 @@ class alumnesController extends Controller{
         $cognom2 = $request->cognom2;
         $email = $request->email;
         $dni = $request->dni;
-        $familiaE = $request->familiaE;
-        $estudis = $request->estudis;
-        $password = $request->$password;
+        /*$familiaE = $request->familiaE;
+        $estudis = $request->estudis;*/
+        $password = $request->password;
+        $required_password = $request->password_confirmation;
 
-        $alumne = Alumne::findOrFail($id);
-        $alumne->nom = $nom;
-        $alumne->cognom1 = $cognom1;
-        $alumne->cognom2 = $cognom2;
-        $alumne->email = $email;
-        $alumne->dni = $dni;
-        $alumne->familiaE = $familiaE;
-        $alumne->estudis = $estudis;
-        $alumne->password = $password;
-        $alumne->save();
-        return redirect('/alumne');
+        if($password == $required_password){
+            $alumne = Alumne::findOrFail($id);
+            $alumne->nom = $nom;
+            $alumne->cognom1 = $cognom1;
+            $alumne->cognom2 = $cognom2;
+            $alumne->email = $email;
+            $alumne->dni = $dni;
+            /*$alumne->familiaE = $familiaE;
+            $alumne->estudis = $estudis;*/
+            $alumne->password = $password;
+            $alumne->save();
+        }
+        return redirect('/alumne/'.$id);
     }
 }

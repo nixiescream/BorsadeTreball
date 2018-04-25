@@ -128,21 +128,10 @@
             Editar Perfil
         </div>
         <div class="card-body">
-            <form method="POST" action="{{ route('register') }}">
+            <form method="POST" action="{{ url('/alumne/editarAlumne') }}">
                 {{ csrf_field() }}
                 <div class="card">
                         <div class="card-body">
-                            <div class="input-group mb-3 {{ $errors->has('username') ? ' has-error' : '' }}">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="icon-user"></i></span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="Username" name="name" value="{{ old('name') }}" required autofocus>
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
                             <div class="input-group mb-3 {{ $errors->has('nom') ? ' has-error' : '' }}">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-user"></i></span>
@@ -198,7 +187,7 @@
                                     </span>
                                 @endif
                             </div>
-                            <div class="input-group mb-3">
+                            <!--<div class="input-group mb-3">
                                 <select class="custom-select col-md-4" id="menu1" onChange="carregarElements(this.value)">
                                     <option value="AG">Família Administració i Gestió</option>
                                     <option value="CM">Família Comerç i Màrketing</option>
@@ -218,7 +207,7 @@
                                         <strong>{{ $errors->first('estudis') }}</strong>
                                     </span>
                                 @endif
-                            </div>
+                            </div>-->
                             <div class="input-group mb-3 {{ $errors->has('password') ? ' has-error' : '' }}">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-lock"></i></span>
