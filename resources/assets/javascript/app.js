@@ -1,6 +1,8 @@
 /*****
 * CONFIGURATION
 */
+var $ = jQuery;
+
 
 // Active ajax page loader
 $.ajaxLoad = true;

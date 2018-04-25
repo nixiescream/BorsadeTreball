@@ -2,7 +2,8 @@ var ajx;
 var resposta;
 
 function carregarElements(tipus) {
-    var url = "estudisSecundaris.php?tipus=" + tipus;
+    url = "estudisSecundaris.php?tipus=" + tipus;
+
     if (window.XMLHttpRequest || typeof(XMLHttpRequest) != undefined){
         ajx = new XMLHttpRequest();
     } else if (window.ActiveXObject){
@@ -13,20 +14,18 @@ function carregarElements(tipus) {
 
     ajx.onreadystatechange = finCarga;
     ajx.open("GET", url, true);
-    ajx.send(null);
+    ajx.send();
 }
 
 function finCarga() {
     if (ajx.readyState == 4) {
+        console.log(url);
         if (ajx.status == 200) {
             resposta = ajx.responseXML.getElementsByTagName("item");
             procesaElements();
         } else {
             alert(ajx.status + " " + ajx.statusText);
-
         }
-
-
     }
 }
 
@@ -38,5 +37,4 @@ function procesaElements() {
         opc.value = resposta[i].childNodes[0].nodeValue;
         llistaSec.options.add(opc);
     }
-
 }
