@@ -23,7 +23,7 @@
     header('Expires: -1');
 
     //public void Swoole\Http\Response::write(resultat($items));
-    echo resultat($items);
+    resultat($items);
 
     public function resultat($arrItems){
         $sRes;

@@ -67,14 +67,14 @@
       <nav class="sidebar-nav">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="{{ url('/home') }}"><i class="icon-speedometer"></i> Dashboard <span class="badge badge-primary">NEW</span></a>
+            <a class="nav-link" href="{{ url('/alumne', $alumne->id) }}"><i class="icon-speedometer"></i> Dashboard <span class="badge badge-primary">NEW</span></a>
           </li>
 
           <li class="nav-title">
             Perfil
           </li>
           <li class="nav-item">
-            <a href="{{ url('/home/editar') }}" class="nav-link"><i class="icon-pencil"></i> Editar perfil</a>
+            <a href="{{ url('/alumne/editarAlumne',$alumne->id) }}" class="nav-link"><i class="icon-pencil"></i> Editar perfil</a>
           </li>
           <li class="nav-item">
             <a href="typography.html" class="nav-link"><i class="icon-pencil"></i> Configuració</a>
@@ -118,7 +118,7 @@
 
 
 @section('content')
-<form method="post" action="{{ url('/home') }}">
+<form method="post" action="{{ url('/alumne') }}">
     {{ csrf_field() }}
     <input type="hidden" value="{{ $alumne->id }}" name="id">
 </form>
@@ -187,8 +187,19 @@
                                     </span>
                                 @endif
                             </div>
+                            <div class="input-group mb-3 {{ $errors->has('dni') ? ' has-error' : '' }}">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="icon-user"></i></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="DNI" name="dni" value="{{ old('dni') }}" required>
+                                @if ($errors->has('name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
                             <div class="input-group mb-3">
-                                <select class="custom-select col-md-4" id="menu1" onchange="carregarElements(this.value)">
+                                <select class="custom-select col-md-4" id="menu1" onChange="carregarElements(this.value)">
                                     <option value="AG">Família Administració i Gestió</option>
                                     <option value="CM">Família Comerç i Màrketing</option>
                                     <option value="IC">Família Informàtia i Comunicacions</option>

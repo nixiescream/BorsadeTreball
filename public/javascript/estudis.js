@@ -2,7 +2,7 @@ var ajx;
 var resposta;
 
 function carregarElements(tipus) {
-    url = "estudisSecundaris.php?tipus=" + tipus;
+    var url = "estudisSecundaris.php?tipus=" + tipus;
 
     if (window.XMLHttpRequest || typeof(XMLHttpRequest) != undefined){
         ajx = new XMLHttpRequest();
@@ -19,7 +19,6 @@ function carregarElements(tipus) {
 
 function finCarga() {
     if (ajx.readyState == 4) {
-        console.log(url);
         if (ajx.status == 200) {
             resposta = ajx.responseXML.getElementsByTagName("item");
             procesaElements();

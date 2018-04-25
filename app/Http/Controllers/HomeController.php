@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use App\Alumne;
+use App\Empresa;
+
 class HomeController extends Controller{
     /**
      * Create a new controller instance.
@@ -21,13 +24,16 @@ class HomeController extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        //return view('home');
         if(!Auth::check()){
             return view('site.home');
         }else{
             $user=Auth::user();
-            if($user->rol == "alumne") return view ('dashboard.alumne')->with('alumne',$user);
-            else if($user->rol == "empresa") return view ('dashboard.empresa')->with('empresa',$user);
+
+            if($user->rol == "alumne"){
+                return redirect('/alumne');
+            } else if($user->rol == "empresa"){
+        		return redirect('/empresa');
+            }
         }
     }
 }

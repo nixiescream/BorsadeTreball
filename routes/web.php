@@ -17,11 +17,11 @@ Route::get('/', function () {
 
 
 
-Route::get('/home', 'alumnesController@index')->middleware('isAlumne');
-Route::get('/home/editarAlumne/{id}','alumnesController@linkEditarAlumne')->middleware('isAlumne');
+Route::get('/alumne/{id}', 'alumnesController@index')->middleware('isAlumne')->name('alumne');
+Route::get('/alumne/editarAlumne/{id}','alumnesController@linkEditarAlumne')->middleware('isAlumne')->name('editarAlumne');
 
-Route::get('/home', 'empresesController@index')->middleware('isEmpresa');
-Route::get('/editarEmpresa','empresesController@linkEditarEmpresa')->middleware('isEmpresa');
+Route::get('/empresa', 'empresesController@index')->middleware('isEmpresa')->name('empresa');
+Route::get('/empresa/editarEmpresa/{id}','empresesController@linkEditarEmpresa')->middleware('isEmpresa')->name('editarEmpresa');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

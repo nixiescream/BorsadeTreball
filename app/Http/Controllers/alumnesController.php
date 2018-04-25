@@ -12,7 +12,7 @@ class alumnesController extends Controller{
 
 	public function index(Request $request){
         $id = $request->id;
-		$alumne = Alumne::findOrFail($id);
+        $alumne = Alumne::findOrFail($id);
 		return view('dashboard.alumne')->with('alumne',$alumne);
     }
 
@@ -28,6 +28,8 @@ class alumnesController extends Controller{
             'cognom1' => 'required|max:80',
             'cognom2' => 'required|max:80',
 			'email' => 'required',
+            'dni' => 'required',
+            'familiaE' => 'required',
 			'estudis' => 'required',
 			'password' => 'nullable'
 		]);
@@ -36,6 +38,8 @@ class alumnesController extends Controller{
         $cognom1 = $request->cognom1;
         $cognom2 = $request->cognom2;
         $email = $request->email;
+        $dni = $request->dni;
+        $familiaE = $request->familiaE;
         $estudis = $request->estudis;
         $password = $request->$password;
 
@@ -44,9 +48,11 @@ class alumnesController extends Controller{
         $alumne->cognom1 = $cognom1;
         $alumne->cognom2 = $cognom2;
         $alumne->email = $email;
+        $alumne->dni = $dni;
+        $alumne->familiaE = $familiaE;
         $alumne->estudis = $estudis;
         $alumne->password = $password;
         $alumne->save();
-        return redirect('/home');
+        return redirect('/alumne');
     }
 }

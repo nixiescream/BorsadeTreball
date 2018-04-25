@@ -67,14 +67,14 @@
       <nav class="sidebar-nav">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="{{ url('/home') }}"><i class="icon-speedometer"></i> Dashboard <span class="badge badge-primary">NEW</span></a>
+            <a class="nav-link" href="{{ url('/alumne', $alumne->id) }}"><i class="icon-speedometer"></i> Dashboard <span class="badge badge-primary">NEW</span></a>
           </li>
 
           <li class="nav-title">
             Perfil
           </li>
           <li class="nav-item">
-            <a href="{{ url('/home/editarAlumne',$alumne->id) }}" class="nav-link" active><i class="icon-pencil"></i> Editar perfil</a>
+            <a href="{{ url('/alumne/editarAlumne',$alumne->id) }}" class="nav-link" active><i class="icon-pencil"></i> Editar perfil</a>
           </li>
           <li class="nav-item">
             <a href="typography.html" class="nav-link"><i class="icon-pencil"></i> Configuració</a>
@@ -179,7 +179,7 @@
 
 
 @section('content')
-<form method="post" action="{{ url('/home') }}">
+<form method="post" action="{{ url('/alumne') }}">
     {{ csrf_field() }}
     <input type="hidden" value="{{ $alumne->id }}" name="id">
 </form>
@@ -189,7 +189,7 @@
             Perfil
         </div>
         <div class="card-body">
-            <h5 class="card-title">{{ $alumne }}</h5>
+            <h5 class="card-title">{{ $alumne->alumne_nom }} {{ $alumne->alumne_cognom1 }} {{ $alumne->alumne_cognom2 }}</h5>
         </div>
     </div>
 </div>
