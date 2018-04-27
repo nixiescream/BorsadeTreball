@@ -12,7 +12,8 @@ class CreateEmpresasTable extends Migration{
      */
     public function up(){
         Schema::create('empresas', function (Blueprint $table) {
-            $table->increments('id');
+            $table->integer('empresa_id')->unsigned();
+            $table->foreign('empresa_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('empresa_nom');
             $table->string('empresa_email')->unique();
             $table->string('empresa_password');

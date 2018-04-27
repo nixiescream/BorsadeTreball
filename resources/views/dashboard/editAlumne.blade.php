@@ -118,17 +118,17 @@
 
 
 @section('content')
-<form method="post" action="{{ url('/alumne') }}">
+<!--<form method="post" action="{{ url('alumne/editarAlumne') }}">
     {{ csrf_field() }}
     <input type="hidden" value="{{ $alumne->id }}" name="id">
-</form>
+</form>-->
 <div class="content container-fluid">
     <div class="card border-info mb-3 rounded">
         <div class="card-header bg-info">
             Editar Perfil
         </div>
         <div class="card-body">
-            <form method="POST" action="{{ url('/alumne/editarAlumne') }}">
+            <form method="POST" action="{{ url('alumne/editarAlumne') }}">
                 {{ csrf_field() }}
                 <div class="card">
                         <div class="card-body">
@@ -225,7 +225,7 @@
                                 </div>
                                 <input type="password" class="form-control" placeholder="Repeat password" name="password_confirmation" required>
                             </div>
-                        <button type="submit" value="save" class="btn btn-block btn-success">Guardar</button>
+                        <button type="submit" value="guardar" class="btn btn-block btn-success">Guardar</button>
                     </div>
         </div>
     </div>

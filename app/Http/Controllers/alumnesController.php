@@ -42,9 +42,9 @@ class alumnesController extends Controller{
         /*$familiaE = $request->familiaE;
         $estudis = $request->estudis;*/
         $password = $request->password;
-        $required_password = $request->password_confirmation;
+        $password_confirmation = $request->password_confirmation;
 
-        if($password == $required_password){
+        if($password == $password_confirmation){
             $alumne = Alumne::findOrFail($id);
             $alumne->nom = $nom;
             $alumne->cognom1 = $cognom1;
@@ -56,6 +56,7 @@ class alumnesController extends Controller{
             $alumne->password = $password;
             $alumne->save();
         }
-        return redirect('/alumne/'.$id);
+        echo "hola";
+        return redirect('/alumne/'.$id)->with('alumne',$alumne);
     }
 }
