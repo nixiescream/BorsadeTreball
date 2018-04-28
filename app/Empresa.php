@@ -14,7 +14,7 @@ class Empresa extends Authenticatable{
      * @var array
      */
     protected $fillable = [
-        'empresa_nom', 'empresa_email', 'empresa_password', 'empresa_rol', 'empresa_nif',
+        'user_id', 'empresa_nom', 'empresa_email', 'empresa_password', 'empresa_rol', 'empresa_nif',
     ];
 
     /**
@@ -25,4 +25,8 @@ class Empresa extends Authenticatable{
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
 }

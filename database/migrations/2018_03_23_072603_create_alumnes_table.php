@@ -12,8 +12,8 @@ class CreateAlumnesTable extends Migration{
      */
     public function up(){
         Schema::create('alumnes', function (Blueprint $table) {
-            $table->integer('alumne_id')->unsigned();
-            $table->foreign('alumne_id')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('alumne_nom');
             $table->string('alumne_email')->unique();
             $table->string('alumne_password');

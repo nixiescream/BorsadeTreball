@@ -65,31 +65,39 @@ class RegisterController extends Controller{
     protected function create(array $data){
 
         if($data['rol'] == 'alumne'){
-            return $crearAlumne = [Alumne::create([
+            $user = User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+                'rol' => $data['rol'],
+            ]);
+
+            $alumne = Alumne::create([
+                'user_id' => $user['id'],
                 'alumne_nom' => $data['name'],
                 'alumne_email' => $data['email'],
                 'alumne_password' => Hash::make($data['password']),
                 'alumne_rol' => $data['rol'],
-            ]),
-            User::create([
-                'name' => $data['name'],
-                'email' => $data['email'],
-                'password' => Hash::make($data['password']),
-                'rol' => $data['rol'],
-            ])];
+            ]);
+
+            return [$user, $alumne];
         } else if($data['rol'] == 'empresa'){
-            return $crearEmpresa= [Empresa::create([
-                'empresa_nom' => $data['name'],
-                'empresa_email' => $data['email'],
-                'empresa_password' => Hash::make($data['password']),
-                'empresa_rol' => $data['rol'],
-            ]),
-            User::create([
-                'name' => $data['name'],
-                'email' => $data['email'],
-                'password' => Hash::make($data['password']),
-                'rol' => $data['rol'],
-            ])];
+                $user = User::create([
+                    'name' => $data['name'],
+                    'email' => $data['email'],
+                    'password' => Hash::make($data['password']),
+                    'rol' => $data['rol'],
+                ]);
+
+                $empresa = Empresa::create([
+                    'user_id' => $user['id'],
+                    'empresa_nom' => $data['name'],
+                    'empresa_email' => $data['email'],
+                    'empresa_password' => Hash::make($data['password']),
+                    'empresa_rol' => $data['rol'],
+                ]);
+
+                return [$user, $empresa];
         }
     }
 

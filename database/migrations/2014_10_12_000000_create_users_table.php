@@ -18,7 +18,11 @@ class CreateUsersTable extends Migration{
             $table->string('password');
             $table->string('rol');
             $table->integer('validat')->default(0);
+            //$table->integer('alumne_id')->unsigned()->nullable();
+            //$table->integer('empresa_id')->unsigned()->nullable();
             $table->rememberToken();
+            //$table->foreign('alumne_id')->references('id')->on('alumnes')->onDelete('cascade');
+            //$table->foreign('empresa_id')->references('id')->on('empresas')->onDelete('cascade');
             $table->timestamps();
         });
     }

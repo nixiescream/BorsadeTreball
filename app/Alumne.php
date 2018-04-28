@@ -13,7 +13,7 @@ class Alumne extends Authenticatable{
      * @var array
      */
     protected $fillable = [
-        'alumne_nom', 'alumne_email', 'alumne_password', 'alumne_rol', 'alumne_cognom1', 'alumne_cognom2', 'alumne_dni', 'alumne_estudis',
+        'user_id', 'alumne_nom', 'alumne_email', 'alumne_password', 'alumne_rol', 'alumne_cognom1', 'alumne_cognom2', 'alumne_dni', 'alumne_estudis',
     ];
 
     /**
@@ -24,4 +24,8 @@ class Alumne extends Authenticatable{
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
 }
