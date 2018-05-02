@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Alumne;
+use App\User;
 
 class alumnesController extends Controller{
     public function __construct(){

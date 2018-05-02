@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Alumne extends Authenticatable{
     use Notifiable;
+    protected $primaryKey = 'user_id';
     /**
      * The attributes that are mass assignable.
      *

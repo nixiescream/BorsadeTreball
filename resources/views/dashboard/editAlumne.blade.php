@@ -67,14 +67,14 @@
       <nav class="sidebar-nav">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="{{ url('/alumne', $alumne->id) }}"><i class="icon-speedometer"></i> Dashboard <span class="badge badge-primary">NEW</span></a>
+            <a class="nav-link" href="{{ url('/alumne', $alumne->user_id) }}"><i class="icon-speedometer"></i> Dashboard <span class="badge badge-primary">NEW</span></a>
           </li>
 
           <li class="nav-title">
             Perfil
           </li>
           <li class="nav-item">
-            <a href="{{ url('/alumne/editarAlumne',$alumne->id) }}" class="nav-link"><i class="icon-pencil"></i> Editar perfil</a>
+            <a href="{{ url('/alumne/editarAlumne',$alumne->user_id) }}" class="nav-link"><i class="icon-pencil"></i> Editar perfil</a>
           </li>
           <li class="nav-item">
             <a href="typography.html" class="nav-link"><i class="icon-pencil"></i> Configuració</a>

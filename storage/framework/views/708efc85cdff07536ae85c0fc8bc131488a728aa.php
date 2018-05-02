@@ -66,14 +66,14 @@
       <nav class="sidebar-nav">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo e(url('/alumne', $alumne->id)); ?>"><i class="icon-speedometer"></i> Dashboard <span class="badge badge-primary">NEW</span></a>
+            <a class="nav-link" href="<?php echo e(url('/alumne', $alumne->user_id)); ?>"><i class="icon-speedometer"></i> Dashboard <span class="badge badge-primary">NEW</span></a>
           </li>
 
           <li class="nav-title">
             Perfil
           </li>
           <li class="nav-item">
-            <a href="<?php echo e(url('/alumne/editarAlumne',$alumne->id)); ?>" class="nav-link" active><i class="icon-pencil"></i> Editar perfil</a>
+            <a href="<?php echo e(url('/alumne/editarAlumne',$alumne->user_id)); ?>" class="nav-link" active><i class="icon-pencil"></i> Editar perfil</a>
           </li>
           <li class="nav-item">
             <a href="typography.html" class="nav-link"><i class="icon-pencil"></i> Configuració</a>
@@ -181,7 +181,7 @@
 <form method="post" action="<?php echo e(url('/alumne')); ?>">
     <?php echo e(csrf_field()); ?>
 
-    <input type="hidden" value="<?php echo e($alumne->id); ?>" name="id">
+    <input type="hidden" value="<?php echo e($alumne->user_id); ?>" name="id">
 </form>
 <div class="content container-fluid">
     <div class="card border-info mb-3 rounded">
