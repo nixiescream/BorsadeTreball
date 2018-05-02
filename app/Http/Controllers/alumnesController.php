@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Alumne;
-use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class alumnesController extends Controller{
     public function __construct(){
@@ -47,17 +47,16 @@ class alumnesController extends Controller{
 
         if($password == $password_confirmation){
             $alumne = Alumne::findOrFail($id);
-            $alumne->nom = $nom;
-            $alumne->cognom1 = $cognom1;
-            $alumne->cognom2 = $cognom2;
-            $alumne->email = $email;
-            $alumne->dni = $dni;
+            $alumne->alumne_nom = $nom;
+            $alumne->alumne_cognom1 = $cognom1;
+            $alumne->alumne_cognom2 = $cognom2;
+            $alumne->alumne_email = $email;
+            $alumne->alumne_dni = $dni;
             /*$alumne->familiaE = $familiaE;
             $alumne->estudis = $estudis;*/
-            $alumne->password = $password;
+            $alumne->alumne_password = Hash::make($password);
             $alumne->save();
+            return redirect('/alumne/'.$id)->with('alumne',$alumne);
         }
-        echo "hola";
-        return redirect('/alumne/'.$id)->with('alumne',$alumne);
     }
 }
