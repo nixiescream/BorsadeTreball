@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Empresa extends Authenticatable{
     use Notifiable;
+    protected $primaryKey = 'user_id';
     /**
      * The attributes that are mass assignable.
      *

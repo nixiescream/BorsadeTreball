@@ -130,6 +130,7 @@
         <div class="card-body">
             <form method="POST" action="{{ url('alumne/editarAlumne') }}">
                 {{ csrf_field() }}
+                <input type="hidden" value="{{ $alumne->user_id }}" name="id">
                 <div class="card">
                         <div class="card-body">
                             <div class="input-group mb-3 {{ $errors->has('nom') ? ' has-error' : '' }}">
