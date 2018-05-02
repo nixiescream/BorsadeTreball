@@ -49,21 +49,21 @@
             <a href="{{ url('/alumne/editarAlumne',$alumne->user_id) }}" class="nav-link" active><i class="icon-pencil"></i> Editar perfil</a>
           </li>
           <li class="nav-item">
-            <a href="typography.html" class="nav-link"><i class="icon-pencil"></i> Configuració</a>
+            <a href="typography.html" class="nav-link"><i class="icon-settings"></i> Configuració</a>
           </li>
 
           <li class="nav-title">
             Les meves ofertes
           </li>
           <li class="nav-item">
-            <a href="{{ url('/alumne/editarAlumne',$alumne->user_id) }}" class="nav-link" active><i class="icon-pencil"></i>Ofertes aplicades </a>
+            <a href="{{ url('/alumne/editarAlumne',$alumne->user_id) }}" class="nav-link" active><i class="icon-graph"></i>Ofertes aplicades </a>
           </li>
 
           <li class="nav-title">
             Ofertes
           </li>
           <li class="nav-item">
-            <a href="{{ url('/alumne/editarAlumne',$alumne->user_id) }}" class="nav-link" active><i class="icon-pencil"></i>Llistat d'ofertes </a>
+            <a href="{{ url('/alumne/editarAlumne',$alumne->user_id) }}" class="nav-link" active><i class="icon-list"></i>Llistat d'ofertes </a>
           </li>
         </ul>
       </nav>
