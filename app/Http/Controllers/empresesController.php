@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Empresa;
+use Illuminate\Support\Facades\Hash;
 
 class empresesController extends Controller{
     public function __construct(){

@@ -91,15 +91,15 @@
         <div class="col-md-4">
             <div class="card border-info mb-3 rounded">
                 <div class="card-header bg-info">
-                    Estudis
+                    Informació Usuari
                 </div>
                 <div class="card-body">
                     <ul class="list-group">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Morbi leo risus</li>
-                        <li class="list-group-item">Porta ac consectetur ac</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
+                        <li class="list-group-item">{{ $alumne->alumne_nom }} {{ $alumne->alumne_cognom1 }} {{ $alumne->alumne_cognom2 }}</li>
+                        <li class="list-group-item">{{ $alumne->alumne_dni }}</li>
+                        <li class="list-group-item">{{ $alumne->alumne_email }}</li>
+                        <li class="list-group-item">{{ $alumne->alumne_rol }}</li>
+                        <li class="list-group-item">{{ $alumne->alumne_estudis }}</li>
                     </ul>
                 </div>
             </div>
@@ -140,20 +140,14 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card border-info mb-3 rounded">
+        <div class="card border-info mb-3 rounded">
                 <div class="card-header bg-info">
-                    Extras
+                    Biografia
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">Extra 1</h5>
                     <ul class="list-group">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Morbi leo risus</li>
-                        <li class="list-group-item">Porta ac consectetur ac</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
+                        <li class="list-group-item">{{ $alumne->alumne_bio }} </li>
                     </ul>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
         </div>
