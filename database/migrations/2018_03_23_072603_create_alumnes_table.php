@@ -22,7 +22,10 @@ class CreateAlumnesTable extends Migration{
     		$table->string('alumne_cognom1')->default("");
             $table->string('alumne_cognom2')->default("");
             $table->string('alumne_bio')->default("");
-            $table->string('alumne_dni')->default("");
+            $table->string('alumne_dni')->default("")->unique();
+            $table->string('alumne_telefon')->default("");
+            $table->integer('alumne_carnet')->default(0);
+            $table->integer('alumne_tempsTotal')->default(0);
             $table->string('alumne_estudis')->default("");
             $table->timestamps();
         });

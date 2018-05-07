@@ -16,10 +16,12 @@ class CreateEmpresasTable extends Migration{
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('empresa_nom');
             $table->string('empresa_email')->unique();
+            $table->string('empresa_cif')->default("")->unique();
+            $table->string('empresa_telefon')->default("");
+            $table->string('empresa_addr')->default("");
             $table->string('empresa_password');
             $table->string('empresa_rol');
             $table->integer('empresa_validat')->default(0);
-            $table->string('empresa_nif')->default("");
             $table->timestamps();
         });
     }
