@@ -96,9 +96,8 @@
                 <div class="card-body">
                     <ul class="list-group">
                         <li class="list-group-item">{{ $alumne->alumne_nom }} {{ $alumne->alumne_cognom1 }} {{ $alumne->alumne_cognom2 }}</li>
-                        <li class="list-group-item">{{ $alumne->alumne_dni }}</li>
+                        <li class="list-group-item">{{ $alumne->alumne_telefon }}</li>
                         <li class="list-group-item">{{ $alumne->alumne_email }}</li>
-                        <li class="list-group-item">{{ $alumne->alumne_rol }}</li>
                         <li class="list-group-item">{{ $alumne->alumne_estudis }}</li>
                     </ul>
                 </div>

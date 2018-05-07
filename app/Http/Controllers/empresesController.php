@@ -20,16 +20,16 @@ class empresesController extends Controller{
     public function linkEditarEmpresa(Request $request){
         $id = $request->id;
         $empresa = Empresa::findOrFail($id);
-        return redirect('dashboard.editEmpresa')->with('empresa',$empresa);
+        return view('dashboard.editEmpresa')->with('empresa',$empresa);
     }
 
     public function editarEmpresa(Request $request){
         $request->validate([
 			'nom' => 'required|max:30',
 			'email' => 'required',
-            'telf' => 'required',
+            'telf' => 'required|max:9',
             'addr' => 'required',
-            'cif' => 'required',
+            'cif' => 'required|max:10',
 			'password' => 'required'
 		]);
         $id = $request->id;
@@ -45,13 +45,12 @@ class empresesController extends Controller{
             $empresa = Empresa::findOrFail($id);
             $empresa->empresa_nom = $nom;
             $empresa->empresa_email = $email;
-            $empresa->empresa_telf = $telefon;
+            $empresa->empresa_telefon = $telefon;
             $empresa->empresa_addr = $adresa;
             $empresa->empresa_cif = $cif;
-            /*$alumne->familiaE = $familiaE;
-            $alumne->estudis = $estudis;*/
             $empresa->empresa_password = Hash::make($password);
             $empresa->save();
             return redirect('/empresa/'.$id)->with('empresa',$empresa);
         }
+    }
 }

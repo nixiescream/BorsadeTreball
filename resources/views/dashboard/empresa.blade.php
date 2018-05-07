@@ -56,14 +56,18 @@
             Les meves ofertes
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link" active><i class="icon-graph"></i> Ofertes aplicades </a>
+            <a href="#" class="nav-link" @if($empresa->empresa_validat == 0)
+                class="disabled"
+                @endif><i class="icon-graph"></i> Crear oferta </a>
           </li>
 
           <li class="nav-title">
             Ofertes
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link" active><i class="icon-list"></i> Llistat d'ofertes </a>
+            <a href="#" class="nav-link"@if($empresa->empresa_validat == 0)
+                class="disabled"
+                @endif><i class="icon-list"></i> Llistat d'ofertes</a>
           </li>
         </ul>
       </nav>

@@ -81,7 +81,7 @@
             Editar Perfil
         </div>
         <div class="card-body">
-            <form method="POST" action="{{ url('empresa/editarempresa') }}">
+            <form method="POST" action="{{ url('empresa/editarEmpresa') }}">
                 {{ csrf_field() }}
                 <input type="hidden" value="{{ $empresa->user_id }}" name="id">
                 <div class="card">
@@ -110,9 +110,9 @@
                             </div>
                             <div class="input-group mb-3 {{ $errors->has('telf') ? ' has-error' : '' }}">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text">@</span>
+                                    <span class="input-group-text"><i class="icon-phone"></i></span>
                                 </div>
-                                <input type="email" class="form-control" placeholder="Telèfon" name="telf" value="{{ old('telf') }}" required>
+                                <input type="text" class="form-control" placeholder="Telèfon" name="telf" value="{{ old('telf') }}" required>
                                 @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
@@ -123,7 +123,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">@</span>
                                 </div>
-                                <input type="email" class="form-control" placeholder="Adreça" name="addr" value="{{ old('addr') }}" required>
+                                <input type="text" class="form-control" placeholder="Adreça" name="addr" value="{{ old('addr') }}" required>
                                 @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
@@ -134,7 +134,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-user"></i></span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="CIF" name="dni" value="{{ old('cif') }}" required>
+                                <input type="text" class="form-control" placeholder="CIF" name="cif" value="{{ old('cif') }}" required>
                                 @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>

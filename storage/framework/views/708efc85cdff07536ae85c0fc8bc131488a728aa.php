@@ -96,9 +96,8 @@
                 <div class="card-body">
                     <ul class="list-group">
                         <li class="list-group-item"><?php echo e($alumne->alumne_nom); ?> <?php echo e($alumne->alumne_cognom1); ?> <?php echo e($alumne->alumne_cognom2); ?></li>
-                        <li class="list-group-item"><?php echo e($alumne->alumne_dni); ?></li>
+                        <li class="list-group-item"><?php echo e($alumne->alumne_telefon); ?></li>
                         <li class="list-group-item"><?php echo e($alumne->alumne_email); ?></li>
-                        <li class="list-group-item"><?php echo e($alumne->alumne_rol); ?></li>
                         <li class="list-group-item"><?php echo e($alumne->alumne_estudis); ?></li>
                     </ul>
                 </div>
