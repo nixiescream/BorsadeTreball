@@ -111,6 +111,12 @@
                         <li class="list-group-item">{{ $alumne->alumne_telefon }}</li>
                         <li class="list-group-item">{{ $alumne->alumne_email }}</li>
                         <li class="list-group-item">{{ $alumne->alumne_estudis }}</li>
+                        <li class="list-group-item">@if($alumne->alumne_carnet == 1)
+                                                        Té carnet de conduïr
+                                                    @endif
+                                                    @if($alumne->alumne_carnet == 0)
+                                                        No té carnet de conduïr
+                                                    @endif</li>
                     </ul>
                 </div>
             </div>

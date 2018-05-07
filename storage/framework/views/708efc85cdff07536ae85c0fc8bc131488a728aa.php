@@ -111,6 +111,12 @@
                         <li class="list-group-item"><?php echo e($alumne->alumne_telefon); ?></li>
                         <li class="list-group-item"><?php echo e($alumne->alumne_email); ?></li>
                         <li class="list-group-item"><?php echo e($alumne->alumne_estudis); ?></li>
+                        <li class="list-group-item"><?php if($alumne->alumne_carnet == 1): ?>
+                                                        Té carnet de conduïr
+                                                    <?php endif; ?>
+                                                    <?php if($alumne->alumne_carnet == 0): ?>
+                                                        No té carnet de conduïr
+                                                    <?php endif; ?></li>
                     </ul>
                 </div>
             </div>
