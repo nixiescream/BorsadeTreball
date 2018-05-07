@@ -6,7 +6,7 @@
     <ul class="nav navbar-nav d-md-down-none">
         <li class="nav-item px-3">
         <li class="breadcrumb-item">Home</li>
-        <li class="breadcrumb-item"><a href="#">Admin</a></li>
+        <li class="breadcrumb-item"><a href="#">Empresa</a></li>
         <li class="breadcrumb-item active">Dashboard</li>
     </ul>
     <ul class="nav navbar-nav ml-auto">

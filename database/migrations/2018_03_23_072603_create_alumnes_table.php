@@ -21,6 +21,7 @@ class CreateAlumnesTable extends Migration{
             $table->integer('alumne_validat')->default(0);
     		$table->string('alumne_cognom1')->default("");
             $table->string('alumne_cognom2')->default("");
+            $table->string('alumne_bio')->default("");
             $table->string('alumne_dni')->default("");
             $table->string('alumne_estudis')->default("");
             $table->timestamps();
