@@ -56,18 +56,28 @@
             Les meves ofertes
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link" @if($empresa->empresa_validat == 0)
-                class="disabled"
-                @endif><i class="icon-graph"></i> Crear oferta </a>
+            <a @if($empresa->empresa_validat == 1)
+                href="{{ url('/empresa/crearOferta') }}"
+                class="nav-link"
+            @endif
+            @if($empresa->empresa_validat == 0)
+                class="nav-link disabled"
+            @endif
+            ><i class="icon-graph"></i> Crear oferta </a>
           </li>
 
           <li class="nav-title">
             Ofertes
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link"@if($empresa->empresa_validat == 0)
-                class="disabled"
-                @endif><i class="icon-list"></i> Llistat d'ofertes</a>
+            <a @if($empresa->empresa_validat == 1)
+                href="{{ url('/empresa/llistarOfertes') }}"
+                class="nav-link"
+            @endif
+            @if($empresa->empresa_validat == 0)
+                class="nav-link disabled"
+            @endif
+            ><i class="icon-list"></i> Llistat d'ofertes</a>
           </li>
         </ul>
       </nav>
@@ -86,7 +96,7 @@
             Perfil
         </div>
         <div class="card-body">
-            <h5 class="card-title">{{ $empresa->empresa_nom }} {{ $empresa->empresa_cognom1 }} {{ $empresa->empresa_cognom2 }}</h5>
+            <h5 class="card-title">{{ $empresa->empresa_nom }}</h5>
         </div>
     </div>
 </div>
@@ -95,15 +105,14 @@
         <div class="col-md-4">
             <div class="card border-info mb-3 rounded">
                 <div class="card-header bg-info">
-                    Estudis
+                    Informació usuari
                 </div>
                 <div class="card-body">
                     <ul class="list-group">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Morbi leo risus</li>
-                        <li class="list-group-item">Porta ac consectetur ac</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
+                        <li class="list-group-item">{{ $empresa->empresa_nom }}</li>
+                        <li class="list-group-item">{{ $empresa->empresa_addr }}</li>
+                        <li class="list-group-item">{{ $empresa->empresa_telefon }}</li>
+                        <li class="list-group-item">{{ $empresa->empresa_email }}</li>
                     </ul>
                 </div>
             </div>
@@ -114,32 +123,7 @@
                     Idiomes
                 </div>
                 <div class="card-body">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Idioma</th>
-                                <th scope="col">Nivell</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Català</td>
-                                <td>Natiu</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Castellà</td>
-                                <td>Natiu</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Anglès</td>
-                                <td>B2</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <!-- CODI RANDOM -->
                 </div>
             </div>
         </div>
@@ -149,15 +133,7 @@
                     Extras
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">Extra 1</h5>
-                    <ul class="list-group">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Morbi leo risus</li>
-                        <li class="list-group-item">Porta ac consectetur ac</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
-                    </ul>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <!-- CODI RANDOM -->
                 </div>
             </div>
         </div>

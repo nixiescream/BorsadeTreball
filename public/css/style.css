@@ -3870,7 +3870,8 @@ tbody.collapse.show {
   .nav-link:hover, .navbar .dropdown-toggle:hover, .nav-link:focus, .navbar .dropdown-toggle:focus {
     text-decoration: none; }
   .nav-link.disabled, .navbar .disabled.dropdown-toggle {
-    color: #536c79; }
+    color: #536c79 !important;
+    pointer-events: none; }
 
 .nav-tabs {
   border-bottom: 1px solid #a4b7c1; }
@@ -3881,9 +3882,10 @@ tbody.collapse.show {
     .nav-tabs .nav-link:hover, .nav-tabs .navbar .dropdown-toggle:hover, .navbar .nav-tabs .dropdown-toggle:hover, .nav-tabs .nav-link:focus, .nav-tabs .navbar .dropdown-toggle:focus, .navbar .nav-tabs .dropdown-toggle:focus {
       border-color: #c2cfd6 #c2cfd6 #a4b7c1; }
     .nav-tabs .nav-link.disabled, .nav-tabs .navbar .disabled.dropdown-toggle, .navbar .nav-tabs .disabled.dropdown-toggle {
-      color: #536c79;
+      color: #536c79 !important;
       background-color: transparent;
-      border-color: transparent; }
+      border-color: transparent;
+      pointer-events: none; }
   .nav-tabs .nav-link.active, .nav-tabs .navbar .active.dropdown-toggle, .navbar .nav-tabs .active.dropdown-toggle,
   .nav-tabs .nav-item.show .nav-link,
   .nav-tabs .nav-item.show .navbar .dropdown-toggle, .navbar

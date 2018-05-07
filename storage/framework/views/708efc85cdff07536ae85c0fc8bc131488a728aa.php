@@ -55,14 +55,26 @@
             Les meves ofertes
           </li>
           <li class="nav-item">
-            <a href="<?php echo e(url('/alumne/editarAlumne',$alumne->user_id)); ?>" class="nav-link" active><i class="icon-graph"></i> Ofertes aplicades </a>
+            <a <?php if($alumne->alumne_validat == 1): ?>
+                href="<?php echo e(url('/alumne/ofertesAplicades')); ?>"
+                class="nav-link"
+            <?php endif; ?>
+            <?php if($alumne->alumne_validat == 0): ?>
+                class="nav-link disabled"
+            <?php endif; ?>><i class="icon-graph"></i> Ofertes aplicades </a>
           </li>
 
           <li class="nav-title">
             Ofertes
           </li>
           <li class="nav-item">
-            <a href="<?php echo e(url('/alumne/editarAlumne',$alumne->user_id)); ?>" class="nav-link" active><i class="icon-list"></i> Llistat d'ofertes </a>
+            <a <?php if($alumne->alumne_validat == 1): ?>
+                href="<?php echo e(url('/alumne/llistarOfertes')); ?>"
+                class="nav-link"
+            <?php endif; ?>
+            <?php if($alumne->alumne_validat == 0): ?>
+                class="nav-link disabled"
+            <?php endif; ?>><i class="icon-list"></i> Llistat d'ofertes </a>
           </li>
         </ul>
       </nav>
@@ -91,7 +103,7 @@
         <div class="col-md-4">
             <div class="card border-info mb-3 rounded">
                 <div class="card-header bg-info">
-                    Informació Usuari
+                    Informació usuari
                 </div>
                 <div class="card-body">
                     <ul class="list-group">
