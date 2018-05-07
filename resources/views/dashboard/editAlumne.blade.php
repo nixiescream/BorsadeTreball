@@ -146,7 +146,18 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-user"></i></span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Biografia" name="biografia" value="{{ old('bio') }}" required>
+                                <input type="text" class="form-control" placeholder="Telèfon" name="telf" value="{{ old('telf') }}" required>
+                                @if ($errors->has('name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <div class="input-group mb-3 {{ $errors->has('bio') ? ' has-error' : '' }}">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="icon-user"></i></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Biografia" name="biografia" value="{{ old('biografia') }}" required>
                                 @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
@@ -186,6 +197,24 @@
                                     </span>
                                 @endif
                             </div>-->
+                            Tens carnet?
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="carnet" id="carnet1" value=1>
+                                <label class="form-check-label" for="carnet1">Si</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="carnet" id="carnet2" value=0>
+                                <label class="form-check-label" for="carnet2">No</label>
+                            </div>
+                            Tens disponibilitat completa?
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="disponibilitat" id="disponibilitat1" value=1>
+                                <label class="form-check-label" for="disponibilitat1">Si</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="disponibilitat" id="disponibilitat2" value=0>
+                                <label class="form-check-label" for="disponibilitat2">No</label>
+                            </div>
                             <div class="input-group mb-3 {{ $errors->has('password') ? ' has-error' : '' }}">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-lock"></i></span>

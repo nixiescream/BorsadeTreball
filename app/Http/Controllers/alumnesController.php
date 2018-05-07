@@ -29,9 +29,13 @@ class alumnesController extends Controller{
             'cognom1' => 'required|max:80',
             'cognom2' => 'required|max:80',
 			'email' => 'required',
-            'dni' => 'required',
-            /*'familiaE' => 'required',
-			'estudis' => 'required',*/
+            'dni' => 'required|max:10',
+            /*'familiaE' => 'required',*/
+            'telf' => 'required|max:9',
+            'biografia' => 'required',
+			'estudis' => 'required',
+            'carnet' => 'required',
+            'disponibilitat' => 'required',
 			'password' => 'required'
 		]);
         $id = $request->id;
@@ -40,8 +44,12 @@ class alumnesController extends Controller{
         $cognom2 = $request->cognom2;
         $email = $request->email;
         $dni = $request->dni;
-        /*$familiaE = $request->familiaE;
-        $estudis = $request->estudis;*/
+        /*$familiaE = $request->familiaE;*/
+        $telf = $request->telf;
+        $bio = $request->biografia;
+        $estudis = $request->estudis;
+        $carnet = $request->carnet;
+        $disponibilitat = $request->disponibilitat;
         $password = $request->password;
         $password_confirmation = $request->password_confirmation;
 
@@ -52,8 +60,12 @@ class alumnesController extends Controller{
             $alumne->alumne_cognom2 = $cognom2;
             $alumne->alumne_email = $email;
             $alumne->alumne_dni = $dni;
-            /*$alumne->familiaE = $familiaE;
-            $alumne->estudis = $estudis;*/
+            /*$alumne->familiaE = $familiaE;*/
+            $alumne->alumne_telefon = $telf;
+            $alumne->alumne_bio = $bio;
+            $alumne->alumne_estudis = $estudis;
+            $alumne->alumne_carnet = $carnet;
+            $alumne->alumne_tempsTotal = $disponibilitat;
             $alumne->alumne_password = Hash::make($password);
             $alumne->save();
             return redirect('/alumne/'.$id)->with('alumne',$alumne);

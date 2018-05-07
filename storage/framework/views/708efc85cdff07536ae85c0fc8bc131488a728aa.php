@@ -4,7 +4,7 @@
     <ul class="nav navbar-nav d-md-down-none">
         <li class="nav-item px-3">
         <li class="breadcrumb-item">Home</li>
-        <li class="breadcrumb-item"><a href="#">Admin</a></li>
+        <li class="breadcrumb-item"><a href="#">Usuari</a></li>
         <li class="breadcrumb-item active">Dashboard</li>
     </ul>
     <ul class="nav navbar-nav ml-auto">
@@ -18,7 +18,7 @@
                 </div>
                 <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Perfil</a>
                 <a class="dropdown-item" href="#"><i class="fa fa-comment"></i> Missatges<span class="badge badge-primary">42</span></a>
-                <a class="dropdown-item" href="#"><i class="fa fa-wrench"></i> Configuració</a>                
+                <a class="dropdown-item" href="#"><i class="fa fa-wrench"></i> Configuració</a>
                 <div class="divider"></div>
                 <a class="dropdown-item" href="<?php echo e(route('logout')); ?>" onclick="event.preventDefault();
                          document.getElementById('logout-form').submit();"><i class="fa fa-lock"></i> Desconnecta</a><form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
@@ -55,14 +55,14 @@
             Les meves ofertes
           </li>
           <li class="nav-item">
-            <a href="<?php echo e(url('/alumne/editarAlumne',$alumne->user_id)); ?>" class="nav-link" active><i class="icon-graph"></i>Ofertes aplicades </a>
+            <a href="<?php echo e(url('/alumne/editarAlumne',$alumne->user_id)); ?>" class="nav-link" active><i class="icon-graph"></i> Ofertes aplicades </a>
           </li>
 
           <li class="nav-title">
             Ofertes
           </li>
           <li class="nav-item">
-            <a href="<?php echo e(url('/alumne/editarAlumne',$alumne->user_id)); ?>" class="nav-link" active><i class="icon-list"></i>Llistat d'ofertes </a>
+            <a href="<?php echo e(url('/alumne/editarAlumne',$alumne->user_id)); ?>" class="nav-link" active><i class="icon-list"></i> Llistat d'ofertes </a>
           </li>
         </ul>
       </nav>
@@ -91,15 +91,15 @@
         <div class="col-md-4">
             <div class="card border-info mb-3 rounded">
                 <div class="card-header bg-info">
-                    Estudis
+                    Informació Usuari
                 </div>
                 <div class="card-body">
                     <ul class="list-group">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Morbi leo risus</li>
-                        <li class="list-group-item">Porta ac consectetur ac</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
+                        <li class="list-group-item"><?php echo e($alumne->alumne_nom); ?> <?php echo e($alumne->alumne_cognom1); ?> <?php echo e($alumne->alumne_cognom2); ?></li>
+                        <li class="list-group-item"><?php echo e($alumne->alumne_dni); ?></li>
+                        <li class="list-group-item"><?php echo e($alumne->alumne_email); ?></li>
+                        <li class="list-group-item"><?php echo e($alumne->alumne_rol); ?></li>
+                        <li class="list-group-item"><?php echo e($alumne->alumne_estudis); ?></li>
                     </ul>
                 </div>
             </div>
@@ -140,20 +140,14 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card border-info mb-3 rounded">
+        <div class="card border-info mb-3 rounded">
                 <div class="card-header bg-info">
-                    Extras
+                    Biografia
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">Extra 1</h5>
                     <ul class="list-group">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Morbi leo risus</li>
-                        <li class="list-group-item">Porta ac consectetur ac</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
+                        <li class="list-group-item"><?php echo e($alumne->alumne_bio); ?> </li>
                     </ul>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
         </div>
