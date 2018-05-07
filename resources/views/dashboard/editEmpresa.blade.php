@@ -97,28 +97,6 @@
                                     </span>
                                 @endif
                             </div>
-                            <div class="input-group mb-3 {{ $errors->has('cognom1') ? ' has-error' : '' }}">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="icon-user"></i></span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="Cognom 1" name="cognom1" value="{{ old('cognom1') }}" required autofocus>
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                            <div class="input-group mb-3 {{ $errors->has('cognom2') ? ' has-error' : '' }}">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="icon-user"></i></span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="Cognom 2" name="cognom2" value="{{ old('cognom2') }}" required autofocus>
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
                             <div class="input-group mb-3 {{ $errors->has('email') ? ' has-error' : '' }}">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">@</span>
@@ -130,38 +108,39 @@
                                     </span>
                                 @endif
                             </div>
-                            <div class="input-group mb-3 {{ $errors->has('dni') ? ' has-error' : '' }}">
+                            <div class="input-group mb-3 {{ $errors->has('telf') ? ' has-error' : '' }}">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="icon-user"></i></span>
+                                    <span class="input-group-text">@</span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="DNI" name="dni" value="{{ old('dni') }}" required>
+                                <input type="email" class="form-control" placeholder="Telèfon" name="telf" value="{{ old('telf') }}" required>
                                 @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
                                     </span>
                                 @endif
                             </div>
-                            <!--<div class="input-group mb-3">
-                                <select class="custom-select col-md-4" id="menu1" onChange="carregarElements(this.value)">
-                                    <option value="AG">Família Administració i Gestió</option>
-                                    <option value="CM">Família Comerç i Màrketing</option>
-                                    <option value="IC">Família Informàtia i Comunicacions</option>
-                                    <option value="SC">Família de Serveis a la Comunitat</option>
-                                </select>
-                                <select class="custom-select col-md-4" id="menu2">
-                                    <option value=""></option>
-                                </select>
-                                @if ($errors->has('estudis2'))
+                            <div class="input-group mb-3 {{ $errors->has('addr') ? ' has-error' : '' }}">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">@</span>
+                                </div>
+                                <input type="email" class="form-control" placeholder="Adreça" name="addr" value="{{ old('addr') }}" required>
+                                @if ($errors->has('name'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('estudis') }}</strong>
+                                        <strong>{{ $errors->first('name') }}</strong>
                                     </span>
                                 @endif
-                                @if ($errors->has('estudis'))
+                            </div>
+                            <div class="input-group mb-3 {{ $errors->has('cif') ? ' has-error' : '' }}">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="icon-user"></i></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="CIF" name="dni" value="{{ old('cif') }}" required>
+                                @if ($errors->has('name'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('estudis') }}</strong>
+                                        <strong>{{ $errors->first('name') }}</strong>
                                     </span>
                                 @endif
-                            </div>-->
+                            </div>
                             <div class="input-group mb-3 {{ $errors->has('password') ? ' has-error' : '' }}">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-lock"></i></span>

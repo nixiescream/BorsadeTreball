@@ -32,7 +32,7 @@ class alumnesController extends Controller{
             'dni' => 'required',
             /*'familiaE' => 'required',
 			'estudis' => 'required',*/
-			'password' => 'nullable'
+			'password' => 'required'
 		]);
         $id = $request->id;
         $nom = $request->nom;
