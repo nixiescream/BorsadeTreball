@@ -21,6 +21,7 @@ class CreateOfertasTable extends Migration
             $table->string('horari');
             $table->string('tipus');
             $table->string('estudis_emprats');
+            $table->integer('validada')->default(0);
             $table->integer('empresa_id')->unsigned();
             $table->foreign('empresa_id')->references('user_id')->on('empresas')->onDelete('cascade');
             $table->timestamps();
