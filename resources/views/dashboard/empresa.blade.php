@@ -57,7 +57,7 @@
           </li>
           <li class="nav-item">
             <a @if($empresa->empresa_validat == 1)
-                href="{{ url('/empresa/crearOferta') }}"
+                href="{{ url('/empresa/crearOferta', $empresa->user_id) }}"
                 class="nav-link"
             @endif
             @if($empresa->empresa_validat == 0)

@@ -30,4 +30,8 @@ class Empresa extends Authenticatable{
     public function user(){
         return $this->belongsTo('App\User');
     }
+
+    public function ofertes(){
+        return $this->hasMany('App\Oferta');
+    }
 }
