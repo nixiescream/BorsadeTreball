@@ -1,3 +1,6 @@
 body{
     background-color: #c4c4c4;
 }
+.columna{
+    display:inline-block;
+}

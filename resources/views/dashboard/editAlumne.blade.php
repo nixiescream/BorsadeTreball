@@ -68,6 +68,7 @@
         </ul>
       </nav>
     </div>
+
 @endsection
 
 @section('content')
@@ -85,52 +86,23 @@
                 {{ csrf_field() }}
                 <input type="hidden" value="{{ $alumne->user_id }}" name="id">
                 <div class="card">
-                        <div class="card-body">
-                            <div class="input-group mb-3 {{ $errors->has('nom') ? ' has-error' : '' }}">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="icon-user"></i></span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="Nom" name="nom" value="{{ old('nom') }}" required autofocus>
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
+                     <div class="row card-body">
+
+                       <!-- NOM -->
+                       <div class="col-md-6 input-group mb-4 {{ $errors->has('nom') ? ' has-error' : '' }}">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="icon-user"></i></span>
                             </div>
-                            <div class="input-group mb-3 {{ $errors->has('cognom1') ? ' has-error' : '' }}">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="icon-user"></i></span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="Cognom 1" name="cognom1" value="{{ old('cognom1') }}" required autofocus>
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
+                            <input type="text" class="form-control" placeholder="Nom" name="nom" value="{{ old('nom') }}" required autofocus>
+                            @if ($errors->has('name'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('name') }}</strong>
+                                </span>
+                            @endif
                             </div>
-                            <div class="input-group mb-3 {{ $errors->has('cognom2') ? ' has-error' : '' }}">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="icon-user"></i></span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="Cognom 2" name="cognom2" value="{{ old('cognom2') }}" required autofocus>
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                            <div class="input-group mb-3 {{ $errors->has('email') ? ' has-error' : '' }}">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">@</span>
-                                </div>
-                                <input type="email" class="form-control" placeholder="Email" name="email" value="{{ old('email') }}" required>
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                            <div class="input-group mb-3 {{ $errors->has('dni') ? ' has-error' : '' }}">
+                            
+                            <!-- DNI -->
+                            <div class="col col-md-6 input-group mb-4 {{ $errors->has('dni') ? ' has-error' : '' }}">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-user"></i></span>
                                 </div>
@@ -142,7 +114,21 @@
                                 @endif
                             </div>
 
-                            <div class="input-group mb-3 {{ $errors->has('bio') ? ' has-error' : '' }}">
+                            <!-- COGNOM 1 -->
+                            <div class="col-md-6 input-group mb-4 {{ $errors->has('cognom1') ? ' has-error' : '' }}">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="icon-user"></i></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Cognom 1" name="cognom1" value="{{ old('cognom1') }}" required autofocus>
+                                @if ($errors->has('name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
+                             <!-- TELEFON -->
+                            <div class="col-md-6 input-group mb-4 {{ $errors->has('bio') ? ' has-error' : '' }}">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-user"></i></span>
                                 </div>
@@ -153,7 +139,69 @@
                                     </span>
                                 @endif
                             </div>
-                            <div class="input-group mb-3 {{ $errors->has('bio') ? ' has-error' : '' }}">
+
+                            <!-- COGNOM 2 -->
+                            <div class="col-md-6 input-group mb-4 {{ $errors->has('cognom2') ? ' has-error' : '' }}">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="icon-user"></i></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Cognom 2" name="cognom2" value="{{ old('cognom2') }}" required autofocus>
+                                @if ($errors->has('name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
+                            <!-- EMAIL -->
+                            <div class="col-md-6 input-group mb-4 {{ $errors->has('email') ? ' has-error' : '' }}">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">@</span>
+                                </div>
+                                <input type="email" class="form-control" placeholder="Email" name="email" value="{{ old('email') }}" required>
+                                @if ($errors->has('name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
+                            <!-- PASSWORD -->
+                            <div class="col-md-6 input-group mb-4 {{ $errors->has('password') ? ' has-error' : '' }}">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="icon-lock"></i></span>
+                                </div>
+                                <input type="password" class="form-control" placeholder="Password" name="password" required>
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
+                            <!-- ESTUDIS -->
+                            <div class="col-md-6 input-group mb-4 {{ $errors->has('estudis') ? ' has-error' : '' }}">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="icon-user"></i></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Estudis" name="estudis" value="{{ old('estudis') }}" required>
+                                @if ($errors->has('name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
+                            <!-- PASSWORD CONFIRMATION -->
+                            <div class="col-md-6 input-group mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="icon-lock"></i></span>
+                                </div>
+                                <input type="password" class="form-control" placeholder="Repeat password" name="password_confirmation" required>
+                            </div>
+
+                            <!-- BIOGRAFIA -->
+                            <div class="col-md-6 input-group mb-4 {{ $errors->has('bio') ? ' has-error' : '' }}">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-user"></i></span>
                                 </div>
@@ -165,17 +213,6 @@
                                 @endif
                             </div>
 
-                            <div class="input-group mb-3 {{ $errors->has('estudis') ? ' has-error' : '' }}">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="icon-user"></i></span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="Estudis" name="estudis" value="{{ old('estudis') }}" required>
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
                             <!--<div class="input-group mb-3">
                                 <select class="custom-select col-md-4" id="menu1" onChange="carregarElements(this.value)">
                                     <option value="AG">Família Administració i Gestió</option>
@@ -197,44 +234,34 @@
                                     </span>
                                 @endif
                             </div>-->
-                            Tens carnet?
-                            <div class="form-check form-check-inline">
+
+                            
+                            <div class="offset-md-2 form-check form-check-inline">
+                            Tens carnet? (
                                 <input class="form-check-input" type="radio" name="carnet" id="carnet1" value=1>
                                 <label class="form-check-label" for="carnet1">Si</label>
                             </div>
-                            <div class="form-check form-check-inline">
+                            <div class="col-md-4 form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="carnet" id="carnet2" value=0>
                                 <label class="form-check-label" for="carnet2">No</label>
+                            )
                             </div>
-                            Tens disponibilitat completa?
+
+                            
                             <div class="form-check form-check-inline">
+                            Tens disponibilitat completa? (
                                 <input class="form-check-input" type="radio" name="disponibilitat" id="disponibilitat1" value=1>
                                 <label class="form-check-label" for="disponibilitat1">Si</label>
                             </div>
+                            
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="disponibilitat" id="disponibilitat2" value=0>
                                 <label class="form-check-label" for="disponibilitat2">No</label>
+                            )
                             </div>
-                            <div class="input-group mb-3 {{ $errors->has('password') ? ' has-error' : '' }}">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="icon-lock"></i></span>
-                                </div>
-                                <input type="password" class="form-control" placeholder="Password" name="password" required>
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                            <div class="input-group mb-4">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="icon-lock"></i></span>
-                                </div>
-                                <input type="password" class="form-control" placeholder="Repeat password" name="password_confirmation" required>
-                            </div>
-                        <button type="submit" value="guardar" class="btn btn-block btn-success">Guardar</button>
                     </div>
-        </div>
+            </div>
+        <button type="submit" value="guardar" class="col-4 offset-md-4 btn btn-block btn-success">Guardar</button>
     </div>
 </div>
 @endsection
