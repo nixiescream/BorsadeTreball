@@ -85,8 +85,10 @@
                 {{ csrf_field() }}
                 <input type="hidden" value="{{ $empresa->user_id }}" name="id">
                 <div class="card">
-                        <div class="card-body">
-                            <div class="input-group mb-3 {{ $errors->has('nom') ? ' has-error' : '' }}">
+                        <div class="row card-body">
+
+
+                            <div class="col-md-6 input-group mb-4 {{ $errors->has('nom') ? ' has-error' : '' }}">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-user"></i></span>
                                 </div>
@@ -97,7 +99,9 @@
                                     </span>
                                 @endif
                             </div>
-                            <div class="input-group mb-3 {{ $errors->has('email') ? ' has-error' : '' }}">
+
+
+                            <div class="col-md-6 input-group mb-4  {{ $errors->has('email') ? ' has-error' : '' }}">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">@</span>
                                 </div>
@@ -108,7 +112,9 @@
                                     </span>
                                 @endif
                             </div>
-                            <div class="input-group mb-3 {{ $errors->has('telf') ? ' has-error' : '' }}">
+
+
+                            <div class="col-md-6 input-group mb-4  {{ $errors->has('telf') ? ' has-error' : '' }}">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-phone"></i></span>
                                 </div>
@@ -119,7 +125,9 @@
                                     </span>
                                 @endif
                             </div>
-                            <div class="input-group mb-3 {{ $errors->has('addr') ? ' has-error' : '' }}">
+
+
+                            <div class="col-md-6 input-group mb-4  {{ $errors->has('addr') ? ' has-error' : '' }}">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">@</span>
                                 </div>
@@ -130,18 +138,8 @@
                                     </span>
                                 @endif
                             </div>
-                            <div class="input-group mb-3 {{ $errors->has('cif') ? ' has-error' : '' }}">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="icon-user"></i></span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="CIF" name="cif" value="{{ old('cif') }}" required>
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                            <div class="input-group mb-3 {{ $errors->has('password') ? ' has-error' : '' }}">
+
+                            <div class="col-md-6 input-group mb-4  {{ $errors->has('password') ? ' has-error' : '' }}">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-lock"></i></span>
                                 </div>
@@ -152,15 +150,33 @@
                                     </span>
                                 @endif
                             </div>
-                            <div class="input-group mb-4">
+
+
+                            <div class="col-md-6 input-group mb-4  {{ $errors->has('cif') ? ' has-error' : '' }}">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="icon-user"></i></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="CIF" name="cif" value="{{ old('cif') }}" required>
+                                @if ($errors->has('name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
+
+                            <div class="col-md-6 input-group mb-4   ">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-lock"></i></span>
                                 </div>
                                 <input type="password" class="form-control" placeholder="Repeat password" name="password_confirmation" required>
                             </div>
-                        <button type="submit" value="guardar" class="btn btn-block btn-success">Guardar</button>
+
+
+                        
                     </div>
         </div>
+        <button type="submit" value="guardar" class="col-4 offset-md-4 btn btn-block btn-success">Guardar</button>
     </div>
 </div>
 @endsection
