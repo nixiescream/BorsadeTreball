@@ -6,8 +6,8 @@
     <ul class="nav navbar-nav d-md-down-none">
         <li class="nav-item px-3">
         <li class="breadcrumb-item">Home</li>
-        <li class="breadcrumb-item"><a href="#">Admin</a></li>
-        <li class="breadcrumb-item active">Dashboard</li>
+        <li class="breadcrumb-item"><a href="{{ url('/empresa', $empresa->user_id) }}">Empresa</a></li>
+        <li class="breadcrumb-item active">Editar</li>
     </ul>
     <ul class="nav navbar-nav ml-auto">
         <li class="nav-item dropdown">
@@ -18,9 +18,9 @@
                 <div class="dropdown-header text-center">
                     <strong>Compte</strong>
                 </div>
-                <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Perfil</a>
+                <a class="dropdown-item" href="{{ url('/empresa', $empresa->user_id) }}"><i class="fa fa-user"></i> Perfil</a>
                 <a class="dropdown-item" href="#"><i class="fa fa-comment"></i> Missatges<span class="badge badge-primary">42</span></a>
-                <a class="dropdown-item" href="#"><i class="fa fa-wrench"></i> Configuració</a>
+                <a class="dropdown-item" href="{{ url('/empresa/editarEmpresa',$empresa->user_id) }}"><i class="fa fa-wrench"></i> Configuració</a>
                 <div class="divider"></div>
                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                          document.getElementById('logout-form').submit();"><i class="fa fa-lock"></i> Desconnecta</a><form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -99,10 +99,8 @@
                 {{ csrf_field() }}
                 <input type="hidden" value="{{ $empresa->user_id }}" name="id">
                 <div class="card">
-                        <div class="row card-body">
-
-
-                            <div class="col-md-6 input-group mb-4 {{ $errors->has('nom') ? ' has-error' : '' }}">
+                        <div class="card-body">
+                            <div class="input-group mb-3 {{ $errors->has('nom') ? ' has-error' : '' }}">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-user"></i></span>
                                 </div>
@@ -113,9 +111,7 @@
                                     </span>
                                 @endif
                             </div>
-
-
-                            <div class="col-md-6 input-group mb-4  {{ $errors->has('email') ? ' has-error' : '' }}">
+                            <div class="input-group mb-3 {{ $errors->has('email') ? ' has-error' : '' }}">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">@</span>
                                 </div>
@@ -126,9 +122,7 @@
                                     </span>
                                 @endif
                             </div>
-
-
-                            <div class="col-md-6 input-group mb-4  {{ $errors->has('telf') ? ' has-error' : '' }}">
+                            <div class="input-group mb-3 {{ $errors->has('telf') ? ' has-error' : '' }}">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-phone"></i></span>
                                 </div>
@@ -139,9 +133,7 @@
                                     </span>
                                 @endif
                             </div>
-
-
-                            <div class="col-md-6 input-group mb-4  {{ $errors->has('addr') ? ' has-error' : '' }}">
+                            <div class="input-group mb-3 {{ $errors->has('addr') ? ' has-error' : '' }}">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">@</span>
                                 </div>
@@ -152,21 +144,7 @@
                                     </span>
                                 @endif
                             </div>
-
-                            <div class="col-md-6 input-group mb-4  {{ $errors->has('password') ? ' has-error' : '' }}">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="icon-lock"></i></span>
-                                </div>
-                                <input type="password" class="form-control" placeholder="Password" name="password" required>
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-
-
-                            <div class="col-md-6 input-group mb-4  {{ $errors->has('cif') ? ' has-error' : '' }}">
+                            <div class="input-group mb-3 {{ $errors->has('cif') ? ' has-error' : '' }}">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-user"></i></span>
                                 </div>
@@ -177,20 +155,26 @@
                                     </span>
                                 @endif
                             </div>
-
-
-                            <div class="col-md-6 input-group mb-4   ">
+                            <div class="input-group mb-3 {{ $errors->has('password') ? ' has-error' : '' }}">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="icon-lock"></i></span>
+                                </div>
+                                <input type="password" class="form-control" placeholder="Password" name="password" required>
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <div class="input-group mb-4">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-lock"></i></span>
                                 </div>
                                 <input type="password" class="form-control" placeholder="Repeat password" name="password_confirmation" required>
                             </div>
-
-
-                        
+                        <button type="submit" value="guardar" class="btn btn-block btn-success">Guardar</button>
                     </div>
         </div>
-        <button type="submit" value="guardar" class="col-4 offset-md-4 btn btn-block btn-success">Guardar</button>
     </div>
 </div>
 @endsection
