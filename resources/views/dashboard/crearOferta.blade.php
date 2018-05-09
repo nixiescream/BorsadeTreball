@@ -6,8 +6,8 @@
     <ul class="nav navbar-nav d-md-down-none">
         <li class="nav-item px-3">
         <li class="breadcrumb-item">Home</li>
-        <li class="breadcrumb-item"><a href="#">Admin</a></li>
-        <li class="breadcrumb-item active">Dashboard</li>
+        <li class="breadcrumb-item"><a href="{{ url('/empresa', $empresa->user_id) }}">Empresa</a></li>
+        <li class="breadcrumb-item active">Crear oferta</li>
     </ul>
     <ul class="nav navbar-nav ml-auto">
         <li class="nav-item dropdown">
@@ -18,9 +18,9 @@
                 <div class="dropdown-header text-center">
                     <strong>Compte</strong>
                 </div>
-                <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Perfil</a>
+                <a class="dropdown-item" href="{{ url('/empresa', $empresa->user_id) }}"><i class="fa fa-user"></i> Perfil</a>
                 <a class="dropdown-item" href="#"><i class="fa fa-comment"></i> Missatges<span class="badge badge-primary">42</span></a>
-                <a class="dropdown-item" href="#"><i class="fa fa-wrench"></i> Configuració</a>
+                <a class="dropdown-item" href="{{ url('/empresa/editarEmpresa',$empresa->user_id) }}"><i class="fa fa-wrench"></i> Configuració</a>
                 <div class="divider"></div>
                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                          document.getElementById('logout-form').submit();"><i class="fa fa-lock"></i> Desconnecta</a><form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -71,7 +71,7 @@
           </li>
           <li class="nav-item">
             <a @if($empresa->empresa_validat == 1)
-                href="{{ url('/empresa/llistarOfertes') }}"
+                href="{{ url('/empresa/llistarOfertes', $empresa->user_id) }}"
                 class="nav-link"
             @endif
             @if($empresa->empresa_validat == 0)

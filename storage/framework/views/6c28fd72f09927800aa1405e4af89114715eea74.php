@@ -4,7 +4,7 @@
     <ul class="nav navbar-nav d-md-down-none">
         <li class="nav-item px-3">
         <li class="breadcrumb-item">Home</li>
-        <li class="breadcrumb-item"><a href="#">Empresa</a></li>
+        <li class="breadcrumb-item"><a href="<?php echo e(url('/empresa', $empresa->user_id)); ?>">Empresa</a></li>
         <li class="breadcrumb-item active">Dashboard</li>
     </ul>
     <ul class="nav navbar-nav ml-auto">
@@ -16,9 +16,9 @@
                 <div class="dropdown-header text-center">
                     <strong>Compte</strong>
                 </div>
-                <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Perfil</a>
+                <a class="dropdown-item" href="<?php echo e(url('/empresa', $empresa->user_id)); ?>"><i class="fa fa-user"></i> Perfil</a>
                 <a class="dropdown-item" href="#"><i class="fa fa-comment"></i> Missatges<span class="badge badge-primary">42</span></a>
-                <a class="dropdown-item" href="#"><i class="fa fa-wrench"></i> Configuració</a>
+                <a class="dropdown-item" href="<?php echo e(url('/empresa/editarEmpresa',$empresa->user_id)); ?>"><i class="fa fa-wrench"></i> Configuració</a>
                 <div class="divider"></div>
                 <a class="dropdown-item" href="<?php echo e(route('logout')); ?>" onclick="event.preventDefault();
                          document.getElementById('logout-form').submit();"><i class="fa fa-lock"></i> Desconnecta</a><form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
@@ -70,7 +70,7 @@
           </li>
           <li class="nav-item">
             <a <?php if($empresa->empresa_validat == 1): ?>
-                href="<?php echo e(url('/empresa/llistarOfertes')); ?>"
+                href="<?php echo e(url('/empresa/llistarOfertes', $empresa->user_id)); ?>"
                 class="nav-link"
             <?php endif; ?>
             <?php if($empresa->empresa_validat == 0): ?>

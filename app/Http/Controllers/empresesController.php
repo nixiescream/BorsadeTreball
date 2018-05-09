@@ -91,4 +91,11 @@ class empresesController extends Controller{
         $empresa = Empresa::findOrFail($id);
         return redirect('/empresa/'.$id)->with('empresa',$empresa);
     }
+
+    public function llistarOfertes(Request $request){
+        $id = $request->id;
+		$empresa = Empresa::findOrFail($id);
+        $ofertes = Oferta::all();
+		return view('dashboard.llistarOfertaEmpresa')->with('empresa',$empresa)->with('ofertes',$ofertes);
+    }
 }
