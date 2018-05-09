@@ -48,9 +48,6 @@
           <li class="nav-item">
             <a href="{{ url('/empresa/editarEmpresa',$empresa->user_id) }}" class="nav-link" active><i class="icon-pencil"></i> Editar perfil</a>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link"><i class="icon-settings"></i> Configuració</a>
-          </li>
 
           <li class="nav-title">
             Les meves ofertes
@@ -93,7 +90,7 @@
 <div class="content container-fluid">
     <div class="card border-info mb-3 rounded">
         <div class="card-header bg-info">
-            Perfil
+            Empresa
         </div>
         <div class="card-body">
             <h5 class="card-title">{{ $empresa->empresa_nom }}</h5>
@@ -105,7 +102,7 @@
         <div class="col-md-4">
             <div class="card border-info mb-3 rounded">
                 <div class="card-header bg-info">
-                    Informació usuari
+                    Informació
                 </div>
                 <div class="card-body">
                     <ul class="list-group">
@@ -120,7 +117,7 @@
         <div class="col-md-4">
             <div class="card border-info mb-3 rounded">
                 <div class="card-header bg-info">
-                    Idiomes
+                    Ofertes creades
                 </div>
                 <div class="card-body">
                     <!-- CODI RANDOM -->
@@ -130,7 +127,7 @@
         <div class="col-md-4">
             <div class="card border-info mb-3 rounded">
                 <div class="card-header bg-info">
-                    Extras
+                    Ofertes en curs
                 </div>
                 <div class="card-body">
                     <!-- CODI RANDOM -->
