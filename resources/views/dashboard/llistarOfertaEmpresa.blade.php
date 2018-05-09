@@ -100,84 +100,21 @@
                 {{ csrf_field() }}
                 <input type="hidden" value="{{ $empresa->user_id }}" name="id">
                 <div class="card">
-                        <div class="card-body">
-                                @if($empresa->user_id == $oferta->empresa_id)
-                                <ul class="list-group">
-                                    <li class="list-group-item">{{ $oferta->descripcio }}</li>
-                                    <li class="list-group-item">{{ $oferta->sou }}</li>
-                                    <li class="list-group-item">{{ $oferta->horari }}</li>
-                                    <li class="list-group-item">{{ $oferta->tipus }}</li>
-                                    <li class="list-group-item">{{ $oferta->estudis_emprats }}</li>
-                                </ul>
-                                @endif
-                            <!--<div class="col-md-12 input-group mb-3 {{ $errors->has('titol') ? ' has-error' : '' }}">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="icon-user"></i></span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="Títol" name="titol" value="{{ old('titol') }}" required autofocus>
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                            <div class="col-md-12 input-group mb-3 {{ $errors->has('descripcio') ? ' has-error' : '' }}">
-                                <textarea class="form-control" name="descripcio" placeholder="Descripció" rows="3"></textarea>
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                            <div class="col-md-6 input-group mb-3 {{ $errors->has('sou') ? ' has-error' : '' }}">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">$$</span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="Salari" name="sou" value="{{ old('sou') }}" required>
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                            <div class="col-md-6 input-group mb-3 {{ $errors->has('horari') ? ' has-error' : '' }}">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">@</span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="Horari" name="horari" value="{{ old('horari') }}" required>
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                            <div class="col-md-6 input-group mb-3 {{ $errors->has('tipus') ? ' has-error' : '' }}">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="icon-user"></i></span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="Tipus de feina" name="tipus" value="{{ old('tipus') }}" required>
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                            <div class="col-md-6 input-group mb-3 {{ $errors->has('estudis_emprats') ? ' has-error' : '' }}">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="icon-lock"></i></span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="Estudis recomanables" name="estudis_emprats" required>
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        <button type="submit" value="guardar" class="btn btn-block btn-success">Guardar</button>-->
+                    <div class="card-body">
+                            @if($empresa->user_id == $oferta->empresa_id)
+                            <ul class="list-group">
+                                <li class="list-group-item">{{ $oferta->descripcio }}</li>
+                                <li class="list-group-item">{{ $oferta->sou }}€/hora</li>
+                                <li class="list-group-item">{{ $oferta->horari }}</li>
+                                <li class="list-group-item">{{ $oferta->tipus }}</li>
+                                <li class="list-group-item">{{ $oferta->estudis_emprats }}</li>
+                            </ul>
+                            @endif
                     </div>
+                </div>
+            </form>
         </div>
     </div>
-</div>
 @endforeach
 @endsection
 

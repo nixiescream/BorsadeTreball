@@ -165,7 +165,8 @@
                             </div>
                         <button type="submit" value="guardar" class="btn btn-block btn-success">Guardar</button>
                     </div>
-        </div>
+                </div>
+        </form>
     </div>
 </div>
 @endsection
