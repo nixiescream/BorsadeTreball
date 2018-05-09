@@ -48,9 +48,6 @@
           <li class="nav-item">
             <a href="{{ url('/empresa/editarEmpresa',$empresa->user_id) }}" class="nav-link" active><i class="icon-pencil"></i> Editar perfil</a>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link"><i class="icon-settings"></i> Configuració</a>
-          </li>
 
           <li class="nav-title">
             Les meves ofertes
@@ -99,7 +96,6 @@
             <form method="POST" action="{{ url('empresa/crearOferta') }}">
                 {{ csrf_field() }}
                 <input type="hidden" value="{{ $empresa->user_id }}" name="id">
-                <div class="card">
                     <div class="card-body">
                             @if($empresa->user_id == $oferta->empresa_id)
                             <ul class="list-group">
@@ -109,9 +105,10 @@
                                 <li class="list-group-item">{{ $oferta->tipus }}</li>
                                 <li class="list-group-item">{{ $oferta->estudis_emprats }}</li>
                             </ul>
+                            <br>
+                            <button type="submit" value="Candidats" class="btn btn-success">Candidats</button>
                             @endif
                     </div>
-                </div>
             </form>
         </div>
     </div>
