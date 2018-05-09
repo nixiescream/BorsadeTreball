@@ -28,7 +28,6 @@ Route::get('/empresa/crearOferta/{id}','empresesController@linkCrearOferta')->mi
 Route::post('/empresa/crearOferta','empresesController@crearOferta')->middleware('isEmpresa')->name('crearOferta');
 Route::get('/empresa/llistarOfertes/{id}','empresesController@llistarOfertes')->middleware('isEmpresa')->name('llistarOfertaEmpresa');
 
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();

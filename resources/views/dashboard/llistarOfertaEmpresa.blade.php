@@ -46,7 +46,7 @@
             Perfil
           </li>
           <li class="nav-item">
-            <a href="{{ url('/empresa/editarempresa',$empresa->user_id) }}" class="nav-link" active><i class="icon-pencil"></i> Editar perfil</a>
+            <a href="{{ url('/empresa/editarEmpresa',$empresa->user_id) }}" class="nav-link" active><i class="icon-pencil"></i> Editar perfil</a>
           </li>
           <li class="nav-item">
             <a href="typography.html" class="nav-link"><i class="icon-settings"></i> Configuració</a>
