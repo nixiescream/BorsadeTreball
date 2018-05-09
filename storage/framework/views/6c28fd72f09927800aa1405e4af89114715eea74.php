@@ -70,7 +70,7 @@
           </li>
           <li class="nav-item">
             <a <?php if($empresa->empresa_validat == 1): ?>
-                href="<?php echo e(url('/empresa/llistarOfertes')); ?>"
+                href="<?php echo e(url('/empresa/llistarOfertes', $empresa->user_id)); ?>"
                 class="nav-link"
             <?php endif; ?>
             <?php if($empresa->empresa_validat == 0): ?>
