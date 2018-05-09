@@ -7,7 +7,7 @@
         <li class="nav-item px-3">
         <li class="breadcrumb-item">Home</li>
         <li class="breadcrumb-item"><a href="{{ url('/empresa', $empresa->user_id) }}">Empresa</a></li>
-        <li class="breadcrumb-item active">Crear oferta</li>
+        <li class="breadcrumb-item active">Llistar les ofertes</li>
     </ul>
     <ul class="nav navbar-nav ml-auto">
         <li class="nav-item dropdown">
@@ -49,7 +49,7 @@
             <a href="{{ url('/empresa/editarEmpresa',$empresa->user_id) }}" class="nav-link" active><i class="icon-pencil"></i> Editar perfil</a>
           </li>
           <li class="nav-item">
-            <a href="typography.html" class="nav-link"><i class="icon-settings"></i> Configuració</a>
+            <a href="#" class="nav-link"><i class="icon-settings"></i> Configuració</a>
           </li>
 
           <li class="nav-title">
