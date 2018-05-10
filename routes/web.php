@@ -20,6 +20,7 @@ Route::get('/', function () {
 Route::get('/alumne/{id}', 'alumnesController@index')->middleware('isAlumne')->name('alumne');
 Route::get('/alumne/editarAlumne/{id}','alumnesController@linkEditarAlumne')->middleware('isAlumne')->name('LinkEditarAlumne');
 Route::post('/alumne/editarAlumne','alumnesController@editarAlumne')->middleware('isAlumne')->name('editarAlumne');
+Route::get('/alumne/llistarOfertes/{id}','alumnesController@llistarOfertes')->middleware('isAlumne')->name('llistarOfertaAlumne');
 
 Route::get('/empresa/{id}', 'empresesController@index')->middleware('isEmpresa')->name('empresa');
 Route::get('/empresa/editarEmpresa/{id}','empresesController@linkEditarEmpresa')->middleware('isEmpresa')->name('LinkEditarEmpresa');

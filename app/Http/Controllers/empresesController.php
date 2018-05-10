@@ -1,9 +1,11 @@
 <?php
 
+namespace App;
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Empresa;
+use App\User;
 use App\Oferta;
 use Illuminate\Support\Facades\Hash;
 
@@ -52,6 +54,11 @@ class empresesController extends Controller{
             $empresa->empresa_cif = $cif;
             $empresa->empresa_password = Hash::make($password);
             $empresa->save();
+            $user = User::findOrFail($id);
+            $user->name = $nom;
+            $user->email = $email;
+            $user->password = Hash::make($password);
+            $user->save();
             return redirect('/empresa/'.$id)->with('empresa',$empresa);
         }
     }
@@ -96,7 +103,7 @@ class empresesController extends Controller{
     public function llistarOfertes(Request $request){
         $id = $request->id;
 		$empresa = Empresa::findOrFail($id);
-        $ofertes = Oferta::all();
+        $ofertes = Oferta::paginate(5);
 		return view('dashboard.llistarOfertaEmpresa')->with('empresa',$empresa)->with('ofertes',$ofertes);
     }
 }

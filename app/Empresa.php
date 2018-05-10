@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Empresa extends Authenticatable{
-    use Notifiable;
+class Empresa extends Model{
+    
     protected $primaryKey = 'user_id';
     /**
      * The attributes that are mass assignable.

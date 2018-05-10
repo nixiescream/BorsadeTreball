@@ -7,7 +7,7 @@
         <li class="nav-item px-3">
         <li class="breadcrumb-item">Alumne</li>
         <li class="breadcrumb-item"><a href="{{ url('/alumne', $alumne->user_id) }}">{{ $alumne->alumne_nom }}</a></li>
-        <li class="breadcrumb-item active">Dashboard</li>
+        <li class="breadcrumb-item active">Llistar les ofertes</li>
     </ul>
     <ul class="nav navbar-nav ml-auto">
         <li class="nav-item dropdown">
@@ -79,99 +79,44 @@
     </div>
 @endsection
 
-<!-- Contingut central -->
 @section('content')
 <form method="post" action="{{ url('/alumne') }}">
     {{ csrf_field() }}
     <input type="hidden" value="{{ $alumne->user_id }}" name="id">
 </form>
 <div class="content container-fluid">
+    @foreach($ofertes as $oferta)
+    @if($alumne->alumne_estudis == $oferta->estudis_emprats)
     <div class="card border-info mb-3 rounded">
         <div class="card-header bg-info">
-            Perfil
+            {{ $oferta->titol }}
         </div>
         <div class="card-body">
-            <h5 class="card-title">{{ $alumne->alumne_nom }} {{ $alumne->alumne_cognom1 }} {{ $alumne->alumne_cognom2 }}</h5>
+            <form method="POST" action="{{ url('/alumne') }}">
+                {{ csrf_field() }}
+                <input type="hidden" value="{{ $alumne->user_id }}" name="id">
+                    <div class="card-body">
+                            <ul class="list-group">
+                                <li class="list-group-item">{{ $oferta->descripcio }}</li>
+                                <li class="list-group-item">{{ $oferta->sou }}€/hora</li>
+                                <li class="list-group-item">{{ $oferta->horari }}</li>
+                                <li class="list-group-item">{{ $oferta->tipus }}</li>
+                                <li class="list-group-item">{{ $oferta->estudis_emprats }}</li>
+                            </ul>
+                            <br>
+                            <button type="submit" value="aplicar" class="btn btn-success">Aplicar</button>
+                    </div>
+            </form>
         </div>
     </div>
-</div>
-<div class="content container-fluid">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card border-info mb-3 rounded">
-                <div class="card-header bg-info">
-                    Informació usuari
-                </div>
-                <div class="card-body">
-                    <ul class="list-group">
-                        <li class="list-group-item">{{ $alumne->alumne_nom }} {{ $alumne->alumne_cognom1 }} {{ $alumne->alumne_cognom2 }}</li>
-                        <li class="list-group-item">{{ $alumne->alumne_telefon }}</li>
-                        <li class="list-group-item">{{ $alumne->alumne_email }}</li>
-                        <li class="list-group-item">{{ $alumne->alumne_estudis }}</li>
-                        <li class="list-group-item">@if($alumne->alumne_carnet == 1)
-                                                        Té carnet de conduïr
-                                                    @endif
-                                                    @if($alumne->alumne_carnet == 0)
-                                                        No té carnet de conduïr
-                                                    @endif</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card border-info mb-3 rounded">
-                <div class="card-header bg-info">
-                    Idiomes
-                </div>
-                <div class="card-body">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Idioma</th>
-                                <th scope="col">Nivell</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Català</td>
-                                <td>Natiu</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Castellà</td>
-                                <td>Natiu</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Anglès</td>
-                                <td>B2</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-        <div class="card border-info mb-3 rounded">
-                <div class="card-header bg-info">
-                    Biografia
-                </div>
-                <div class="card-body">
-                    <ul class="list-group">
-                        <li class="list-group-item">{{ $alumne->alumne_bio }} </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-   </div>
+    @endif
+@endforeach
 </div>
 @endsection
 
 @section('footer')
 <footer class="app-footer">
     <span>Enborsa't &copy;.</span>
-    <span class="ml-auto"><a href="#">Enborsa't</a></span>
+    <span class="ml-auto">Powered by <a href="#">Enborsa't</a></span>
   </footer>
 @endsection

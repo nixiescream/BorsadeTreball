@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Oferta extends Model{
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = [
         'id', 'titol', 'descripcio', 'sou', 'horari', 'tipus', 'estudis_emprats', 'empresa_id',
     ];

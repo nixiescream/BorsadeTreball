@@ -5,9 +5,9 @@
 <header class="app-header navbar">
     <ul class="nav navbar-nav d-md-down-none">
         <li class="nav-item px-3">
-        <li class="breadcrumb-item">Home</li>
-        <li class="breadcrumb-item"><a href="#">Usuari</a></li>
-        <li class="breadcrumb-item active">Dashboard</li>
+        <li class="breadcrumb-item">Alumne</li>
+        <li class="breadcrumb-item"><a href="{{ url('/alumne', $alumne->user_id) }}">{{ $alumne->alumne_nom }}</a></li>
+        <li class="breadcrumb-item active">Editar</li>
     </ul>
     <ul class="nav navbar-nav ml-auto">
         <li class="nav-item dropdown">
@@ -53,19 +53,30 @@
             Les meves ofertes
           </li>
           <li class="nav-item">
-            <a href="{{ url('/alumne/editarAlumne',$alumne->user_id) }}" class="nav-link" active><i class="icon-graph"></i> Ofertes aplicades </a>
+            <a @if($alumne->alumne_validat == 1)
+                href="{{ url('/alumne/ofertesAplicades') }}"
+                class="nav-link"
+            @endif
+            @if($alumne->alumne_validat == 0)
+                class="nav-link disabled"
+            @endif><i class="icon-graph"></i> Ofertes aplicades </a>
           </li>
 
           <li class="nav-title">
             Ofertes
           </li>
           <li class="nav-item">
-            <a href="{{ url('/alumne/editarAlumne',$alumne->user_id) }}" class="nav-link" active><i class="icon-list"></i> Llistat d'ofertes </a>
+            <a @if($alumne->alumne_validat == 1)
+                href="{{ url('/alumne/llistarOfertes', $alumne->user_id) }}"
+                class="nav-link"
+            @endif
+            @if($alumne->alumne_validat == 0)
+                class="nav-link disabled"
+            @endif><i class="icon-list"></i> Llistat d'ofertes </a>
           </li>
         </ul>
       </nav>
     </div>
-
 @endsection
 
 @section('content')
@@ -90,20 +101,20 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="icon-user"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Nom" name="nom" value="{{ old('nom') }}" required autofocus>
+                            <input type="text" class="form-control" placeholder="Nom" name="nom" value="{{ $alumne->alumne_nom }}" required autofocus>
                             @if ($errors->has('name'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('name') }}</strong>
                                 </span>
                             @endif
                             </div>
-                            
+
                             <!-- DNI -->
                             <div class="col col-md-6 input-group mb-4 {{ $errors->has('dni') ? ' has-error' : '' }}">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-user"></i></span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="DNI" name="dni" value="{{ old('dni') }}" required>
+                                <input type="text" class="form-control" placeholder="DNI" name="dni" value="{{ $alumne->alumne_dni }}" required>
                                 @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
@@ -116,7 +127,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-user"></i></span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Cognom 1" name="cognom1" value="{{ old('cognom1') }}" required autofocus>
+                                <input type="text" class="form-control" placeholder="Cognom 1" name="cognom1" value="{{ $alumne->alumne_cognom1 }}" required autofocus>
                                 @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
@@ -129,7 +140,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-user"></i></span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Telèfon" name="telf" value="{{ old('telf') }}" required>
+                                <input type="text" class="form-control" placeholder="Telèfon" name="telf" value="{{ $alumne->alumne_telefon }}" required>
                                 @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
@@ -142,7 +153,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-user"></i></span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Cognom 2" name="cognom2" value="{{ old('cognom2') }}" required autofocus>
+                                <input type="text" class="form-control" placeholder="Cognom 2" name="cognom2" value="{{ $alumne->alumne_cognom2 }}" required autofocus>
                                 @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
@@ -155,7 +166,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">@</span>
                                 </div>
-                                <input type="email" class="form-control" placeholder="Email" name="email" value="{{ old('email') }}" required>
+                                <input type="email" class="form-control" placeholder="Email" name="email" value="{{ $alumne->alumne_email }}" required>
                                 @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
@@ -177,16 +188,28 @@
                             </div>
 
                             <!-- ESTUDIS -->
-                            <div class="col-md-6 input-group mb-4 {{ $errors->has('estudis') ? ' has-error' : '' }}">
+                            <div class="col-md-6 input-group mb-4">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="icon-user"></i></span>
+                                    <span class="input-group-text"><i class="icon-pencil"></i></span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Estudis" name="estudis" value="{{ old('estudis') }}" required>
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
+                                    <select name="estudis" class="custom-select form-control">
+                                        <option value="GA">CFGM Gestió Administrativa</option>
+                                        <option value="GAAJ">CFGM Gestió Administrativa (Àmbit Jurídic)</option>
+                                        <option value="AF">CFGS Administració i Finances</option>
+                                        <option value="AD">CFGS Assistencia a la Direcció</option>
+                                        <option value="AC">CFGM Activitats Comercials</option>
+                                        <option value="CI">CFGS Comerç Internacional</option>
+                                        <option value="GVEC">CFGS Gestió de Vendes i Espais Comercials</option>
+                                        <option value="TL">CFGS Transport i Logística</option>
+                                        <option value="SMX">CFGM Sistemes Microinformàtics i Xarxes</option>
+                                        <option value="ASIX">CFGS Administració de Sistemes Informàtics en la Xarxa</option>
+                                        <option value="DAM">CFGS Desenvolupament d'Aplicacions Multiplataforma</option>
+                                        <option value="DAW">CFGS Desenvolupament d'Aplicacions Web</option>
+                                        <option value="APSD">CFGM Atenció a Persones en Situació de Dependència</option>
+                                        <option value="AST">CFGS Animació Sociocultural i Turística</option>
+                                        <option value="EI">CFGS Educació Infantil</option>
+                                        <option value="IS">CFGS Integració Social</option>
+                                    </select>
                             </div>
 
                             <!-- PASSWORD CONFIRMATION -->
@@ -202,7 +225,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-user"></i></span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Biografia" name="biografia" value="{{ old('biografia') }}" required>
+                                <input type="text" class="form-control" placeholder="Biografia" name="biografia" value="{{ $alumne->alumne_biografia }}" required>
                                 @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
@@ -232,7 +255,7 @@
                                 @endif
                             </div>-->
 
-                            
+
                             <div class="offset-md-2 form-check form-check-inline">
                             Tens carnet? (
                                 <input class="form-check-input" type="radio" name="carnet" id="carnet1" value=1>
@@ -244,13 +267,13 @@
                             )
                             </div>
 
-                            
+
                             <div class="form-check form-check-inline">
                             Tens disponibilitat completa? (
                                 <input class="form-check-input" type="radio" name="disponibilitat" id="disponibilitat1" value=1>
                                 <label class="form-check-label" for="disponibilitat1">Si</label>
                             </div>
-                            
+
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="disponibilitat" id="disponibilitat2" value=0>
                                 <label class="form-check-label" for="disponibilitat2">No</label>

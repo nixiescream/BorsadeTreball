@@ -5,8 +5,8 @@
 <header class="app-header navbar">
     <ul class="nav navbar-nav d-md-down-none">
         <li class="nav-item px-3">
-        <li class="breadcrumb-item">Home</li>
-        <li class="breadcrumb-item"><a href="{{ url('/empresa', $empresa->user_id) }}">Empresa</a></li>
+        <li class="breadcrumb-item">Empresa</li>
+        <li class="breadcrumb-item"><a href="{{ url('/empresa', $empresa->user_id) }}">{{ $empresa->empresa_nom }}</a></li>
         <li class="breadcrumb-item active">Editar</li>
     </ul>
     <ul class="nav navbar-nav ml-auto">
@@ -101,7 +101,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-user"></i></span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Nom" name="nom" value="{{ old('nom') }}" required autofocus>
+                                <input type="text" class="form-control" placeholder="Nom" name="nom" value="{{ $empresa->empresa_nom }}" required autofocus>
                                 @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
@@ -112,7 +112,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">@</span>
                                 </div>
-                                <input type="email" class="form-control" placeholder="Email" name="email" value="{{ old('email') }}" required>
+                                <input type="email" class="form-control" placeholder="Email" name="email" value="{{ $empresa->empresa_email }}" required>
                                 @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
@@ -123,7 +123,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-phone"></i></span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Telèfon" name="telf" value="{{ old('telf') }}" required>
+                                <input type="text" class="form-control" placeholder="Telèfon" name="telf" value="{{ $empresa->empresa_telefon }}" required>
                                 @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
@@ -134,7 +134,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">@</span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Adreça" name="addr" value="{{ old('addr') }}" required>
+                                <input type="text" class="form-control" placeholder="Adreça" name="addr" value="{{ $empresa->empresa_addr }}" required>
                                 @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
@@ -156,20 +156,20 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-user"></i></span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="CIF" name="cif" value="{{ old('cif') }}" required>
+                                <input type="text" class="form-control" placeholder="CIF" name="cif" value="{{ $empresa->empresa_cif }}" required>
                                 @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
                                     </span>
                                 @endif
-                            </div>                           
+                            </div>
                             <div class="col-md-6 input-group mb-4">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-lock"></i></span>
                                 </div>
                                 <input type="password" class="form-control" placeholder="Repeat password" name="password_confirmation" required>
                             </div>
-                        
+
                     </div>
                 </div>
                 <button type="submit" value="guardar" class="btn btn-block btn-success">Guardar</button>

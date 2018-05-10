@@ -3,8 +3,8 @@
 <header class="app-header navbar">
     <ul class="nav navbar-nav d-md-down-none">
         <li class="nav-item px-3">
-        <li class="breadcrumb-item">Home</li>
-        <li class="breadcrumb-item"><a href="#">Usuari</a></li>
+        <li class="breadcrumb-item">Alumne</li>
+        <li class="breadcrumb-item"><a href="<?php echo e(url('/alumne', $alumne->user_id)); ?>"><?php echo e($alumne->alumne_nom); ?></a></li>
         <li class="breadcrumb-item active">Dashboard</li>
     </ul>
     <ul class="nav navbar-nav ml-auto">
@@ -47,9 +47,6 @@
           <li class="nav-item">
             <a href="<?php echo e(url('/alumne/editarAlumne',$alumne->user_id)); ?>" class="nav-link" active><i class="icon-pencil"></i> Editar perfil</a>
           </li>
-          <li class="nav-item">
-            <a href="typography.html" class="nav-link"><i class="icon-settings"></i> Configuració</a>
-          </li>
 
           <li class="nav-title">
             Les meves ofertes
@@ -69,7 +66,7 @@
           </li>
           <li class="nav-item">
             <a <?php if($alumne->alumne_validat == 1): ?>
-                href="<?php echo e(url('/alumne/llistarOfertes')); ?>"
+                href="<?php echo e(url('/alumne/llistarOfertes', $alumne->user_id)); ?>"
                 class="nav-link"
             <?php endif; ?>
             <?php if($alumne->alumne_validat == 0): ?>

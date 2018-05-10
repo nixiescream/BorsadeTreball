@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Alumne;
+use App\User;
+use App\Oferta;
 use Illuminate\Support\Facades\Hash;
 
 class alumnesController extends Controller{
@@ -68,7 +70,18 @@ class alumnesController extends Controller{
             $alumne->alumne_tempsTotal = $disponibilitat;
             $alumne->alumne_password = Hash::make($password);
             $alumne->save();
+            $user = User::findOrFail($id);
+            $user->name = $nom;
+            $user->email = $email;
+            $user->password = Hash::make($password);
+            $user->save();
             return redirect('/alumne/'.$id)->with('alumne',$alumne);
         }
+    }
+    public function llistarOfertes(Request $request){
+        $id = $request->id;
+		$alumne = Alumne::findOrFail($id);
+        $ofertes = Oferta::all();
+		return view('dashboard.llistarOfertaAlumne')->with('alumne',$alumne)->with('ofertes',$ofertes);
     }
 }

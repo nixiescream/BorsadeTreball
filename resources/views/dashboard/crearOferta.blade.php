@@ -5,8 +5,8 @@
 <header class="app-header navbar">
     <ul class="nav navbar-nav d-md-down-none">
         <li class="nav-item px-3">
-        <li class="breadcrumb-item">Home</li>
-        <li class="breadcrumb-item"><a href="{{ url('/empresa', $empresa->user_id) }}">Empresa</a></li>
+        <li class="breadcrumb-item">Empresa</li>
+        <li class="breadcrumb-item"><a href="{{ url('/empresa', $empresa->user_id) }}">{{ $empresa->empresa_nom }}</a></li>
         <li class="breadcrumb-item active">Crear oferta</li>
     </ul>
     <ul class="nav navbar-nav ml-auto">
@@ -89,7 +89,7 @@
 <div class="content container-fluid">
     <div class="card border-info mb-3 rounded">
         <div class="card-header bg-info">
-            Editar Perfil
+            Crear oferta
         </div>
         <div class="card-body">
             <form method="POST" action="{{ url('empresa/crearOferta') }}">
@@ -149,18 +149,30 @@
                                     </span>
                                 @endif
                             </div>
-                            <div class="col-md-6 input-group mb-3 {{ $errors->has('estudis_emprats') ? ' has-error' : '' }}">
+                            <div class="col-md-6 input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="icon-lock"></i></span>
+                                    <span class="input-group-text"><i class="icon-pencil"></i></span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Estudis recomanables" name="estudis_emprats" required>
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
+                                <select name="estudis_emprats" class="custom-select form-control">
+                                    <option value="GA">CFGM Gestió Administrativa</option>
+                                    <option value="GAAJ">CFGM Gestió Administrativa (Àmbit Jurídic)</option>
+                                    <option value="AF">CFGS Administració i Finances</option>
+                                    <option value="AD">CFGS Assistencia a la Direcció</option>
+                                    <option value="AC">CFGM Activitats Comercials</option>
+                                    <option value="CI">CFGS Comerç Internacional</option>
+                                    <option value="GVEC">CFGS Gestió de Vendes i Espais Comercials</option>
+                                    <option value="TL">CFGS Transport i Logística</option>
+                                    <option value="SMX">CFGM Sistemes Microinformàtics i Xarxes</option>
+                                    <option value="ASIX">CFGS Administració de Sistemes Informàtics en la Xarxa</option>
+                                    <option value="DAM">CFGS Desenvolupament d'Aplicacions Multiplataforma</option>
+                                    <option value="DAW">CFGS Desenvolupament d'Aplicacions Web</option>
+                                    <option value="APSD">CFGM Atenció a Persones en Situació de Dependència</option>
+                                    <option value="AST">CFGS Animació Sociocultural i Turística</option>
+                                    <option value="EI">CFGS Educació Infantil</option>
+                                    <option value="IS">CFGS Integració Social</option>
+                                </select>
                             </div>
-                        <button type="submit" value="guardar" class="btn btn-block btn-success">Guardar</button>
+                        <button type="submit" value="guardar" class="col-4 offset-md-4 btn btn-block btn-success">Guardar</button>
                     </div>
                 </div>
         </form>
