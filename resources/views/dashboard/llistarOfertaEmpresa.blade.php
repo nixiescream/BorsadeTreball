@@ -88,6 +88,7 @@
 </form>
 <div class="content container-fluid">
     @foreach($ofertes as $oferta)
+    @if($empresa->user_id == $oferta->empresa_id)
     <div class="card border-info mb-3 rounded">
         <div class="card-header bg-info">
             {{ $oferta->titol }}
@@ -97,7 +98,6 @@
                 {{ csrf_field() }}
                 <input type="hidden" value="{{ $empresa->user_id }}" name="id">
                     <div class="card-body">
-                            @if($empresa->user_id == $oferta->empresa_id)
                             <ul class="list-group">
                                 <li class="list-group-item">{{ $oferta->descripcio }}</li>
                                 <li class="list-group-item">{{ $oferta->sou }}€/hora</li>
@@ -107,12 +107,13 @@
                             </ul>
                             <br>
                             <button type="submit" value="Candidats" class="btn btn-success">Candidats</button>
-                            @endif
                     </div>
             </form>
         </div>
     </div>
+    @endif
 @endforeach
+</div>
 @endsection
 
 @section('footer')
