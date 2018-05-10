@@ -141,6 +141,7 @@
                     @endforeach
                     </tbody>
                     </table>
+                    {{ $ofertes->links() }}
                 </div>
             </div>
         </div>

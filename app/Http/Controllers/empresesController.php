@@ -17,7 +17,7 @@ class empresesController extends Controller{
 	public function index(Request $request){
         $id = $request->id;
 		$empresa = Empresa::findOrFail($id);
-        $ofertes = Oferta::all();
+        $ofertes = Oferta::paginate(5);
 		return view('dashboard.empresa')->with('empresa',$empresa)->with('ofertes',$ofertes);
 	}
 
