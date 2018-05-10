@@ -11,6 +11,9 @@ class Oferta extends Model{
     ];
 
     public function empresa(){
-        return $this->belongsTo('App\Emrpesa');
+        return $this->belongsTo('App\Empresa');
+    }
+    public function alumnes(){
+        return $this->belongsToMany('App\Alumne');
     }
 }

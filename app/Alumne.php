@@ -29,4 +29,8 @@ class Alumne extends Authenticatable{
     public function user(){
         return $this->belongsTo('App\User');
     }
+
+    public function user(){
+        return $this->hasMany('App\Oferta');
+    }
 }
