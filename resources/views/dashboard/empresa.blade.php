@@ -120,7 +120,26 @@
                     Ofertes creades
                 </div>
                 <div class="card-body">
-                    <!-- CODI RANDOM -->
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th scope="col"></th>
+                          <th scope="col">Oferta</th>
+                          <th scope="col">Descripció</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                    @foreach($ofertes as $oferta)
+                    @if($empresa->user_id == $oferta->empresa_id)
+                        <tr>
+                          <th scope="row">{{ $oferta->id }}</th>
+                          <td>{{ $oferta->titol }}</td>
+                          <td>{{ $oferta->descripcio }}</td>
+                        </tr>
+                    @endif
+                    @endforeach
+                    </tbody>
+                    </table>
                 </div>
             </div>
         </div>

@@ -15,7 +15,8 @@ class empresesController extends Controller{
 	public function index(Request $request){
         $id = $request->id;
 		$empresa = Empresa::findOrFail($id);
-		return view('dashboard.empresa')->with('empresa',$empresa);
+        $ofertes = Oferta::all();
+		return view('dashboard.empresa')->with('empresa',$empresa)->with('ofertes',$ofertes);
 	}
 
     public function linkEditarEmpresa(Request $request){
