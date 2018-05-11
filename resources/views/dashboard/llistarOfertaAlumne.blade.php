@@ -114,7 +114,7 @@
     </div>
 @endforeach
 @if($ofertes->isEmpty())
-<h3>No hi ha ofertes</h3>
+<h3>No hi ha ofertes disponibles</h3>
 @endif
 </div>
 @endsection
