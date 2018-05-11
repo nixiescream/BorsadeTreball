@@ -107,7 +107,13 @@
                         <li class="list-group-item"><?php echo e($alumne->alumne_nom); ?> <?php echo e($alumne->alumne_cognom1); ?> <?php echo e($alumne->alumne_cognom2); ?></li>
                         <li class="list-group-item"><?php echo e($alumne->alumne_telefon); ?></li>
                         <li class="list-group-item"><?php echo e($alumne->alumne_email); ?></li>
-                        <li class="list-group-item"><?php echo e($alumne->alumne_estudis); ?></li>
+                        <li class="list-group-item"><?php $__currentLoopData = $estudis; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $estudi): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <?php if($alumne->estudis_sigles == $estudi->sigles): ?>
+                                                        <?php echo e($estudi->nom); ?>
+
+                                                    <?php endif; ?>
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                    </li>
                         <li class="list-group-item"><?php if($alumne->alumne_carnet == 1): ?>
                                                         Té carnet de conduïr
                                                     <?php endif; ?>

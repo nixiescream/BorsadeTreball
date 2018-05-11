@@ -6,7 +6,6 @@
   <link rel="shortcut icon" href="img/favicon.png">
   <title>Dashboard</title>
 
-  <script src="<?php echo e(asset('javascript/estudis.js')); ?>"></script>
   <script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
   <link href="<?php echo e(asset('vendor/simple-line-icons.min.css')); ?>" rel="stylesheet">
@@ -48,6 +47,7 @@
   <script src="<?php echo e(asset('vendor/pace.min.js')); ?>"></script>
 
   <script src="<?php echo e(asset('vendor/Chart.min.js')); ?>"></script>
+  <script src="<?php echo e(asset('javascript/editable.js')); ?>"></script>
   <!--<script src="https://npmcdn.com/bootstrap@4.0.0-alpha.5/dist/js/bootstrap.min.js"></script>-->
   <!--<script src="<?php echo e(asset('js/app.js')); ?>"></script>-->
 

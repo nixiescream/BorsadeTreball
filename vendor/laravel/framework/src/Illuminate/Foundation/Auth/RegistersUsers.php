@@ -3,6 +3,7 @@
 namespace Illuminate\Foundation\Auth;
 
 use Illuminate\Http\Request;
+use App\Estudis;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Registered;
 
@@ -15,9 +16,9 @@ trait RegistersUsers
      *
      * @return \Illuminate\Http\Response
      */
-    public function showRegistrationForm()
-    {
-        return view('auth.register');
+    public function showRegistrationForm(){
+        $estudis = Estudis::all();
+        return view('auth.register')->with('estudis', $estudis);
     }
 
     /**

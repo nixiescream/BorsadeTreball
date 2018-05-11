@@ -193,22 +193,14 @@
                                     <span class="input-group-text"><i class="icon-pencil"></i></span>
                                 </div>
                                     <select name="estudis" class="custom-select form-control">
-                                        <option value="GA">CFGM Gestió Administrativa</option>
-                                        <option value="GAAJ">CFGM Gestió Administrativa (Àmbit Jurídic)</option>
-                                        <option value="AF">CFGS Administració i Finances</option>
-                                        <option value="AD">CFGS Assistencia a la Direcció</option>
-                                        <option value="AC">CFGM Activitats Comercials</option>
-                                        <option value="CI">CFGS Comerç Internacional</option>
-                                        <option value="GVEC">CFGS Gestió de Vendes i Espais Comercials</option>
-                                        <option value="TL">CFGS Transport i Logística</option>
-                                        <option value="SMX">CFGM Sistemes Microinformàtics i Xarxes</option>
-                                        <option value="ASIX">CFGS Administració de Sistemes Informàtics en la Xarxa</option>
-                                        <option value="DAM">CFGS Desenvolupament d'Aplicacions Multiplataforma</option>
-                                        <option value="DAW">CFGS Desenvolupament d'Aplicacions Web</option>
-                                        <option value="APSD">CFGM Atenció a Persones en Situació de Dependència</option>
-                                        <option value="AST">CFGS Animació Sociocultural i Turística</option>
-                                        <option value="EI">CFGS Educació Infantil</option>
-                                        <option value="IS">CFGS Integració Social</option>
+                                        @foreach($estudis as $estudi)
+                                        @if($estudi->sigles == $alumne->estudis_sigles)
+                                        <option value="{{ $estudi->sigles }}" selected>
+                                        @else
+                                            <option value="{{ $estudi->sigles }}">
+                                        @endif
+                                        {{ $estudi->nom }}</option>
+                                        @endforeach
                                     </select>
                             </div>
 

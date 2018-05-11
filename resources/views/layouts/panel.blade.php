@@ -6,7 +6,6 @@
   <link rel="shortcut icon" href="img/favicon.png">
   <title>Dashboard</title>
 
-  <script src="{{ asset('javascript/estudis.js') }}"></script>
   <script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
   <link href="{{ asset('vendor/simple-line-icons.min.css') }}" rel="stylesheet">
@@ -48,6 +47,7 @@
   <script src="{{ asset('vendor/pace.min.js') }}"></script>
 
   <script src="{{ asset('vendor/Chart.min.js') }}"></script>
+  <script src="{{ asset('javascript/editable.js') }}"></script>
   <!--<script src="https://npmcdn.com/bootstrap@4.0.0-alpha.5/dist/js/bootstrap.min.js"></script>-->
   <!--<script src="{{ asset('js/app.js') }}"></script>-->
 

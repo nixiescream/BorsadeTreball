@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Empresa;
+use App\Emstudis;
 use App\User;
 use App\Oferta;
 use Illuminate\Support\Facades\Hash;
@@ -17,7 +18,7 @@ class empresesController extends Controller{
 	public function index(Request $request){
         $id = $request->id;
 		$empresa = Empresa::findOrFail($id);
-        $ofertes = Oferta::paginate(5);
+        $ofertes = Oferta::whereIn('empresa_id', $empresa)->paginate(5);
 		return view('dashboard.empresa')->with('empresa',$empresa)->with('ofertes',$ofertes);
 	}
 
@@ -103,7 +104,8 @@ class empresesController extends Controller{
     public function llistarOfertes(Request $request){
         $id = $request->id;
 		$empresa = Empresa::findOrFail($id);
-        $ofertes = Oferta::paginate(5);
-		return view('dashboard.llistarOfertaEmpresa')->with('empresa',$empresa)->with('ofertes',$ofertes);
+        $ofertes = Oferta::whereIn('empresa_id', $empresa)->get();
+        $estudis = Estudis::all();
+		return view('dashboard.llistarOfertaEmpresa')->with('empresa',$empresa)->with('ofertes',$ofertes)->with('estudis',$estudis);
     }
 }

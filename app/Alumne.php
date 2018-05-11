@@ -15,7 +15,7 @@ class Alumne extends Model{
      * @var array
      */
     protected $fillable = [
-        'user_id', 'alumne_nom', 'alumne_email', 'alumne_password', 'alumne_rol', 'alumne_cognom1', 'alumne_cognom2', 'alumne_bio', 'alumne_dni', 'alumne_telefon', 'alumne_carnet','alumne_tempsTotal', 'alumne_estudis',
+        'user_id', 'alumne_nom', 'alumne_email', 'alumne_password', 'alumne_rol', 'alumne_cognom1', 'alumne_cognom2', 'alumne_bio', 'alumne_dni', 'alumne_telefon', 'alumne_carnet','alumne_tempsTotal', 'estudis_sigles',
     ];
 
     /**
@@ -33,5 +33,9 @@ class Alumne extends Model{
 
     public function ofertes(){
         return $this->hasMany('App\Oferta');
+    }
+
+    public function estudi(){
+        return $this->belongsTo('App\Estudis');
     }
 }

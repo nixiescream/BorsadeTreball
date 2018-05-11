@@ -120,6 +120,7 @@
                     Ofertes creades
                 </div>
                 <div class="card-body">
+                    <?php if(!$ofertes->isEmpty()): ?>
                     <table class="table table-striped">
                       <thead>
                         <tr>
@@ -130,18 +131,19 @@
                       </thead>
                       <tbody>
                     <?php $__currentLoopData = $ofertes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $oferta): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <?php if($empresa->user_id == $oferta->empresa_id): ?>
                         <tr>
                           <th scope="row"><?php echo e($oferta->id); ?></th>
                           <td><?php echo e($oferta->titol); ?></td>
                           <td><?php echo e($oferta->descripcio); ?></td>
                         </tr>
-                    <?php endif; ?>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </tbody>
                     </table>
                     <?php echo e($ofertes->links()); ?>
 
+                    <?php else: ?>
+                    No hi ha ofertes disponibles
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -151,7 +153,30 @@
                     Ofertes en curs
                 </div>
                 <div class="card-body">
-                    <!-- CODI RANDOM -->
+                    <?php if(!$ofertes->isEmpty()): ?>
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th scope="col"></th>
+                          <th scope="col">Oferta</th>
+                          <th scope="col">Descripció</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                    <?php $__currentLoopData = $ofertes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $oferta): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <tr>
+                          <th scope="row"><?php echo e($oferta->id); ?></th>
+                          <td><?php echo e($oferta->titol); ?></td>
+                          <td><?php echo e($oferta->descripcio); ?></td>
+                        </tr>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </tbody>
+                    </table>
+                    <?php echo e($ofertes->links()); ?>
+
+                    <?php else: ?>
+                    No hi ha ofertes disponibles
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

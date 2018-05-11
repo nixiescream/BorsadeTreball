@@ -20,7 +20,8 @@ class CreateOfertasTable extends Migration
             $table->integer('sou');
             $table->string('horari');
             $table->string('tipus');
-            $table->string('estudis_emprats');
+            $table->string('estudis_sigles');
+            $table->foreign('estudis_sigles')->references('sigles')->on('estudis');
             $table->integer('validada')->default(0);
             $table->integer('empresa_id')->unsigned();
             $table->foreign('empresa_id')->references('user_id')->on('empresas')->onDelete('cascade');

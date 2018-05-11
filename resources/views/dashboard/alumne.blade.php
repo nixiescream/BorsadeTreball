@@ -107,7 +107,12 @@
                         <li class="list-group-item">{{ $alumne->alumne_nom }} {{ $alumne->alumne_cognom1 }} {{ $alumne->alumne_cognom2 }}</li>
                         <li class="list-group-item">{{ $alumne->alumne_telefon }}</li>
                         <li class="list-group-item">{{ $alumne->alumne_email }}</li>
-                        <li class="list-group-item">{{ $alumne->alumne_estudis }}</li>
+                        <li class="list-group-item">@foreach($estudis as $estudi)
+                                                    @if($alumne->estudis_sigles == $estudi->sigles)
+                                                        {{ $estudi->nom }}
+                                                    @endif
+                                                    @endforeach
+                                                    </li>
                         <li class="list-group-item">@if($alumne->alumne_carnet == 1)
                                                         Té carnet de conduïr
                                                     @endif

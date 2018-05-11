@@ -33,6 +33,47 @@
                                             </span>
                                         <?php endif; ?>
                                     </div>
+                                    <script id="blockOfStuff" type="text/html">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="icon-pencil"></i></span>
+                                        </div>
+                                        <select name="estudis" class="custom-select form-control">
+                                            <?php $__currentLoopData = $estudis; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $estudi): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <option value="<?php echo e($estudi->sigles); ?>"><?php echo e($estudi->nom); ?></option>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                        </select>
+                                    </script>
+                                    <script>
+                                    /*$('.message_pri').change(function(){
+                                        console.log("asada")
+                                        if($(this).val() == 'alumne'){
+                                            var div = document.createElement('div');
+                                            div.innerHTML = $('#blockOfStuff').innerHTML;
+                                            document.getElementById('selection').appendChild(div);
+                                        }
+                                    });*/
+                                    function radioSeleccionado(name){
+                                      var elements=document.getElementsByName(name)
+                                      for(x=0;x<elements.length;x++){
+                                          if(elements[x].checked)
+                                             return elements[x].value
+                                          }
+                                    }
+                                    function prueba(){
+                                        rol = radioSeleccionado('rol');
+                                        if(rol == 'alumne'){
+                                            var div = document.createElement('div');
+                                            div.setAttribute('class', 'input-group-prepend');
+                                            div.setAttribute('id', 'divRaro');
+                                            div.innerHTML = document.querySelector('#blockOfStuff').innerHTML;
+                                            document.querySelector('#selection').appendChild(div);
+                                        } else if(rol == 'empresa'){
+                                            var div = document.querySelector('#divRaro');
+                                            document.querySelector('#selection').removeChild(divRaro);
+                                        }
+                                    }
+                                    </script>
+                                    <div class="input-group mb-3" id="selection"></div>
                                     <div class="input-group mb-3 <?php echo e($errors->has('password') ? ' has-error' : ''); ?>">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="icon-lock"></i></span>
@@ -51,11 +92,11 @@
                                         <input type="password" class="form-control" placeholder="Repeat password" name="password_confirmation" required>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="rol" id="rol1" value="alumne">
+                                        <input class="form-check-input" class="message_pri" type="radio" onchange="prueba()" name="rol" id="rol1" value="alumne">
                                         <label class="form-check-label" for="rol1">Alumne</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="rol" id="rol2" value="empresa">
+                                        <input class="form-check-input" class="message_pri" type="radio" onchange="prueba()" name="rol" id="rol2" value="empresa">
                                         <label class="form-check-label" for="rol2">Empresa</label>
                                     </div>
                                 <button type="submit" value="register" class="btn btn-block btn-success">Create Account</button>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Alumne;
 use App\User;
 use App\Oferta;
+use App\Estudis;
 use Illuminate\Support\Facades\Hash;
 
 class alumnesController extends Controller{
@@ -16,13 +17,15 @@ class alumnesController extends Controller{
 	public function index(Request $request){
         $id = $request->id;
         $alumne = Alumne::findOrFail($id);
-		return view('dashboard.alumne')->with('alumne',$alumne);
+        $estudis = Estudis::all();
+		return view('dashboard.alumne')->with('alumne',$alumne)->with('estudis',$estudis);
     }
 
     public function linkEditarAlumne(Request $request){
         $id = $request->id;
         $alumne = Alumne::findOrFail($id);
-        return view('dashboard.editAlumne')->with('alumne',$alumne);
+        $estudis = Estudis::all();
+        return view('dashboard.editAlumne')->with('alumne',$alumne)->with('estudis',$estudis);
     }
 
     public function editarAlumne(Request $request){
@@ -65,7 +68,7 @@ class alumnesController extends Controller{
             /*$alumne->familiaE = $familiaE;*/
             $alumne->alumne_telefon = $telf;
             $alumne->alumne_bio = $bio;
-            $alumne->alumne_estudis = $estudis;
+            $alumne->estudis_sigles = $estudis;
             $alumne->alumne_carnet = $carnet;
             $alumne->alumne_tempsTotal = $disponibilitat;
             $alumne->alumne_password = Hash::make($password);
@@ -81,7 +84,7 @@ class alumnesController extends Controller{
     public function llistarOfertes(Request $request){
         $id = $request->id;
 		$alumne = Alumne::findOrFail($id);
-        $ofertes = Oferta::all();
+        $ofertes = Oferta::whereIn('estudis_emprats', $alumne)->get();
 		return view('dashboard.llistarOfertaAlumne')->with('alumne',$alumne)->with('ofertes',$ofertes);
     }
 }

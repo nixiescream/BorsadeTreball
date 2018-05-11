@@ -17,14 +17,17 @@
     <body class="app flex-row align-items-center">
         @yield('content')
         <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
         <script src="{{ asset('vendor/scrollreveal/scrollreveal.min.js') }}"></script>
         <script src="{{ asset('vendor/magnific-popup/jquery.magnific-popup.min.js') }}"></script>
-        <script src="{{ asset('javascript/creative.min.js') }}"></script>
+        <!--<script src="{{ asset('javascript/creative.min.js') }}"></script>-->
         <script src="{{ asset('vendor/popper.min.js') }}"></script>
         <script src="{{ asset('vendor/pace.min.js') }}"></script>
-        <script src="{{ asset('vendor/chart.min.js') }}"></script>
+        <script src="{{ asset('vendor/Chart.min.js') }}"></script>
+
+        <script src="{{ asset('javascript/editable.js') }}"></script>
         <!--<script src="{{ asset('javascript/app.js') }}"></script>-->
     </body>
 </html>

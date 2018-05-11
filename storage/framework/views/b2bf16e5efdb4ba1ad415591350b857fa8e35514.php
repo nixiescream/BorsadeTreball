@@ -17,14 +17,17 @@
     <body class="app flex-row align-items-center">
         <?php echo $__env->yieldContent('content'); ?>
         <script src="<?php echo e(asset('vendor/jquery/jquery.min.js')); ?>"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="<?php echo e(asset('vendor/bootstrap/js/bootstrap.bundle.min.js')); ?>"></script>
         <script src="<?php echo e(asset('vendor/jquery-easing/jquery.easing.min.js')); ?>"></script>
         <script src="<?php echo e(asset('vendor/scrollreveal/scrollreveal.min.js')); ?>"></script>
         <script src="<?php echo e(asset('vendor/magnific-popup/jquery.magnific-popup.min.js')); ?>"></script>
-        <script src="<?php echo e(asset('javascript/creative.min.js')); ?>"></script>
+        <!--<script src="<?php echo e(asset('javascript/creative.min.js')); ?>"></script>-->
         <script src="<?php echo e(asset('vendor/popper.min.js')); ?>"></script>
         <script src="<?php echo e(asset('vendor/pace.min.js')); ?>"></script>
-        <script src="<?php echo e(asset('vendor/chart.min.js')); ?>"></script>
+        <script src="<?php echo e(asset('vendor/Chart.min.js')); ?>"></script>
+
+        <script src="<?php echo e(asset('javascript/editable.js')); ?>"></script>
         <!--<script src="<?php echo e(asset('javascript/app.js')); ?>"></script>-->
     </body>
 </html>

@@ -26,7 +26,8 @@ class CreateAlumnesTable extends Migration{
             $table->string('alumne_telefon')->default("");
             $table->integer('alumne_carnet')->default(0);
             $table->integer('alumne_tempsTotal')->default(0);
-            $table->string('alumne_estudis')->default("");
+            $table->string('estudis_sigles');
+            $table->foreign('estudis_sigles')->references('sigles')->on('estudis');
             $table->timestamps();
         });
     }

@@ -88,7 +88,6 @@
 </form>
 <div class="content container-fluid">
     @foreach($ofertes as $oferta)
-    @if($empresa->user_id == $oferta->empresa_id)
     <div class="card border-info mb-3 rounded">
         <div class="card-header bg-info">
             {{ $oferta->titol }}
@@ -103,7 +102,11 @@
                                 <li class="list-group-item">{{ $oferta->sou }}€/hora</li>
                                 <li class="list-group-item">{{ $oferta->horari }}</li>
                                 <li class="list-group-item">{{ $oferta->tipus }}</li>
-                                <li class="list-group-item">{{ $oferta->estudis_emprats }}</li>
+                                <li class="list-group-item">@foreach($estudis as $estudi)
+                                                            @if($oferta->estudis_sigles == $estudi->sigles)
+                                                                {{ $estudi->nom }}
+                                                            @endif
+                                                            @endforeach</li>
                             </ul>
                             <br>
                             <button type="submit" value="Candidats" class="btn btn-success">Candidats</button>
@@ -111,8 +114,10 @@
             </form>
         </div>
     </div>
-    @endif
 @endforeach
+@if($ofertes->isEmpty())
+<h3>No hi ha ofertes</h3>
+@endif
 </div>
 @endsection
 
