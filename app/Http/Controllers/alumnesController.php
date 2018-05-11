@@ -84,7 +84,8 @@ class alumnesController extends Controller{
     public function llistarOfertes(Request $request){
         $id = $request->id;
 		$alumne = Alumne::findOrFail($id);
-        $ofertes = Oferta::whereIn('estudis_emprats', $alumne)->get();
-		return view('dashboard.llistarOfertaAlumne')->with('alumne',$alumne)->with('ofertes',$ofertes);
+        $ofertes = Oferta::whereIn('estudis_sigles', $alumne)->get();
+        $estudis = Estudis::all();
+		return view('dashboard.llistarOfertaAlumne')->with('alumne',$alumne)->with('ofertes',$ofertes)->with('estudis',$estudis);
     }
 }

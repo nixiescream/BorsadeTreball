@@ -155,11 +155,7 @@
                                 </div>
                                 <select name="estudis_emprats" class="custom-select form-control">
                                     @foreach($estudis as $estudi)
-                                    @if($estudi->sigles == old('estudi'))
-                                    <option value="{{ $estudi->sigles }}" selected>
-                                    @else
                                         <option value="{{ $estudi->sigles }}">
-                                    @endif
                                     {{ $estudi->nom }}</option>
                                     @endforeach
                                 </select>

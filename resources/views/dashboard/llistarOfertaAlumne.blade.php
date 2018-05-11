@@ -100,7 +100,11 @@
                                 <li class="list-group-item">{{ $oferta->sou }}€/hora</li>
                                 <li class="list-group-item">{{ $oferta->horari }}</li>
                                 <li class="list-group-item">{{ $oferta->tipus }}</li>
-                                <li class="list-group-item">{{ $oferta->estudis_emprats }}</li>
+                                <li class="list-group-item">@foreach($estudis as $estudi)
+                                                            @if($oferta->estudis_sigles == $estudi->sigles)
+                                                                {{ $estudi->nom }}
+                                                            @endif
+                                                            @endforeach</li>
                             </ul>
                             <br>
                             <button type="submit" value="aplicar" class="btn btn-success">Aplicar</button>

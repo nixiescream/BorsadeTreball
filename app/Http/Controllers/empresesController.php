@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Empresa;
-use App\Emstudis;
+use App\Estudis;
 use App\User;
 use App\Oferta;
 use Illuminate\Support\Facades\Hash;
@@ -67,7 +67,8 @@ class empresesController extends Controller{
     public function linkCrearOferta(Request $request){
         $id = $request->id;
         $empresa = Empresa::findOrFail($id);
-        return view('dashboard.crearOferta')->with('empresa',$empresa);
+        $estudis = Estudis::all();
+        return view('dashboard.crearOferta')->with('empresa',$empresa)->with('estudis',$estudis);
     }
 
     public function crearOferta(Request $request){
@@ -93,7 +94,7 @@ class empresesController extends Controller{
         $oferta->sou = $sou;
         $oferta->horari = $horari;
         $oferta->tipus = $tipus;
-        $oferta->estudis_emprats = $estudis_emprats;
+        $oferta->estudis_sigles = $estudis_emprats;
         $oferta->empresa_id = $id;
         $oferta->save();
 
