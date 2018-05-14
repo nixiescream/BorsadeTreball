@@ -6,8 +6,8 @@
         <div class="col-md-6">
             <div class="card mx-4">
                 <div class="card-body p-4">
-                    <h1>Register</h1>
-                    <p class="text-muted">Create your account</p>
+                    <h1>Registra't</h1>
+                    <p class="text-muted">Crea el teu compte</p>
                     <form method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
                         <div class="card">
