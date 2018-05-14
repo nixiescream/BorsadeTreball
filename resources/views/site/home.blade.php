@@ -22,6 +22,9 @@
                     <a class="nav-link js-scroll-trigger" href="#who">Qui som</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#contact">Contacte</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link fab fa-facebook-f" target="_blank" href="https://www.facebook.com/Institut-F-Vidal-I-Barraquer-1954702708100227/"></a>
                 </li>
                 <li class="nav-item">
