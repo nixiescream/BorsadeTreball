@@ -19,13 +19,13 @@ class empresesController extends Controller{
         $id = $request->id;
 		$empresa = Empresa::findOrFail($id);
         $ofertes = Oferta::whereIn('empresa_id', $empresa)->paginate(5);
-		return view('dashboard.empresa')->with('empresa',$empresa)->with('ofertes',$ofertes);
+		return view('empresa.empresa')->with('empresa',$empresa)->with('ofertes',$ofertes);
 	}
 
     public function linkEditarEmpresa(Request $request){
         $id = $request->id;
         $empresa = Empresa::findOrFail($id);
-        return view('dashboard.editEmpresa')->with('empresa',$empresa);
+        return view('empresa.editEmpresa')->with('empresa',$empresa);
     }
 
     public function editarEmpresa(Request $request){
@@ -68,7 +68,7 @@ class empresesController extends Controller{
         $id = $request->id;
         $empresa = Empresa::findOrFail($id);
         $estudis = Estudis::all();
-        return view('dashboard.crearOferta')->with('empresa',$empresa)->with('estudis',$estudis);
+        return view('empresa.crearOferta')->with('empresa',$empresa)->with('estudis',$estudis);
     }
 
     public function crearOferta(Request $request){
@@ -107,6 +107,6 @@ class empresesController extends Controller{
 		$empresa = Empresa::findOrFail($id);
         $ofertes = Oferta::whereIn('empresa_id', $empresa)->get();
         $estudis = Estudis::all();
-		return view('dashboard.llistarOfertaEmpresa')->with('empresa',$empresa)->with('ofertes',$ofertes)->with('estudis',$estudis);
+		return view('empresa.llistarOfertaEmpresa')->with('empresa',$empresa)->with('ofertes',$ofertes)->with('estudis',$estudis);
     }
 }

@@ -18,14 +18,14 @@ class alumnesController extends Controller{
         $id = $request->id;
         $alumne = Alumne::findOrFail($id);
         $estudis = Estudis::all();
-		return view('dashboard.alumne')->with('alumne',$alumne)->with('estudis',$estudis);
+		return view('alumne.alumne')->with('alumne',$alumne)->with('estudis',$estudis);
     }
 
     public function linkEditarAlumne(Request $request){
         $id = $request->id;
         $alumne = Alumne::findOrFail($id);
         $estudis = Estudis::all();
-        return view('dashboard.editAlumne')->with('alumne',$alumne)->with('estudis',$estudis);
+        return view('alumne.editAlumne')->with('alumne',$alumne)->with('estudis',$estudis);
     }
 
     public function editarAlumne(Request $request){
@@ -86,6 +86,6 @@ class alumnesController extends Controller{
 		$alumne = Alumne::findOrFail($id);
         $ofertes = Oferta::whereIn('estudis_sigles', $alumne)->get();
         $estudis = Estudis::all();
-		return view('dashboard.llistarOfertaAlumne')->with('alumne',$alumne)->with('ofertes',$ofertes)->with('estudis',$estudis);
+		return view('alumne.llistarOfertaAlumne')->with('alumne',$alumne)->with('ofertes',$ofertes)->with('estudis',$estudis);
     }
 }
