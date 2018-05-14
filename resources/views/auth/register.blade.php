@@ -6,8 +6,8 @@
         <div class="col-md-6">
             <div class="card mx-4">
                 <div class="card-body p-4">
-                    <h1>Register</h1>
-                    <p class="text-muted">Create your account</p>
+                    <h1>Registra't</h1>
+                    <p class="text-muted">Crea el teu compte</p>
                     <form method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
                         <div class="card">
@@ -16,7 +16,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="icon-user"></i></span>
                                         </div>
-                                        <input type="text" class="form-control" placeholder="Username" name="name" value="{{ old('name') }}" required autofocus>
+                                        <input type="text" class="form-control" placeholder="Nom d'usuari" name="name" value="{{ old('name') }}" required autofocus>
                                         @if ($errors->has('name'))
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('name') }}</strong>
@@ -79,7 +79,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="icon-lock"></i></span>
                                         </div>
-                                        <input type="password" class="form-control" placeholder="Password" name="password" required>
+                                        <input type="password" class="form-control" placeholder="Contrasenya" name="password" required>
                                         @if ($errors->has('password'))
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('password') }}</strong>
@@ -90,7 +90,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="icon-lock"></i></span>
                                         </div>
-                                        <input type="password" class="form-control" placeholder="Repeat password" name="password_confirmation" required>
+                                        <input type="password" class="form-control" placeholder="Repeteix la contrasenya" name="password_confirmation" required>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" class="message_pri" type="radio" onchange="prueba()" name="rol" id="rol1" value="alumne">
@@ -100,7 +100,7 @@
                                         <input class="form-check-input" class="message_pri" type="radio" onchange="prueba()" name="rol" id="rol2" value="empresa">
                                         <label class="form-check-label" for="rol2">Empresa</label>
                                     </div>
-                                <button type="submit" value="register" class="btn btn-block btn-success">Create Account</button>
+                                <button type="submit" value="register" class="btn btn-block btn-success">Crear compte</button>
                             </div>
                         </form>
                 </div>

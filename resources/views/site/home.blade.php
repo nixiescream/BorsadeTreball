@@ -31,7 +31,7 @@
                     <a class="nav-link fab fa-twitter" target="_blank" href="https://twitter.com/VIDALIBARRAQUER"></a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-primary-outline js-scroll-trigger" href="{{ url('login') }}">Login</a>
+                    <a class="btn btn-primary-outline" href="{{ url('login') }}">Login</a>
                 </li>
             </ul>
         </div>
