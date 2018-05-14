@@ -12,14 +12,14 @@ class ValidadorsSeeder extends Seeder{
         $user1 = App\User::create([
             'name' => 'validador1',
             'email' => 'validador1@example.com',
-            'password' => str_random(20),
+            'password' =>  Hash::make('validador1'),
             'rol' => 'validador',
             'validat' => 1
         ]);
         App\Validador::create([
-            'user_id' => $user['id'],
+            'user_id' => $user1['id'],
             'email' => 'validador1@example.com',
-            'password' => str_random(20),
+            'password' =>  Hash::make('validador1'),
             'rol' => 'validador'
         ]);
     }
