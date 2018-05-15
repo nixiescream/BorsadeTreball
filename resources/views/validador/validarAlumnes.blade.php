@@ -72,29 +72,41 @@
 
 <!-- Contingut central -->
 @section('content')
+<form method="post" action="{{ url('/validador') }}">
+    {{ csrf_field() }}
+    <input type="hidden" value="{{ $validador->user_id }}" name="id">
+</form>
 <div class="content container-fluid">
-    <form method="POST" action="{{ url('validador/validarAlumnes')  }}">
-        {{ csrf_field() }}
-        <table class="table table-bordered">
-        	<thead class="thead-dark">
-                <tr><td>Nom</td><td>Cognoms</td><td>Email</td><td>DNI</td><td>Estudis</td><td>Telèfon</td><td>Validar</td></tr>
-            </thead>
-            <tbody>
-                @foreach($alumnes as $alumne)
-                <tr>
-                    <td>{{$alumne->alumne_nom}}</td>
-                    <td>{{$alumne->alumne_cognom1}} {{$alumne->alumne_cognom2}}</td>
-                    <td>{{$alumne->alumne_email}}</td>
-                    <td>{{$alumne->alumne_dni}}</td>
-                    <td>{{$alumne->alumne_sigles}}</td>
-                    <td>{{$alumne->alumne_telefon}}</td>
-                    <td><input type="checkbox" name="alumnes[]" value="{{$alumne->alumne_validat}}"></td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-        <input type='submit' value='assignar'>
-    </form>
+    <div class="card border-info mb-3 rounded">
+        <div class="card-header bg-info">
+            Validar alumnes
+        </div>
+        <div class="card-body">
+        <form method="POST" action="{{ url('validador/validarAlumnes')  }}">
+            {{ csrf_field() }}
+            <table class="table table-striped">
+            	<thead class="thead-dark">
+                    <tr><td>id</td><td>Nom</td><td>Cognoms</td><td>Email</td><td>DNI</td><td>Estudis</td><td>Telèfon</td><td>Validar</td></tr>
+                </thead>
+                <tbody>
+                    <input type="hidden" value="{{ $validador->user_id }}" name="id">
+                    @foreach($alumnes as $alumne)
+                    <tr>
+                        <td>{{$alumne->user_id}}</td>
+                        <td>{{$alumne->alumne_nom}}</td>
+                        <td>{{$alumne->alumne_cognom1}} {{$alumne->alumne_cognom2}}</td>
+                        <td>{{$alumne->alumne_email}}</td>
+                        <td>{{$alumne->alumne_dni}}</td>
+                        <td>{{$alumne->alumne_sigles}}</td>
+                        <td>{{$alumne->alumne_telefon}}</td>
+                        <td><input type="checkbox" name="alumnes[]" value="{{$alumne->user_id}}"></td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+            <input type='submit' value='assignar'>
+        </form>
+    </div>
 </div>
 @endsection
 

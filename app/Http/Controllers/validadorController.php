@@ -51,7 +51,19 @@ class validadorController extends Controller{
     public function linkValidarAlumnes(Request $request){
         $id = $request->id;
         $validador = Validador::findOrFail($id);
-        $alumnes = Alumne::all(); //where('alumne_validat', '=', 0)->get();
+        $alumnes = Alumne::where('alumne_validat', 0)->get();
         return view('validador.validarAlumnes')->with('validador',$validador)->with('alumnes',$alumnes);
+    }
+
+    public function validarAlumnes(){
+        $alumnes = $request->alumnes;
+        foreach ($alumnes as $alumne){
+            Alumne::findOrFail($alumne);
+            $alumne->alumne_validat = 1;
+            $alumne->save();
+        }
+        $id = $request->id;
+        $validador = Validador::findOrFail($id);
+        return redirect('/validador/'.$id)->with('validador',$validador);
     }
 }
