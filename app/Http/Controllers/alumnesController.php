@@ -94,7 +94,8 @@ class alumnesController extends Controller{
     public function aplicarOferta(Request $request){
         $request->validate(['idA' => 'required',]);
 		$alumne = Alumne::findOrFail($request->idA);
-		$alumne->ofertes()->sync($request->oferta);
+        $id = $request->idA;
+		$alumne->ofertes()->sync($request->idO);
         return redirect('/alumne/'.$id)->with('alumne',$alumne);
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAlumneAplicaOfertaTable extends Migration
+class CreateAlumneOfertaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,8 +15,8 @@ class CreateAlumneAplicaOfertaTable extends Migration
     {
         Schema::create('alumne_oferta', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('alumne_id')->unsigned();
-            $table->foreign('alumne_id')->references('user_id')->on('alumnes')->onDelete('cascade');
+            $table->integer('alumne_user_id')->unsigned();
+            $table->foreign('alumne_user_id')->references('user_id')->on('alumnes')->onDelete('cascade');
             $table->integer('oferta_id')->unsigned();
             $table->foreign('oferta_id')->references('id')->on('ofertas')->onDelete('cascade');
             $table->timestamps();
