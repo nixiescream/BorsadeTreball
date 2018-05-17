@@ -114,11 +114,11 @@ body {
       color: #21c2f8; }
     #mainNav .navbar-nav > li.nav-item > a.nav-link.active,
     #mainNav .navbar-nav > li.nav-item > a.nav-link:focus.active {
-      color: #fff !important;
-      background-color: #21c2f8; }
+      color: #21c2f8 !important;
+      background-color: #fff; }
       #mainNav .navbar-nav > li.nav-item > a.nav-link.active:hover,
       #mainNav .navbar-nav > li.nav-item > a.nav-link:focus.active:hover {
-        background-color: #21c2f8; }
+        background-color: #fff; }
   @media (min-width: 992px) {
     #mainNav {
       border-color: transparent;
