@@ -143,7 +143,7 @@
             <div class="service-box mt-5 mx-auto">
               <i class="fa fa-4x fa-check text-primary mb-3 sr-icons"></i>
               <h3 class="mb-3">Simple</h3>
-              <p class="text-muted mb-0">Més treball en menys esforç. Res defineix millor la eficiència que la facilitat de realitzar operacions en un entorn simple.</p>
+              <p class="text-muted mb-0">Més treball en menys esforç. Res defineix millor l'eficiència que la facilitat de realitzar operacions en un entorn simple.</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
