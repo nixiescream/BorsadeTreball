@@ -56,7 +56,7 @@
             <a href="{{ url('/validador/validarAlumnes', $validador->user_id) }}" class="nav-link"><i class="icon-list"></i> Validar alumnes </a>
           </li>
           <li class="nav-item">
-            <a href="{{ url('/validador/validarEmpreses') }}" class="nav-link"><i class="icon-list"></i> Validar empreses </a>
+            <a href="{{ url('/validador/validarEmpreses', $validador->user_id) }}" class="nav-link"><i class="icon-list"></i> Validar empreses </a>
           </li>
 
           <li class="nav-title">

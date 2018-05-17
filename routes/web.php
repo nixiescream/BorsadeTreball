@@ -36,6 +36,9 @@ Route::get('/validador/editarValidador/{id}','validadorController@linkEditarVali
 Route::post('/validador/editarValidador','validadorController@editarValidador')->middleware('isValidador')->name('editarValidador');
 Route::get('/validador/validarAlumnes/{id}','validadorController@linkValidarAlumnes')->middleware('isValidador')->name('linkValidarAlumnes');
 Route::post('/validador/validarAlumnes','validadorController@validarAlumnes')->middleware('isValidador')->name('validarAlumnes');
+Route::get('/validador/validarEmpreses/{id}','validadorController@linkValidarEmpreses')->middleware('isValidador')->name('linkValidarEmpreses');
+Route::post('/validador/validarEmpreses','validadorController@validarEmpreses')->middleware('isValidador')->name('validarEmpreses');
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 

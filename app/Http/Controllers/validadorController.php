@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Validador;
 use App\Alumne;
 use App\User;
+use App\Empresa;
 
 class validadorController extends Controller{
     public function __construct(){
@@ -64,6 +65,29 @@ class validadorController extends Controller{
             $alumneR->save();
 
             $user = User::findOrFail($alumne);
+            $user->validat = 1;
+            $user->save();
+        }
+        $id = $request->id;
+        $validador = Validador::findOrFail($id);
+        return redirect('/validador/'.$id)->with('validador',$validador);
+    }
+
+    public function linkValidarEmpreses(Request $request){
+        $id = $request->id;
+        $validador = Validador::findOrFail($id);
+        $empreses = Empresa::where('empresa_validat', 0)->get();
+        return view('validador.validarEmpreses')->with('validador',$validador)->with('empreses',$empreses);
+    }
+
+    public function validarEmpreses(Request $request){
+        $empreses = $request->empreses;
+        foreach ($empreses as $empresa){
+            $empresaR = Empresa::findOrFail($empresa);
+            $empresaR->empresa_validat = 1;
+            $empresaR->save();
+
+            $user = User::findOrFail($empresa);
             $user->validat = 1;
             $user->save();
         }

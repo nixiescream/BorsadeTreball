@@ -56,14 +56,14 @@
             <a href="{{ url('/validador/validarAlumnes', $validador->user_id) }}" class="nav-link"><i class="icon-list"></i> Validar alumnes </a>
           </li>
           <li class="nav-item">
-            <a href="{{ url('/validador/validarEmpreses') }}" class="nav-link"><i class="icon-list"></i> Validar empreses </a>
+            <a href="{{ url('/validador/validarEmpreses', $validador->user_id) }}" class="nav-link"><i class="icon-list"></i> Validar empreses </a>
           </li>
 
           <li class="nav-title">
             Ofertes
           </li>
           <li class="nav-item">
-            <a href="{{ url('/validador/validarOfertes') }}" class="nav-link"><i class="icon-graph"></i> Validar ofertes </a>
+            <a href="{{ url('/validador/validarOfertes', $validador->user_id) }}" class="nav-link"><i class="icon-graph"></i> Validar ofertes </a>
           </li>
         </ul>
       </nav>

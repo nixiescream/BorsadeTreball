@@ -46,7 +46,7 @@
             Perfil
           </li>
           <li class="nav-item">
-            <a href="{{ url('/alumne/editarValidador',$validador->user_id) }}" class="nav-link" active><i class="icon-pencil"></i> Editar perfil</a>
+            <a href="{{ url('/validador/editarValidador',$validador->user_id) }}" class="nav-link" active><i class="icon-pencil"></i> Editar perfil</a>
           </li>
 
           <li class="nav-title">
@@ -56,7 +56,7 @@
             <a href="{{ url('/validador/validarAlumnes', $validador->user_id) }}" class="nav-link"><i class="icon-list"></i> Validar alumnes </a>
           </li>
           <li class="nav-item">
-            <a href="{{ url('/validador/validarEmpreses') }}" class="nav-link"><i class="icon-list"></i> Validar empreses </a>
+            <a href="{{ url('/validador/validarEmpreses', $validador->user_id) }}" class="nav-link"><i class="icon-list"></i> Validar empreses </a>
           </li>
 
           <li class="nav-title">
@@ -77,6 +77,9 @@
     <input type="hidden" value="{{ $validador->user_id }}" name="id">
 </form>
 <div class="content container-fluid">
+    @if($alumnes->isEmpty())
+    <h3>No hi ha alumnes per validar</h3>
+    @else
     <div class="card border-info mb-3 rounded">
         <div class="card-header bg-info">
             Validar alumnes
@@ -108,6 +111,7 @@
         </form>
     </div>
 </div>
+@endif
 @endsection
 
 @section('footer')

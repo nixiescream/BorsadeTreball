@@ -1,4 +1,7 @@
+
+
 <?php $__env->startSection('content'); ?>
+<script src='https://www.google.com/recaptcha/api.js'></script>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -49,6 +52,7 @@
                             <div class="row">
                                 <div class="col-4">
                                     <button type="submit" value="login" class="btn btn-primary px-4">Login</button>
+                                    <div class="g-recaptcha" data-sitekey="calu de google"></div>
                                 </div>
                                 <div class="col-3 text-right">
                                     <a class="btn btn-secondary px-2" href="<?php echo e(url('password.request')); ?>">Has oblidat la teva contrasenya?</a>
