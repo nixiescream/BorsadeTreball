@@ -100,7 +100,11 @@
                         <td>{{$alumne->alumne_cognom1}} {{$alumne->alumne_cognom2}}</td>
                         <td>{{$alumne->alumne_email}}</td>
                         <td>{{$alumne->alumne_dni}}</td>
-                        <td>{{$alumne->alumne_sigles}}</td>
+                        <td>@foreach($estudis as $estudi)
+                                                    @if($alumne->estudis_sigles == $estudi->sigles)
+                                                        {{ $estudi->nom }}
+                                                    @endif
+                                                    @endforeach</td>
                         <td>{{$alumne->alumne_telefon}}</td>
                         <td><input type="checkbox" name="alumnes[]" value="{{$alumne->user_id}}"></td>
                     </tr>

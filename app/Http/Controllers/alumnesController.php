@@ -72,11 +72,13 @@ class alumnesController extends Controller{
             $alumne->alumne_carnet = $carnet;
             $alumne->alumne_tempsTotal = $disponibilitat;
             $alumne->alumne_password = Hash::make($password);
+            $alumne->alumne_validat = 0;
             $alumne->save();
             $user = User::findOrFail($id);
             $user->name = $nom;
             $user->email = $email;
             $user->password = Hash::make($password);
+            $user->validat = 0;
             $user->save();
             return redirect('/alumne/'.$id)->with('alumne',$alumne);
         }

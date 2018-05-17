@@ -56,7 +56,8 @@ class validadorController extends Controller{
         $id = $request->id;
         $validador = Validador::findOrFail($id);
         $alumnes = Alumne::where('alumne_validat', 0)->get();
-        return view('validador.validarAlumnes')->with('validador',$validador)->with('alumnes',$alumnes);
+        $estudis = Estudis::all();
+        return view('validador.validarAlumnes')->with('validador',$validador)->with('alumnes',$alumnes)->with('estudis',$estudis);
     }
 
     public function validarAlumnes(Request $request){

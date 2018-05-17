@@ -55,11 +55,13 @@ class empresesController extends Controller{
             $empresa->empresa_addr = $adresa;
             $empresa->empresa_cif = $cif;
             $empresa->empresa_password = Hash::make($password);
+            $empresa->empresa_validat = 0;
             $empresa->save();
             $user = User::findOrFail($id);
             $user->name = $nom;
             $user->email = $email;
             $user->password = Hash::make($password);
+            $user->validat = 0;
             $user->save();
             return redirect('/empresa/'.$id)->with('empresa',$empresa);
         }

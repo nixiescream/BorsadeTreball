@@ -79,6 +79,7 @@ class RegisterController extends Controller{
                 'alumne_email' => $data['email'],
                 'alumne_password' => Hash::make($data['password']),
                 'alumne_rol' => $data['rol'],
+                'alumne_dni' => str_random(9),
                 'estudis_sigles' => $data['estudis'],
             ]);
 
@@ -97,6 +98,7 @@ class RegisterController extends Controller{
                     'empresa_email' => $data['email'],
                     'empresa_password' => Hash::make($data['password']),
                     'empresa_rol' => $data['rol'],
+                    'empresa_cif' => str_random(9),
                 ]);
 
                 return [$user, $empresa];
