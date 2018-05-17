@@ -11,6 +11,14 @@
 
                         <div class="card">
                                 <div class="card-body">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" class="message_pri" type="radio" onchange="prueba()" name="rol" id="rol1" value="alumne">
+                                        <label class="form-check-label" for="rol1">Alumne</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" class="message_pri" type="radio" onchange="prueba()" name="rol" id="rol2" value="empresa">
+                                        <label class="form-check-label" for="rol2">Empresa</label>
+                                    </div>
                                     <div class="input-group mb-3 <?php echo e($errors->has('username') ? ' has-error' : ''); ?>">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="icon-user"></i></span>
@@ -90,14 +98,6 @@
                                             <span class="input-group-text"><i class="icon-lock"></i></span>
                                         </div>
                                         <input type="password" class="form-control" placeholder="Repeteix la contrasenya" name="password_confirmation" required>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" class="message_pri" type="radio" onchange="prueba()" name="rol" id="rol1" value="alumne">
-                                        <label class="form-check-label" for="rol1">Alumne</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" class="message_pri" type="radio" onchange="prueba()" name="rol" id="rol2" value="empresa">
-                                        <label class="form-check-label" for="rol2">Empresa</label>
                                     </div>
                                 <button type="submit" value="register" class="btn btn-block btn-success">Crear compte</button>
                             </div>
