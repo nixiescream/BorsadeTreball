@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Validador;
 use App\Alumne;
+use App\User;
 
 class validadorController extends Controller{
     public function __construct(){
@@ -55,12 +56,16 @@ class validadorController extends Controller{
         return view('validador.validarAlumnes')->with('validador',$validador)->with('alumnes',$alumnes);
     }
 
-    public function validarAlumnes(){
+    public function validarAlumnes(Request $request){
         $alumnes = $request->alumnes;
         foreach ($alumnes as $alumne){
-            Alumne::findOrFail($alumne);
-            $alumne->alumne_validat = 1;
-            $alumne->save();
+            $alumneR = Alumne::findOrFail($alumne);
+            $alumneR->alumne_validat = 1;
+            $alumneR->save();
+
+            $user = User::findOrFail($alumne);
+            $user->validat = 1;
+            $user->save();
         }
         $id = $request->id;
         $validador = Validador::findOrFail($id);
