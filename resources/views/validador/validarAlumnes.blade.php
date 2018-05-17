@@ -63,7 +63,7 @@
             Ofertes
           </li>
           <li class="nav-item">
-            <a href="{{ url('/validador/validarOfertes') }}" class="nav-link"><i class="icon-graph"></i> Validar ofertes </a>
+            <a href="{{ url('/validador/validarOfertes', $validador->user_id) }}" class="nav-link"><i class="icon-graph"></i> Validar ofertes </a>
           </li>
         </ul>
       </nav>

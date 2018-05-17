@@ -1,4 +1,4 @@
-empresa@extends('layouts.panel')
+@extends('layouts.panel')
 
 
 <!-- Barra Superior -->

@@ -19,7 +19,8 @@ class empresesController extends Controller{
         $id = $request->id;
 		$empresa = Empresa::findOrFail($id);
         $ofertes = Oferta::whereIn('empresa_id', $empresa)->paginate(5);
-		return view('empresa.empresa')->with('empresa',$empresa)->with('ofertes',$ofertes);
+        $ofertesV = Oferta::whereIn('empresa_id', $empresa)->where('validada',1)->paginate(5);
+		return view('empresa.empresa')->with('empresa',$empresa)->with('ofertes',$ofertes)->with('ofertesV',$ofertesV);
 	}
 
     public function linkEditarEmpresa(Request $request){

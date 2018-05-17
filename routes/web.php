@@ -38,6 +38,8 @@ Route::get('/validador/validarAlumnes/{id}','validadorController@linkValidarAlum
 Route::post('/validador/validarAlumnes','validadorController@validarAlumnes')->middleware('isValidador')->name('validarAlumnes');
 Route::get('/validador/validarEmpreses/{id}','validadorController@linkValidarEmpreses')->middleware('isValidador')->name('linkValidarEmpreses');
 Route::post('/validador/validarEmpreses','validadorController@validarEmpreses')->middleware('isValidador')->name('validarEmpreses');
+Route::get('/validador/validarOfertes/{id}','validadorController@linkValidarOfertes')->middleware('isValidador')->name('linkValidarOfertes');
+Route::post('/validador/validarOfertes','validadorController@validarOfertes')->middleware('isValidador')->name('validarOfertes');
 
 
 Route::get('/home', 'HomeController@index')->name('home');

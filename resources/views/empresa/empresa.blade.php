@@ -149,10 +149,10 @@
         <div class="col-md-4">
             <div class="card border-info mb-3 rounded">
                 <div class="card-header bg-info">
-                    Ofertes en curs
+                    Ofertes validades
                 </div>
                 <div class="card-body">
-                    @if(!$ofertes->isEmpty())
+                    @if(!$ofertesV->isEmpty())
                     <table class="table table-striped">
                       <thead>
                         <tr>
@@ -162,11 +162,11 @@
                         </tr>
                       </thead>
                       <tbody>
-                    @foreach($ofertes as $oferta)
+                    @foreach($ofertesV as $ofertaV)
                         <tr>
-                          <th scope="row">{{ $oferta->id }}</th>
-                          <td>{{ $oferta->titol }}</td>
-                          <td>{{ $oferta->descripcio }}</td>
+                          <th scope="row">{{ $ofertaV->id }}</th>
+                          <td>{{ $oferta->titolV }}</td>
+                          <td>{{ $oferta->descripcioV }}</td>
                         </tr>
                     @endforeach
                     </tbody>

@@ -8,6 +8,7 @@ use App\Validador;
 use App\Alumne;
 use App\User;
 use App\Empresa;
+use App\Oferta;
 
 class validadorController extends Controller{
     public function __construct(){
@@ -90,6 +91,25 @@ class validadorController extends Controller{
             $user = User::findOrFail($empresa);
             $user->validat = 1;
             $user->save();
+        }
+        $id = $request->id;
+        $validador = Validador::findOrFail($id);
+        return redirect('/validador/'.$id)->with('validador',$validador);
+    }
+
+    public function linkValidarOfertes(Request $request){
+        $id = $request->id;
+        $validador = Validador::findOrFail($id);
+        $ofertes = Oferta::where('validada', 0)->get();
+        return view('validador.validarOfertes')->with('validador',$validador)->with('ofertes',$ofertes);
+    }
+
+    public function validarOfertes(Request $request){
+        $ofertes = $request->ofertes;
+        foreach ($ofertes as $oferta){
+            $ofertaR = Oferta::findOrFail($oferta);
+            $ofertaR->validada = 1;
+            $ofertaR->save();
         }
         $id = $request->id;
         $validador = Validador::findOrFail($id);

@@ -46,7 +46,7 @@
             Perfil
           </li>
           <li class="nav-item">
-            <a href="{{ url('/alumne/editarValidador',$validador->user_id) }}" class="nav-link" active><i class="icon-pencil"></i> Editar perfil</a>
+            <a href="{{ url('/validador/editarValidador',$validador->user_id) }}" class="nav-link" active><i class="icon-pencil"></i> Editar perfil</a>
           </li>
 
           <li class="nav-title">
@@ -63,7 +63,7 @@
             Ofertes
           </li>
           <li class="nav-item">
-            <a href="{{ url('/validador/validarOfertes') }}" class="nav-link"><i class="icon-graph"></i> Validar ofertes </a>
+            <a href="{{ url('/validador/validarOfertes', $validador->user_id) }}" class="nav-link"><i class="icon-graph"></i> Validar ofertes </a>
           </li>
         </ul>
       </nav>
