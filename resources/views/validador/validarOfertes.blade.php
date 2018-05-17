@@ -98,7 +98,7 @@
                         <td>{{$oferta->id}}</td>
                         <td>{{$oferta->titol}}</td>
                         <td>{{$oferta->descripcio}}</td>
-                        <td>{{$oferta->sou}}</td>
+                        <td>{{$oferta->sou}}€/hora</td>
                         <td>{{$oferta->horari}}</td>
                         <td>@foreach($estudis as $estudi)
                                                     @if($oferta->estudis_sigles == $estudi->sigles)

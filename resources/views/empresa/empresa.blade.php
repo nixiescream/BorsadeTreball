@@ -139,7 +139,7 @@
                     @endforeach
                     </tbody>
                     </table>
-                    {{ $ofertes->links() }}
+                    {{ $ofertes->appends(['o1' => $ofertes->currentPage(), 'o2' => $ofertesV->currentPage()])->links() }}
                     @else
                     No hi ha ofertes disponibles
                     @endif
@@ -165,13 +165,13 @@
                     @foreach($ofertesV as $ofertaV)
                         <tr>
                           <th scope="row">{{ $ofertaV->id }}</th>
-                          <td>{{ $oferta->titolV }}</td>
-                          <td>{{ $oferta->descripcioV }}</td>
+                          <td>{{ $ofertaV->titol }}</td>
+                          <td>{{ $ofertaV->descripcio }}</td>
                         </tr>
                     @endforeach
                     </tbody>
                     </table>
-                    {{ $ofertes->links() }}
+                    {{ $ofertes->appends(['o1' => $ofertes->currentPage(), 'o2' => $ofertesV->currentPage()])->links() }}
                     @else
                     No hi ha ofertes disponibles
                     @endif

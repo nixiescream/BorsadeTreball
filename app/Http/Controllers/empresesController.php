@@ -18,8 +18,8 @@ class empresesController extends Controller{
 	public function index(Request $request){
         $id = $request->id;
 		$empresa = Empresa::findOrFail($id);
-        $ofertes = Oferta::whereIn('empresa_id', $empresa)->paginate(5);
-        $ofertesV = Oferta::whereIn('empresa_id', $empresa)->where('validada',1)->paginate(5);
+        $ofertes = Oferta::whereIn('empresa_id', $empresa)->paginate(5,['*'], 'o1');
+        $ofertesV = Oferta::whereIn('empresa_id', $empresa)->where('validada',1)->paginate(5,['*'], 'o2');
 		return view('empresa.empresa')->with('empresa',$empresa)->with('ofertes',$ofertes)->with('ofertesV',$ofertesV);
 	}
 
