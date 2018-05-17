@@ -1,8 +1,8 @@
 <?php $__env->startSection('content'); ?>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">        
-            <div class="card-group">            
+        <div class="col-md-8">
+            <div class="card-group">
                 <div class="card p-4">
                 <a class="btn btn-secondary" href="<?php echo e(url('/')); ?>">Home</a>
                     <div class="card-body">
@@ -62,7 +62,7 @@
                         <div>
                             <h2>Registra't</h2>
                             <p>Registra't a la nostra plataforma</p>
-                            <button type="button" class="btn btn-primary active mt-3"><a href="<?php echo e(url('register')); ?>" id="linkRegister">Registra't ara!</a></button>
+                            <button type="button" class="btn btn-primary active mt-3" onclick="window.location='<?php echo e(url('register')); ?>'" id="linkRegister">Registra't ara!</button>
                         </div>
                     </div>
                 </div>
