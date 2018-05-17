@@ -16,7 +16,7 @@
                     <a class="nav-link js-scroll-trigger" href="#comoditat">Comoditat</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#eficiencia">EEficiència</a>
+                    <a class="nav-link js-scroll-trigger" href="#eficiencia">Eficiència</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="#who">Qui som</a>
@@ -67,7 +67,7 @@
           <div class="col-lg-8 mx-auto text-center">
             <h2 class="section-heading text-white"><strong>Comuniquem-nos</strong></h2>
             <hr class="light my-4">
-            <p class="text-faded mb-4"><strong>Coneixem la importància de una bona comunicació, per això aconseguim que empreses, institut i alumnes estiguin en contacte constant.</strong></p>
+            <p class="text-faded mb-4"><strong>Coneixem la importància d'una bona comunicació, per això aconseguim que empreses, institut i alumnes estiguin en contacte constant.</strong></p>
           </div>
         </div>
       </div>
@@ -101,7 +101,7 @@
             <div class="service-box mt-5 mx-auto">
               <i class="fas fa-4x fa-comments  text-primary mb-3 sr-icons"></i>
               <h3 class="mb-3">Contacta</h3>
-              <p class="text-muted mb-0">Mantingues contacte constant amb el institut. Ens encanta millorar!</p>
+              <p class="text-muted mb-0">Mantingues contacte constant amb l'institut. Ens encanta millorar!</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
@@ -150,7 +150,7 @@
             <div class="service-box mt-5 mx-auto">
               <i class="fa fa-4x fa-bolt  text-primary mb-3 sr-icons"></i>
               <h3 class="mb-3">Intuïtiu</h3>
-              <p class="text-muted mb-0">El temps es or. No et caldrà malgastar-lo adaptan-te al nostre entorn.</p>
+              <p class="text-muted mb-0">El temps és or. No et caldrà malgastar-lo adaptant-te al nostre entorn.</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
@@ -177,7 +177,7 @@
           <div class="col-lg-8 mx-auto text-center">
             <h2 class="section-heading text-white"><strong>Qui som?</strong></h2>
             <hr class="light my-4">
-            <p class="text-faded mb-4"><strong>Un equip d'estudiants de Desenvolupament d'aplicacions web del institut Vidal i Barraquer</strong></p>
+            <p class="text-faded mb-4"><strong>Un equip d'estudiants de Desenvolupament d'aplicacions web de l'institut Vidal i Barraquer</strong></p>
           </div>
         </div>
         <div class="row">
