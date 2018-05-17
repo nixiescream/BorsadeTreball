@@ -29,11 +29,12 @@ class HomeController extends Controller{
         }else{
             $user=Auth::user();
             
-            
             if($user->rol == "alumne"){
                 return redirect('/alumne/'.$user->id);
             } else if($user->rol == "empresa"){
         		return redirect('/empresa/'.$user->id);
+            } else if($user->rol == "validador"){
+                return redirect('/validador/'.$user->id);
             }
         }
     }
