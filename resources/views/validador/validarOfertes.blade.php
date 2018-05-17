@@ -89,19 +89,27 @@
             {{ csrf_field() }}
             <table class="table table-striped">
             	<thead class="thead-dark">
-                    <tr><td>id</td><td>Títol</td><td>Descripció</td><td>Sou</td><td>Horari</td><td>Estudis necessàris</td><td>Empresa</td></tr>
+                    <tr><td>id</td><td>Títol</td><td>Descripció</td><td>Sou</td><td>Horari</td><td>Estudis necessàris</td><td>Empresa</td><td>Validar</td></tr>
                 </thead>
                 <tbody>
                     <input type="hidden" value="{{ $validador->user_id }}" name="id">
                     @foreach($ofertes as $oferta)
                     <tr>
                         <td>{{$oferta->id}}</td>
-                        <td>{{$oferta-titol}}</td>
+                        <td>{{$oferta->titol}}</td>
                         <td>{{$oferta->descripcio}}</td>
                         <td>{{$oferta->sou}}</td>
                         <td>{{$oferta->horari}}</td>
-                        <td>{{$oferta->estudis_sigles}}</td>
-                        <td>{{$oferta->empresa_id}}</td>
+                        <td>@foreach($estudis as $estudi)
+                                                    @if($oferta->estudis_sigles == $estudi->sigles)
+                                                        {{ $estudi->nom }}
+                                                    @endif
+                                                    @endforeach</td>
+                        <td>@foreach($empreses as $empresa)
+                                                    @if($oferta->empresa_id == $empresa->user_id)
+                                                        {{ $empresa->empresa_nom }}
+                                                    @endif
+                                                    @endforeach</td>
                         <td><input type="checkbox" name="ofertes[]" value="{{$oferta->id}}"></td>
                     </tr>
                     @endforeach

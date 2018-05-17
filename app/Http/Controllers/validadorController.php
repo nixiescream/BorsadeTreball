@@ -9,6 +9,7 @@ use App\Alumne;
 use App\User;
 use App\Empresa;
 use App\Oferta;
+use App\Estudis;
 
 class validadorController extends Controller{
     public function __construct(){
@@ -101,7 +102,9 @@ class validadorController extends Controller{
         $id = $request->id;
         $validador = Validador::findOrFail($id);
         $ofertes = Oferta::where('validada', 0)->get();
-        return view('validador.validarOfertes')->with('validador',$validador)->with('ofertes',$ofertes);
+        $estudis = Estudis::all();
+        $empreses = Empresa::all();
+        return view('validador.validarOfertes')->with('validador',$validador)->with('ofertes',$ofertes)->with('estudis',$estudis)->with('empreses',$empreses);
     }
 
     public function validarOfertes(Request $request){
