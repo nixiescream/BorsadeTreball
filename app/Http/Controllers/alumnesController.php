@@ -90,4 +90,11 @@ class alumnesController extends Controller{
         $estudis = Estudis::all();
 		return view('alumne.llistarOfertaAlumne')->with('alumne',$alumne)->with('ofertes',$ofertes)->with('estudis',$estudis);
     }
+
+    public function aplicarOferta(Request $request){
+        $request->validate(['idA' => 'required',]);
+		$alumne = Alumne::findOrFail($request->idA);
+		$alumne->ofertes()->sync($request->oferta);
+        return redirect('/alumne/'.$id)->with('alumne',$alumne);
+    }
 }

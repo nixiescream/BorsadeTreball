@@ -32,7 +32,7 @@ class Alumne extends Model{
     }
 
     public function ofertes(){
-        return $this->hasMany('App\Oferta');
+        return $this->belongsToMany('App\Oferta');
     }
 
     public function estudi(){
