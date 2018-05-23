@@ -105,7 +105,7 @@
                                                         @endforeach</li>
                         </ul>
                         <br>
-                        <li class="list-group-item">Candidats</li>
+                        Candidats
                         @foreach($alumnes as $alumne)
                         <ul class="list-group">
                             <li class="list-group-item">{{ $alumne->alumne_nom }} {{ $alumne->alumne_cognom1 }} {{ $alumne->alumne_cognom2 }}</li>
