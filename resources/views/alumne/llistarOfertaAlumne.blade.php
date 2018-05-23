@@ -86,7 +86,8 @@
 </form>
 <div class="content container-fluid">
     @foreach($ofertes as $oferta)
-    @if($alumne->ofertes()->get() != $oferta)
+    @foreach($alumne->ofertes as $ofertaA)
+    @if($alumne->ofertes()->get()->isEmpty() || $ofertaA->pivot->oferta_id != $oferta->id)
     <div class="card border-info mb-3 rounded">
         <div class="card-header bg-info">
             {{ $oferta->titol }}
@@ -115,6 +116,7 @@
         </div>
     </div>
 @endif
+@endforeach
 @endforeach
 @if($ofertes->isEmpty())
 <h3>No hi ha ofertes disponibles</h3>
