@@ -7,7 +7,7 @@
         <li class="nav-item px-3">
         <li class="breadcrumb-item">Empresa</li>
         <li class="breadcrumb-item"><a href="{{ url('/empresa', $empresa->user_id) }}">{{ $empresa->empresa_nom }}</a></li>
-        <li class="breadcrumb-item active">Llistar ofertes</li>
+        <li class="breadcrumb-item active">Llistar ofertes (candidats)</li>
     </ul>
     <ul class="nav navbar-nav ml-auto">
         <li class="nav-item dropdown">
@@ -23,7 +23,8 @@
                 <a class="dropdown-item" href="{{ url('/empresa/editarEmpresa',$empresa->user_id) }}"><i class="fa fa-wrench"></i> Configuració</a>
                 <div class="divider"></div>
                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                         document.getElementById('logout-form').submit();"><i class="fa fa-lock"></i> Desconnecta</a><form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                         document.getElementById('logout-form').submit();"><i class="fa fa-lock"></i> Desconnecta</a>
+                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                          {{ csrf_field() }}
                      </form>
             </div>
@@ -39,7 +40,8 @@
       <nav class="sidebar-nav">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="{{ url('/empresa', $empresa->user_id) }}"><i class="icon-speedometer"></i> Panell d'usuari <span class="badge badge-primary">NEW</span></a>
+            <a class="nav-link" href="{{ url('/empresa', $empresa->user_id) }}"><i class="icon-speedometer"></i> Panell d'usuari
+                <span class="badge badge-primary">NEW</span></a>
           </li>
 
           <li class="nav-title">
@@ -87,38 +89,33 @@
     <input type="hidden" value="{{ $empresa->user_id }}" name="id">
 </form>
 <div class="content container-fluid">
-    @foreach($ofertes as $oferta)
     <div class="card border-info mb-3 rounded">
         <div class="card-header bg-info">
             {{ $oferta->titol }}
         </div>
         <div class="card-body">
-            <form method="POST" action="{{ url('empresa/candidats', $empresa->user_id) }}">
-                {{ csrf_field() }}
-                <input type="hidden" value="{{ $empresa->user_id }}" name="idE">
-                <input type="hidden" value="{{ $oferta->id }}" name="idO">
-                    <div class="card-body">
-                            <ul class="list-group">
-                                <li class="list-group-item">{{ $oferta->descripcio }}</li>
-                                <li class="list-group-item">{{ $oferta->sou }}€/hora</li>
-                                <li class="list-group-item">{{ $oferta->horari }}</li>
-                                <li class="list-group-item">{{ $oferta->tipus }}</li>
-                                <li class="list-group-item">@foreach($estudis as $estudi)
-                                                            @if($oferta->estudis_sigles == $estudi->sigles)
-                                                                {{ $estudi->nom }}
-                                                            @endif
-                                                            @endforeach</li>
-                            </ul>
-                            <br>
-                            <button type="submit" value="Candidats" class="btn btn-success">Candidats</button>
-                    </div>
-            </form>
+                <div class="card-body">
+                        <ul class="list-group">
+                            <li class="list-group-item">{{ $oferta->descripcio }}</li>
+                            <li class="list-group-item">{{ $oferta->sou }}€/hora</li>
+                            <li class="list-group-item">{{ $oferta->horari }}</li>
+                            <li class="list-group-item">{{ $oferta->tipus }}</li>
+                            <li class="list-group-item">@foreach($estudis as $estudi)
+                                                        @if($oferta->estudis_sigles == $estudi->sigles)
+                                                            {{ $estudi->nom }}
+                                                        @endif
+                                                        @endforeach</li>
+                        </ul>
+                        <br>
+                        Candidats
+                        @foreach($alumnes as $alumne)
+                        <ul class="list-group">
+                            <li class="list-group-item">{{ $alumne->alumne_nom }} {{ $alumne->alumne_cognom1 }} {{ $alumne->alumne_cognom2 }}</li>
+                        </ul>
+                        @endforeach
+                </div>
         </div>
     </div>
-@endforeach
-@if($ofertes->isEmpty())
-<h3>No hi ha ofertes</h3>
-@endif
 </div>
 @endsection
 

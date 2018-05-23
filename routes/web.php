@@ -31,6 +31,7 @@ Route::post('/empresa/editarEmpresa','empresesController@editarEmpresa')->middle
 Route::get('/empresa/crearOferta/{id}','empresesController@linkCrearOferta')->middleware('isEmpresa')->name('LinkCrearOferta');
 Route::post('/empresa/crearOferta','empresesController@crearOferta')->middleware('isEmpresa')->name('crearOferta');
 Route::get('/empresa/llistarOfertes/{id}','empresesController@llistarOfertes')->middleware('isEmpresa')->name('llistarOfertaEmpresa');
+Route::post('/empresa/candidats/{id}','empresesController@getCandidats')->middleware('isEmpresa')->name('getCandidats');
 
 //validador
 Route::get('/validador/{id}', 'validadorController@index')->middleware('isValidador')->name('validador');

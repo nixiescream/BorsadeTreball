@@ -108,6 +108,7 @@
                                                             @endforeach</li>
                             </ul>
                             <br>
+                            <button type="submit" value="Desaplicar" class="btn btn-danger">Desaplicar</button>
                     </div>
             </form>
         </div>

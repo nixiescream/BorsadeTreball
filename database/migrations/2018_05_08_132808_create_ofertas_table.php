@@ -23,8 +23,8 @@ class CreateOfertasTable extends Migration
             $table->string('estudis_sigles');
             $table->foreign('estudis_sigles')->references('sigles')->on('estudis');
             $table->integer('validada')->default(0);
-            $table->integer('empresa_id')->unsigned();
-            $table->foreign('empresa_id')->references('user_id')->on('empresas')->onDelete('cascade');
+            $table->integer('empresa_user_id')->unsigned();
+            $table->foreign('empresa_user_id')->references('user_id')->on('empresas')->onDelete('cascade');
             $table->timestamps();
         });
     }
