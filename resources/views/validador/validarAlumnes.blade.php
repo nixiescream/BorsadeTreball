@@ -111,7 +111,7 @@
                     @endforeach
                 </tbody>
             </table>
-            <input type='submit' value='assignar'>
+            <input type='submit' value='assignar'> 
         </form>
     </div>
 </div>

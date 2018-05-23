@@ -43,7 +43,6 @@ Route::post('/validador/validarEmpreses','validadorController@validarEmpreses')-
 Route::get('/validador/validarOfertes/{id}','validadorController@linkValidarOfertes')->middleware('isValidador')->name('linkValidarOfertes');
 Route::post('/validador/validarOfertes','validadorController@validarOfertes')->middleware('isValidador')->name('validarOfertes');
 
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
