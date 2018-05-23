@@ -112,4 +112,14 @@ class empresesController extends Controller{
         $estudis = Estudis::all();
 		return view('empresa.llistarOfertaEmpresa')->with('empresa',$empresa)->with('ofertes',$ofertes)->with('estudis',$estudis);
     }
+
+    public function getCandidats(Request $request){
+        $idE = $request->idE;
+        $idO = $request->idO;
+        $empresa = Empresa::findOrFail($idE);
+        $oferta = Oferta::findOrFail($idO);
+        $alumnes = $oferta->alumnes()->get();
+        $estudis = Estudis::all();
+        return view('empresa.candidats')->with('empresa',$empresa)->with('oferta',$oferta)->with('estudis',$estudis)->with('alumnes',$alumnes);
+    }
 }

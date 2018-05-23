@@ -93,9 +93,10 @@
             {{ $oferta->titol }}
         </div>
         <div class="card-body">
-            <form method="POST" action="{{ url('empresa/crearOferta') }}">
+            <form method="POST" action="{{ url('empresa/candidats', $empresa->user_id) }}">
                 {{ csrf_field() }}
-                <input type="hidden" value="{{ $empresa->user_id }}" name="id">
+                <input type="hidden" value="{{ $empresa->user_id }}" name="idE">
+                <input type="hidden" value="{{ $oferta->id }}" name="idO">
                     <div class="card-body">
                             <ul class="list-group">
                                 <li class="list-group-item">{{ $oferta->descripcio }}</li>
