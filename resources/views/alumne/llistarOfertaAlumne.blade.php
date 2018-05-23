@@ -86,6 +86,7 @@
 </form>
 <div class="content container-fluid">
     @foreach($ofertes as $oferta)
+    @if($alumne->ofertes()->get() != $oferta)
     <div class="card border-info mb-3 rounded">
         <div class="card-header bg-info">
             {{ $oferta->titol }}
@@ -113,6 +114,7 @@
             </form>
         </div>
     </div>
+@endif
 @endforeach
 @if($ofertes->isEmpty())
 <h3>No hi ha ofertes disponibles</h3>

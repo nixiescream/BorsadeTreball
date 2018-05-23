@@ -31,7 +31,7 @@ class Alumne extends Model{
     }
 
     public function ofertes(){
-        return $this->belongsToMany('App\Oferta','alumne_oferta','alumne_user_id','oferta_id');
+        return $this->belongsToMany('App\Oferta','alumne_oferta','alumne_user_id','oferta_id')->withPivot('alumne_user_id', 'oferta_id');
     }
 
     public function estudi(){
