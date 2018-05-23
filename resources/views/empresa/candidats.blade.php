@@ -23,7 +23,8 @@
                 <a class="dropdown-item" href="{{ url('/empresa/editarEmpresa',$empresa->user_id) }}"><i class="fa fa-wrench"></i> Configuració</a>
                 <div class="divider"></div>
                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                         document.getElementById('logout-form').submit();"><i class="fa fa-lock"></i> Desconnecta</a><form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                         document.getElementById('logout-form').submit();"><i class="fa fa-lock"></i> Desconnecta</a>
+                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                          {{ csrf_field() }}
                      </form>
             </div>
@@ -39,7 +40,8 @@
       <nav class="sidebar-nav">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="{{ url('/empresa', $empresa->user_id) }}"><i class="icon-speedometer"></i> Panell d'usuari <span class="badge badge-primary">NEW</span></a>
+            <a class="nav-link" href="{{ url('/empresa', $empresa->user_id) }}"><i class="icon-speedometer"></i> Panell d'usuari
+                <span class="badge badge-primary">NEW</span></a>
           </li>
 
           <li class="nav-title">
