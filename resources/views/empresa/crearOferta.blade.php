@@ -8,7 +8,7 @@
         <li class="nav-item px-3">
         <li class="breadcrumb-item">Empresa</li>
         <li class="breadcrumb-item"><a href="{{ url('/empresa', $empresa->user_id) }}">{{ $empresa->empresa_nom }}</a></li>
-        <li class="breadcrumb-item active">Dashboard</li>
+        <li class="breadcrumb-item active">Crear oferta</li>
     </ul>
     <ul class="nav navbar-nav ml-auto">
         <li class="nav-item dropdown">
