@@ -22,6 +22,7 @@ Route::get('/alumne/editarAlumne/{id}','alumnesController@linkEditarAlumne')->mi
 Route::post('/alumne/editarAlumne','alumnesController@editarAlumne')->middleware('isAlumne')->name('editarAlumne');
 Route::get('/alumne/llistarOfertes/{id}','alumnesController@llistarOfertes')->middleware('isAlumne')->name('llistarOfertaAlumne');
 Route::post('/alumne/aplicarOferta','alumnesController@aplicarOferta')->middleware('isAlumne')->name('aplicarOferta');
+Route::get('/alumne/ofertesAplicades/{id}','alumnesController@llistarOfertesAplicades')->middleware('isAlumne')->name('llistarOfertesAplicades');
 
 //empresa
 Route::get('/empresa/{id}', 'empresesController@index')->middleware('isEmpresa')->name('empresa');

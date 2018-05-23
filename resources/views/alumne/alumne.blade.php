@@ -54,7 +54,7 @@
           </li>
           <li class="nav-item">
             <a @if($alumne->alumne_validat == 1)
-                href="{{ url('/alumne/ofertesAplicades') }}"
+                href="{{ url('/alumne/ofertesAplicades', $alumne->user_id) }}"
                 class="nav-link"
             @endif
             @if($alumne->alumne_validat == 0)

@@ -83,6 +83,7 @@ class alumnesController extends Controller{
             return redirect('/alumne/'.$id)->with('alumne',$alumne);
         }
     }
+
     public function llistarOfertes(Request $request){
         $id = $request->id;
 		$alumne = Alumne::findOrFail($id);
@@ -97,5 +98,13 @@ class alumnesController extends Controller{
         $id = $request->idA;
 		$alumne->ofertes()->sync($request->idO);
         return redirect('/alumne/'.$id)->with('alumne',$alumne);
+    }
+
+    public function llistarOfertesAplicades(Request $request){
+        $id = $request->id;
+		$alumne = Alumne::findOrFail($id);
+        $ofertes = $alumne->ofertes()->get();
+        $estudis = Estudis::all();
+		return view('alumne.llistarOfertesAplicades')->with('alumne',$alumne)->with('ofertes',$ofertes)->with('estudis',$estudis);
     }
 }

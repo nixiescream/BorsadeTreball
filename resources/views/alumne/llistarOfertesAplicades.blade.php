@@ -7,7 +7,7 @@
         <li class="nav-item px-3">
         <li class="breadcrumb-item">Alumne</li>
         <li class="breadcrumb-item"><a href="{{ url('/alumne', $alumne->user_id) }}">{{ $alumne->alumne_nom }}</a></li>
-        <li class="breadcrumb-item active">Llistar ofertes</li>
+        <li class="breadcrumb-item active">Ofertes aplicades</li>
     </ul>
     <ul class="nav navbar-nav ml-auto">
         <li class="nav-item dropdown">
@@ -91,7 +91,7 @@
             {{ $oferta->titol }}
         </div>
         <div class="card-body">
-            <form method="POST" action="{{ url('/alumne/aplicarOferta') }}">
+            <form method="POST" action="{{ url('/alumne/#') }}">
                 {{ csrf_field() }}
                 <input type="hidden" value="{{ $alumne->user_id }}" name="idA">
                 <input type="hidden" value="{{ $oferta->id }}" name="idO">
@@ -108,7 +108,6 @@
                                                             @endforeach</li>
                             </ul>
                             <br>
-                            <button type="submit" value="aplicar" class="btn btn-success">Aplicar</button>
                     </div>
             </form>
         </div>
