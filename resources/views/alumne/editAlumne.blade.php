@@ -271,6 +271,13 @@
                                 <label class="form-check-label" for="disponibilitat2">No</label>
                             )
                             </div>
+
+                            <div class="form-check form-check-inline" enctype="multipart/form-data">
+                                <label for="upload_file" class="control-label col-sm-3">Selecciona fitxer</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="file" name="upload_file" id="upload_file">
+                                </div>
+                            </div>
                     </div>
             </div>
         <button type="submit" value="guardar" class="col-4 offset-md-4 btn btn-block btn-success">Guardar</button>
