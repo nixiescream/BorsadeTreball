@@ -13,3 +13,4 @@ yarn-error.log
 .env
 larave.log
 
+storage/logs/laravel.log
