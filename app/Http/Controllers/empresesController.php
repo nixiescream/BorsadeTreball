@@ -150,6 +150,7 @@ class empresesController extends Controller{
         $estudis = Estudis::all();
 		return view('empresa.llistarOfertaEmpresa')->with('empresa',$empresa)->with('ofertes',$ofertes)->with('estudis',$estudis);
     }
+    
 
     public function getCandidats(Request $request){
         $idE = $request->idE;
