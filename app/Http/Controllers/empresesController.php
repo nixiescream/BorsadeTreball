@@ -105,6 +105,44 @@ class empresesController extends Controller{
         return redirect('/empresa/'.$id)->with('empresa',$empresa);
     }
 
+    public function editarOfertaEmpresa(Request $request){
+        $request->validate([
+			'titol' => 'required|max:30',
+			'descripcio' => 'required',
+            'sou' => 'required',
+            'horari' => 'required',
+            'tipus' => 'required',
+			'estudis_emprats' => 'required'
+        ]);
+        $idE = $request->idE;
+        $idO = $request->idO;
+        $empresa = Empresa::findOrFail($idE);
+        $oferta = Oferta::findOrFail($idO);
+        $alumnes = $oferta->alumnes()->get();
+        $estudis = Estudis::all();
+        $id = $request->id;
+        $titol = $request->titol;
+        $descripcio = $request->descripcio;
+        $sou = $request->sou;
+        $horari = $request->horari;
+        $tipus = $request->tipus;
+        $estudis_emprats = $request->estudis_emprats;
+
+        $oferta = new Oferta;
+        $oferta->titol = $titol;
+        $oferta->descripcio = $descripcio;
+        $oferta->sou = $sou;
+        $oferta->horari = $horari;
+        $oferta->tipus = $tipus;
+        $oferta->estudis_sigles = $estudis_emprats;
+        $oferta->empresa_id = $id;
+        $oferta->save();
+
+        $empresa = Empresa::findOrFail($id);
+        return view('empresa.editarOferta')->with('empresa',$empresa)->with('oferta',$oferta)->with('estudis',$estudis);
+    }
+
+
     public function llistarOfertes(Request $request){
         $id = $request->id;
 		$empresa = Empresa::findOrFail($id);
