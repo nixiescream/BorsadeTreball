@@ -113,7 +113,7 @@
             </form>
         </div>
     </div>
-@endforeach
+    @endforeach
 @if($ofertes->isEmpty())
 <h3>No hi ha ofertes disponibles</h3>
 @endif

@@ -87,7 +87,7 @@ class alumnesController extends Controller{
     public function llistarOfertes(Request $request){
         $id = $request->id;
 		$alumne = Alumne::findOrFail($id);
-        $ofertes = Oferta::whereIn('estudis_sigles', $alumne)->get()->where('validada',1);
+        $ofertes = Oferta::whereIn('estudis_sigles', $alumne)->where('validada',1)->get();
         /*foreach ($ofertesA as $ofertaA) {
             $ofertes = $ofertesA->where('id','!=',$ofertaA->pivot->oferta_id);
         }*/
