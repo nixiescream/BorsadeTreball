@@ -111,6 +111,7 @@
                             </ul>
                             <br>
                             <button type="submit" value="Candidats" class="btn btn-success">Candidats</button>
+                            <button value="editar" class="btn btn-danger onclick="window.location='href="{{ url('/empresa/editarOferta', $empresa->user_id) }}"'>Editar Oferta</button>
                     </div>
             </form>
         </div>
