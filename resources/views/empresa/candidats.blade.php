@@ -1,4 +1,4 @@
-@extends('layouts.panel')
+secure_url@extends('layouts.panel')
 
 <!-- Barra Superior -->
 @section('header')
@@ -6,7 +6,7 @@
     <ul class="nav navbar-nav d-md-down-none">
         <li class="nav-item px-3">
         <li class="breadcrumb-item">Empresa</li>
-        <li class="breadcrumb-item"><a href="{{ url('/empresa', $empresa->user_id) }}">{{ $empresa->empresa_nom }}</a></li>
+        <li class="breadcrumb-item"><a href="{{ secure_url('/empresa', $empresa->user_id) }}">{{ $empresa->empresa_nom }}</a></li>
         <li class="breadcrumb-item active">Llistar ofertes (candidats)</li>
     </ul>
     <ul class="nav navbar-nav ml-auto">
@@ -18,9 +18,9 @@
                 <div class="dropdown-header text-center">
                     <strong>Compte</strong>
                 </div>
-                <a class="dropdown-item" href="{{ url('/empresa', $empresa->user_id) }}"><i class="fa fa-user"></i> Perfil</a>
+                <a class="dropdown-item" href="{{ secure_url('/empresa', $empresa->user_id) }}"><i class="fa fa-user"></i> Perfil</a>
                 <a class="dropdown-item" href="#"><i class="fa fa-comment"></i> Missatges<span class="badge badge-primary">42</span></a>
-                <a class="dropdown-item" href="{{ url('/empresa/editarEmpresa',$empresa->user_id) }}"><i class="fa fa-wrench"></i> Configuració</a>
+                <a class="dropdown-item" href="{{ secure_url('/empresa/editarEmpresa',$empresa->user_id) }}"><i class="fa fa-wrench"></i> Configuració</a>
                 <div class="divider"></div>
                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                          document.getElementById('logout-form').submit();"><i class="fa fa-lock"></i> Desconnecta</a>
@@ -40,7 +40,7 @@
       <nav class="sidebar-nav">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="{{ url('/empresa', $empresa->user_id) }}"><i class="icon-speedometer"></i> Panell d'usuari
+            <a class="nav-link" href="{{ secure_url('/empresa', $empresa->user_id) }}"><i class="icon-speedometer"></i> Panell d'usuari
                 <span class="badge badge-primary">NEW</span></a>
           </li>
 
@@ -48,7 +48,7 @@
             Perfil
           </li>
           <li class="nav-item">
-            <a href="{{ url('/empresa/editarEmpresa',$empresa->user_id) }}" class="nav-link" active><i class="icon-pencil"></i> Editar perfil</a>
+            <a href="{{ secure_url('/empresa/editarEmpresa',$empresa->user_id) }}" class="nav-link" active><i class="icon-pencil"></i> Editar perfil</a>
           </li>
 
           <li class="nav-title">
@@ -56,7 +56,7 @@
           </li>
           <li class="nav-item">
             <a @if($empresa->empresa_validat == 1)
-                href="{{ url('/empresa/crearOferta', $empresa->user_id) }}"
+                href="{{ secure_url('/empresa/crearOferta', $empresa->user_id) }}"
                 class="nav-link"
             @endif
             @if($empresa->empresa_validat == 0)
@@ -70,7 +70,7 @@
           </li>
           <li class="nav-item">
             <a @if($empresa->empresa_validat == 1)
-                href="{{ url('/empresa/llistarOfertes', $empresa->user_id) }}"
+                href="{{ secure_url('/empresa/llistarOfertes', $empresa->user_id) }}"
                 class="nav-link"
             @endif
             @if($empresa->empresa_validat == 0)
@@ -84,7 +84,7 @@
 @endsection
 
 @section('content')
-<form method="post" action="{{ url('/empresa') }}">
+<form method="post" action="{{ secure_url('/empresa') }}">
     {{ csrf_field() }}
     <input type="hidden" value="{{ $empresa->user_id }}" name="id">
 </form>

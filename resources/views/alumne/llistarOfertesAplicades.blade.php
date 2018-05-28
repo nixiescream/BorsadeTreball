@@ -6,7 +6,7 @@
     <ul class="nav navbar-nav d-md-down-none">
         <li class="nav-item px-3">
         <li class="breadcrumb-item">Alumne</li>
-        <li class="breadcrumb-item"><a href="{{ url('/alumne', $alumne->user_id) }}">{{ $alumne->alumne_nom }}</a></li>
+        <li class="breadcrumb-item"><a href="{{ secure_url('/alumne', $alumne->user_id) }}">{{ $alumne->alumne_nom }}</a></li>
         <li class="breadcrumb-item active">Ofertes aplicades</li>
     </ul>
     <ul class="nav navbar-nav ml-auto">
@@ -39,14 +39,14 @@
       <nav class="sidebar-nav">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="{{ url('/alumne', $alumne->user_id) }}"><i class="icon-speedometer"></i> Panell d'usuari <span class="badge badge-primary">NEW</span></a>
+            <a class="nav-link" href="{{ secure_url('/alumne', $alumne->user_id) }}"><i class="icon-speedometer"></i> Panell d'usuari <span class="badge badge-primary">NEW</span></a>
           </li>
 
           <li class="nav-title">
             Perfil
           </li>
           <li class="nav-item">
-            <a href="{{ url('/alumne/editarAlumne',$alumne->user_id) }}" class="nav-link" active><i class="icon-pencil"></i> Editar perfil</a>
+            <a href="{{ secure_url('/alumne/editarAlumne',$alumne->user_id) }}" class="nav-link" active><i class="icon-pencil"></i> Editar perfil</a>
           </li>
 
           <li class="nav-title">
@@ -54,7 +54,7 @@
           </li>
           <li class="nav-item">
             <a @if($alumne->alumne_validat == 1)
-                href="{{ url('/alumne/ofertesAplicades', $alumne->user_id) }}"
+                href="{{ secure_url('/alumne/ofertesAplicades', $alumne->user_id) }}"
                 class="nav-link"
             @endif
             @if($alumne->alumne_validat == 0)
@@ -67,7 +67,7 @@
           </li>
           <li class="nav-item">
             <a @if($alumne->alumne_validat == 1)
-                href="{{ url('/alumne/llistarOfertes', $alumne->user_id) }}"
+                href="{{ secure_url('/alumne/llistarOfertes', $alumne->user_id) }}"
                 class="nav-link"
             @endif
             @if($alumne->alumne_validat == 0)
@@ -80,7 +80,7 @@
 @endsection
 
 @section('content')
-<form method="post" action="{{ url('/alumne') }}">
+<form method="post" action="{{ secure_url('/alumne') }}">
     {{ csrf_field() }}
     <input type="hidden" value="{{ $alumne->user_id }}" name="id">
 </form>
@@ -91,7 +91,7 @@
             {{ $oferta->titol }}
         </div>
         <div class="card-body">
-            <form method="POST" action="{{ url('/alumne/#') }}">
+            <form method="POST" action="{{ secure_url('/alumne/#') }}">
                 {{ csrf_field() }}
                 <input type="hidden" value="{{ $alumne->user_id }}" name="idA">
                 <input type="hidden" value="{{ $oferta->id }}" name="idO">

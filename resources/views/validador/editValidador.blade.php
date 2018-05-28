@@ -6,7 +6,7 @@
     <ul class="nav navbar-nav d-md-down-none">
         <li class="nav-item px-3">
         <li class="breadcrumb-item">Validador</li>
-        <li class="breadcrumb-item"><a href="{{ url('/validador', $validador->user_id) }}">{{ $validador->email }}</a></li>
+        <li class="breadcrumb-item"><a href="{{ secure_url('/validador', $validador->user_id) }}">{{ $validador->email }}</a></li>
         <li class="breadcrumb-item active">Dashboard</li>
     </ul>
     <ul class="nav navbar-nav ml-auto">
@@ -18,9 +18,9 @@
                 <div class="dropdown-header text-center">
                     <strong>Compte</strong>
                 </div>
-                <a class="dropdown-item" href="{{ url('/validador', $validador->user_id) }}"><i class="fa fa-user"></i> Perfil</a>
+                <a class="dropdown-item" href="{{ secure_url('/validador', $validador->user_id) }}"><i class="fa fa-user"></i> Perfil</a>
                 <a class="dropdown-item" href="#"><i class="fa fa-comment"></i> Missatges<span class="badge badge-primary">42</span></a>
-                <a class="dropdown-item" href="{{ url('/validador/editarValidador',$validador->user_id) }}"><i class="fa fa-wrench"></i> Configuració</a>
+                <a class="dropdown-item" href="{{ secure_url('/validador/editarValidador',$validador->user_id) }}"><i class="fa fa-wrench"></i> Configuració</a>
                 <div class="divider"></div>
                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                          document.getElementById('logout-form').submit();"><i class="fa fa-lock"></i> Desconnecta</a><form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -39,31 +39,31 @@
       <nav class="sidebar-nav">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="{{ url('/validador', $validador->user_id) }}"><i class="icon-speedometer"></i> Panell d'usuari <span class="badge badge-primary">NEW</span></a>
+            <a class="nav-link" href="{{ secure_url('/validador', $validador->user_id) }}"><i class="icon-speedometer"></i> Panell d'usuari <span class="badge badge-primary">NEW</span></a>
           </li>
 
           <li class="nav-title">
             Perfil
           </li>
           <li class="nav-item">
-            <a href="{{ url('/validador/editarValidador',$validador->user_id) }}" class="nav-link" active><i class="icon-pencil"></i> Editar perfil</a>
+            <a href="{{ secure_url('/validador/editarValidador',$validador->user_id) }}" class="nav-link" active><i class="icon-pencil"></i> Editar perfil</a>
           </li>
 
           <li class="nav-title">
             Usuaris
           </li>
           <li class="nav-item">
-            <a href="{{ url('/validador/validarAlumnes', $validador->user_id) }}" class="nav-link"><i class="icon-list"></i> Validar alumnes </a>
+            <a href="{{ secure_url('/validador/validarAlumnes', $validador->user_id) }}" class="nav-link"><i class="icon-list"></i> Validar alumnes </a>
           </li>
           <li class="nav-item">
-            <a href="{{ url('/validador/validarEmpreses', $validador->user_id) }}" class="nav-link"><i class="icon-list"></i> Validar empreses </a>
+            <a href="{{ secure_url('/validador/validarEmpreses', $validador->user_id) }}" class="nav-link"><i class="icon-list"></i> Validar empreses </a>
           </li>
 
           <li class="nav-title">
             Ofertes
           </li>
           <li class="nav-item">
-            <a href="{{ url('/validador/validarOfertes', $validador->user_id) }}" class="nav-link"><i class="icon-graph"></i> Validar ofertes </a>
+            <a href="{{ secure_url('/validador/validarOfertes', $validador->user_id) }}" class="nav-link"><i class="icon-graph"></i> Validar ofertes </a>
           </li>
         </ul>
       </nav>
@@ -72,7 +72,7 @@
 
 <!-- Contingut central -->
 @section('content')
-<form method="post" action="{{ url('/validador') }}">
+<form method="post" action="{{ secure_url('/validador') }}">
     {{ csrf_field() }}
     <input type="hidden" value="{{ $validador->user_id }}" name="id">
 </form>
@@ -82,7 +82,7 @@
             Editar Perfil
         </div>
         <div class="card-body">
-            <form method="POST" action="{{ url('validador/editarAlumne') }}">
+            <form method="POST" action="{{ secure_url('validador/editarAlumne') }}">
                 {{ csrf_field() }}
                 <input type="hidden" value="{{ $validador->user_id }}" name="id">
                 <div class="card">
