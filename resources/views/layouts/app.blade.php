@@ -10,7 +10,7 @@
         <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
         <link href="{{ secure_asset('vendor/simple-line-icons.min.css') }}" rel="stylesheet">
         <script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-
+        <script src='https://www.google.com/recaptcha/api.js'></script>
         <link href="{{ secure_asset('css/style.css') }}" rel="stylesheet">
         <link href="{{ secure_asset('css/login.css') }}" rel="stylesheet">
     </head>

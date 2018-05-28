@@ -7,11 +7,11 @@
         <div class="col-md-8">
             <div class="card-group">
                 <div class="card p-4">
-                <a class="btn btn-secondary" href="{{ url('/') }}">Home</a>
+                <a class="btn btn-secondary" href="{{ secure_url('/') }}">Home</a>
                     <div class="card-body">
                         <h1>Inicia Sessió</h1>
                         <p class="text-muted">Benvingut!</p>
-                        <form action="{{ url('login') }}" method="POST">
+                        <form action="{{ secure_url('login') }}" method="POST">
                             {{ csrf_field() }}
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
@@ -52,9 +52,9 @@
                                 <div class="col-4">
                                     <button type="submit" value="login" class="btn btn-primary px-4">Login</button>
                                 </div>
-                                <div class="g-recaptcha" data-sitekey="6LdDBloUAAAAAEcywmeKb64fumvSCk-Uvz5RmfN9"></div>
+                                <div class="g-recaptcha" data-sitekey="6Lfg81sUAAAAAJQcwhEq_awlX4__UKTpy1ssFSo5"></div>
                                 <div class="col-3 text-right">
-                                    <a class="btn btn-secondary px-2" href="{{ url('password.request') }}">Has oblidat la teva contrasenya?</a>
+                                    <a class="btn btn-secondary px-2" href="{{ secure_url('password.request') }}">Has oblidat la teva contrasenya?</a>
                                 </div>
                             </div>
                         </form>
@@ -65,7 +65,7 @@
                         <div>
                             <h2>Registra't</h2>
                             <p>Registra't a la nostra plataforma</p>
-                            <button type="button" class="btn btn-primary active mt-3" onclick="window.location='{{ url('register') }}'" id="linkRegister">Registra't ara!</button>
+                            <button type="button" class="btn btn-primary active mt-3" onclick="window.location='{{ secure_url('register') }}'" id="linkRegister">Registra't ara!</button>
                         </div>
                     </div>
                 </div>
