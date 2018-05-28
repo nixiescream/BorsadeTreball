@@ -1,4 +1,4 @@
-<html>
+<html lang="<?php echo e(app()->getLocale()); ?>">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,10 +8,10 @@
 
   <script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-  <link href="<?php echo e(asset('vendor/simple-line-icons.min.css')); ?>" rel="stylesheet">
+  <link href="<?php echo e(secure_asset('vendor/simple-line-icons.min.css')); ?>" rel="stylesheet">
 
-  <link href="<?php echo e(asset('css/style.css')); ?>" rel="stylesheet">
-  <link href="<?php echo e(asset('css/edit.css')); ?>" rel="stylesheet">
+  <link href="<?php echo e(secure_asset('css/style.css')); ?>" rel="stylesheet">
+  <link href="<?php echo e(secure_asset('css/edit.css')); ?>" rel="stylesheet">
 
 </head>
 <body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
@@ -39,17 +39,17 @@
   <?php echo $__env->yieldContent('footer'); ?>
 
   <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
-  <!--<script src="<?php echo e(asset('vendor/jquery.min.js')); ?>"></script>-->
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <!--<script type="text/javascript" src="<?php echo e(asset('javascript/app.js')); ?>"></script>-->
-  <script src="<?php echo e(asset('vendor/popper.min.js')); ?>"></script>
-  <script src="<?php echo e(asset('vendor/bootstrap.min.js')); ?>"></script>
-  <script src="<?php echo e(asset('vendor/pace.min.js')); ?>"></script>
+  <!--<script src="<?php echo e(secure_asset('vendor/jquery.min.js')); ?>"></script>-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <!--<script type="text/javascript" src="<?php echo e(secure_asset('javascript/app.js')); ?>"></script>-->
+  <script src="<?php echo e(secure_asset('vendor/popper.min.js')); ?>"></script>
+  <script src="<?php echo e(secure_asset('vendor/bootstrap.min.js')); ?>"></script>
+  <script src="<?php echo e(secure_asset('vendor/pace.min.js')); ?>"></script>
 
-  <script src="<?php echo e(asset('vendor/Chart.min.js')); ?>"></script>
-  <script src="<?php echo e(asset('javascript/editable.js')); ?>"></script>
+  <script src="<?php echo e(secure_asset('vendor/Chart.min.js')); ?>"></script>
+  <script src="<?php echo e(secure_asset('javascript/editable.js')); ?>"></script>
   <!--<script src="https://npmcdn.com/bootstrap@4.0.0-alpha.5/dist/js/bootstrap.min.js"></script>-->
-  <!--<script src="<?php echo e(asset('js/app.js')); ?>"></script>-->
+  <!--<script src="<?php echo e(secure_asset('js/app.js')); ?>"></script>-->
 
 
 </body>

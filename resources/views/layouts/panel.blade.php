@@ -40,7 +40,7 @@
 
   <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
   <!--<script src="{{ secure_asset('vendor/jquery.min.js') }}"></script>-->
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <!--<script type="text/javascript" src="{{ secure_asset('javascript/app.js') }}"></script>-->
   <script src="{{ secure_asset('vendor/popper.min.js') }}"></script>
   <script src="{{ secure_asset('vendor/bootstrap.min.js') }}"></script>
