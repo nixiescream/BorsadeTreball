@@ -1,4 +1,4 @@
-secure_url@extends('layouts.panel')
+@extends('layouts.panel')
 
 
 <!-- Barra Superior -->
