@@ -52,7 +52,6 @@
                                 <div class="col-4">
                                     <button type="submit" value="login" class="btn btn-primary px-4">Login</button>
                                 </div>
-                                <div class="g-recaptcha" data-sitekey="6Lfg81sUAAAAAJQcwhEq_awlX4__UKTpy1ssFSo5"></div>
                                 <div class="col-3 text-right">
                                     <a class="btn btn-secondary px-2" href="{{ secure_url('password.request') }}">Has oblidat la teva contrasenya?</a>
                                 </div>

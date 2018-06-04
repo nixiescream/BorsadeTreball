@@ -7,11 +7,11 @@
         <div class="col-md-8">
             <div class="card-group">
                 <div class="card p-4">
-                <a class="btn btn-secondary" href="<?php echo e(url('/')); ?>">Home</a>
+                <a class="btn btn-secondary" href="<?php echo e(secure_url('/')); ?>">Home</a>
                     <div class="card-body">
                         <h1>Inicia Sessió</h1>
                         <p class="text-muted">Benvingut!</p>
-                        <form action="<?php echo e(url('login')); ?>" method="POST">
+                        <form action="<?php echo e(secure_url('login')); ?>" method="POST">
                             <?php echo e(csrf_field()); ?>
 
                             <div class="input-group mb-3">
@@ -53,9 +53,8 @@
                                 <div class="col-4">
                                     <button type="submit" value="login" class="btn btn-primary px-4">Login</button>
                                 </div>
-                                <div class="g-recaptcha" data-sitekey="6LdDBloUAAAAAEcywmeKb64fumvSCk-Uvz5RmfN9"></div>
                                 <div class="col-3 text-right">
-                                    <a class="btn btn-secondary px-2" href="<?php echo e(url('password.request')); ?>">Has oblidat la teva contrasenya?</a>
+                                    <a class="btn btn-secondary px-2" href="<?php echo e(secure_url('password.request')); ?>">Has oblidat la teva contrasenya?</a>
                                 </div>
                             </div>
                         </form>
@@ -66,7 +65,7 @@
                         <div>
                             <h2>Registra't</h2>
                             <p>Registra't a la nostra plataforma</p>
-                            <button type="button" class="btn btn-primary active mt-3" onclick="window.location='<?php echo e(url('register')); ?>'" id="linkRegister">Registra't ara!</button>
+                            <button type="button" class="btn btn-primary active mt-3" onclick="window.location='<?php echo e(secure_url('register')); ?>'" id="linkRegister">Registra't ara!</button>
                         </div>
                     </div>
                 </div>

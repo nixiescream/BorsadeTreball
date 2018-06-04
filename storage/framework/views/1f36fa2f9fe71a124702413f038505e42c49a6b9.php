@@ -99,6 +99,9 @@
                                         </div>
                                         <input type="password" class="form-control" placeholder="Repeteix la contrasenya" name="password_confirmation" required>
                                     </div>
+                                    <div class="input-group mb-4">
+                                        <div class="g-recaptcha" data-sitekey="6Lfg81sUAAAAAJQcwhEq_awlX4__UKTpy1ssFSo5"></div>
+                                    </div>
                                 <button type="submit" value="register" class="btn btn-block btn-success">Crear compte</button>
                             </div>
                         </form>
