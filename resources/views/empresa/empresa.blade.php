@@ -185,7 +185,6 @@
 
 @section('footer')
 <footer class="app-footer">
-    <span>Enborsa't &copy;.</span>
-    <span class="ml-auto">Powered by <a href="#">Enborsa't</a></span>
+    <span class="ml-auto">INS F. Vidal i Barraquer &copy;.</span>
   </footer>
 @endsection

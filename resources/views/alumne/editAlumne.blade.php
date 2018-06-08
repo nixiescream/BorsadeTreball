@@ -179,7 +179,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-lock"></i></span>
                                 </div>
-                                <input type="password" class="form-control" placeholder="Password" name="password" required>
+                                <input type="password" class="form-control" placeholder="Password" name="password">
                                 @if ($errors->has('password'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
@@ -209,7 +209,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-lock"></i></span>
                                 </div>
-                                <input type="password" class="form-control" placeholder="Repeat password" name="password_confirmation" required>
+                                <input type="password" class="form-control" placeholder="Repeat password" name="password_confirmation">
                             </div>
 
                             <!-- BIOGRAFIA -->
@@ -224,29 +224,6 @@
                                     </span>
                                 @endif
                             </div>
-
-                            <!--<div class="input-group mb-3">
-                                <select class="custom-select col-md-4" id="menu1" onChange="carregarElements(this.value)">
-                                    <option value="AG">Família Administració i Gestió</option>
-                                    <option value="CM">Família Comerç i Màrketing</option>
-                                    <option value="IC">Família Informàtia i Comunicacions</option>
-                                    <option value="SC">Família de Serveis a la Comunitat</option>
-                                </select>
-                                <select class="custom-select col-md-4" id="menu2">
-                                    <option value=""></option>
-                                </select>
-                                @if ($errors->has('estudis2'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('estudis') }}</strong>
-                                    </span>
-                                @endif
-                                @if ($errors->has('estudis'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('estudis') }}</strong>
-                                    </span>
-                                @endif
-                            </div>-->
-
 
                             <div class="offset-md-2 form-check form-check-inline">
                             Tens carnet? (
@@ -272,12 +249,12 @@
                             )
                             </div>
 
-                            <div class="form-check form-check-inline" enctype="multipart/form-data">
+                            <!--<div class="form-check form-check-inline" enctype="multipart/form-data">
                                 <label for="upload_file" class="control-label col-sm-3">Selecciona fitxer</label>
                                 <div class="col-sm-9">
                                     <input class="form-control" type="file" name="upload_file" id="upload_file">
                                 </div>
-                            </div>
+                            </div>-->
                     </div>
             </div>
         <button type="submit" value="guardar" class="col-4 offset-md-4 btn btn-block btn-success">Guardar</button>
@@ -287,7 +264,6 @@
 
 @section('footer')
 <footer class="app-footer">
-    <span>Enborsa't &copy;.</span>
-    <span class="ml-auto">Powered by <a href="#">Enborsa't</a></span>
+    <span class="ml-auto">INS F. Vidal i Barraquer &copy;.</span>
   </footer>
 @endsection
