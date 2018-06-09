@@ -12,15 +12,13 @@
     <ul class="nav navbar-nav ml-auto">
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-            <i class="far fa-user"></i><span class="badge badge-pill badge-danger" alt="{{ Auth::user()->email }}">5</span></a>
-            </a>
+            <i class="far fa-user"></i></a>
             <div class="dropdown-menu dropdown-menu-right">
                 <div class="dropdown-header text-center">
                     <strong>Compte</strong>
                 </div>
-                <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Perfil</a>
-                <a class="dropdown-item" href="#"><i class="fa fa-comment"></i> Missatges<span class="badge badge-primary">42</span></a>
-                <a class="dropdown-item" href="#"><i class="fa fa-wrench"></i> Configuració</a>
+                <a class="dropdown-item" href="{{ secure_url('/alumne', $alumne->user_id) }}"><i class="fa fa-user"></i> Perfil</a>
+                <a class="dropdown-item" href="{{ secure_url('/alumne/editarAlumne',$alumne->user_id) }}"><i class="fa fa-wrench"></i> Editar perfil</a>
                 <div class="divider"></div>
                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                          document.getElementById('logout-form').submit();"><i class="fa fa-lock"></i> Desconnecta</a><form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -39,7 +37,7 @@
       <nav class="sidebar-nav">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="{{ secure_url('/alumne', $alumne->user_id) }}"><i class="icon-speedometer"></i> Panell d'usuari <span class="badge badge-primary">NEW</span></a>
+            <a class="nav-link" href="{{ secure_url('/alumne', $alumne->user_id) }}"><i class="icon-speedometer"></i> Panell d'usuari </a>
           </li>
 
           <li class="nav-title">
@@ -108,7 +106,7 @@
                                                             @endforeach</li>
                             </ul>
                             <br>
-                            <button type="submit" value="aplicar" class="btn btn-success">Aplicar</button>
+                            <button type="submit" value="aplicar" class="btn btn-success">Inscriure's</button>
                     </div>
             </form>
         </div>
