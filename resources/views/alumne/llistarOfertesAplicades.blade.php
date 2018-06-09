@@ -31,7 +31,6 @@
 @endsection
 
 <!-- Barra lateral -->
-
 @section('sidebar')
 <div class="sidebar">
       <nav class="sidebar-nav">
