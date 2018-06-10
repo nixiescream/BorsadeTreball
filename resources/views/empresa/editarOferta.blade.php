@@ -109,7 +109,7 @@
                                 @endif
                             </div>
                             <div class="col-md-12 input-group mb-3 {{ $errors->has('descripcio') ? ' has-error' : '' }}">
-                                <textarea class="form-control" name="descripcio" placeholder="Descripció" rows="3"></textarea>
+                                <textarea class="form-control" name="descripcio" placeholder="Descripció" rows="3">{{ $oferta->descripcio }}</textarea>
                                 @if($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>

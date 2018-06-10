@@ -140,6 +140,7 @@ class empresesController extends Controller{
         $oferta->tipus = $tipus;
         $oferta->estudis_sigles = $estudis_emprats;
         $oferta->empresa_id = $idE;
+        $oferta->validada = 0;
         $oferta->save();
 
         $empresa = Empresa::findOrFail($idE);
