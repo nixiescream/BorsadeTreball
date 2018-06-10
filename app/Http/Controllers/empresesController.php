@@ -74,6 +74,15 @@ class empresesController extends Controller{
         return view('empresa.crearOferta')->with('empresa',$empresa)->with('estudis',$estudis);
     }
 
+    public function linkEditarOferta(Request $request){
+        $idE = $request->idE;
+        $idO = $request->idO;
+        $empresa = Empresa::findOrFail($idE);
+        $oferta = Oferta::findOrFail($idO);
+        $estudis = Estudis::all();
+        return view('empresa.editarOferta')->with('empresa',$empresa)->with('oferta',$oferta)->with('estudis',$estudis);
+    }
+
     public function crearOferta(Request $request){
         $request->validate([
 			'titol' => 'required|max:30',
@@ -116,11 +125,6 @@ class empresesController extends Controller{
         ]);
         $idE = $request->idE;
         $idO = $request->idO;
-        $empresa = Empresa::findOrFail($idE);
-        $oferta = Oferta::findOrFail($idO);
-        $alumnes = $oferta->alumnes()->get();
-        $estudis = Estudis::all();
-        $id = $request->id;
         $titol = $request->titol;
         $descripcio = $request->descripcio;
         $sou = $request->sou;
@@ -128,18 +132,20 @@ class empresesController extends Controller{
         $tipus = $request->tipus;
         $estudis_emprats = $request->estudis_emprats;
 
-        $oferta = new Oferta;
+        $oferta = Oferta::findOrFail($idO);
         $oferta->titol = $titol;
         $oferta->descripcio = $descripcio;
         $oferta->sou = $sou;
         $oferta->horari = $horari;
         $oferta->tipus = $tipus;
         $oferta->estudis_sigles = $estudis_emprats;
-        $oferta->empresa_id = $id;
+        $oferta->empresa_id = $idE;
         $oferta->save();
 
-        $empresa = Empresa::findOrFail($id);
-        return view('empresa.editarOferta')->with('empresa',$empresa)->with('oferta',$oferta)->with('estudis',$estudis);
+        $empresa = Empresa::findOrFail($idE);
+        $ofertes = Oferta::whereIn('empresa_id', $empresa)->get();
+        $estudis = Estudis::all();
+        return redirect('/empresa/llistarOfertes/'.$idE)->with('empresa',$empresa)->with('ofertes',$ofertes);
     }
 
 
@@ -150,7 +156,17 @@ class empresesController extends Controller{
         $estudis = Estudis::all();
 		return view('empresa.llistarOfertaEmpresa')->with('empresa',$empresa)->with('ofertes',$ofertes)->with('estudis',$estudis);
     }
-    
+
+    public function esborrarOferta(Request $request){
+        $idE = $request->idE;
+        $idO = $request->idO;
+		$oferta = Oferta::findOrFail($idO);
+		$oferta->delete();
+        $empresa = Empresa::findOrFail($idE);
+        $ofertes = Oferta::whereIn('empresa_id', $empresa)->get();
+        $estudis = Estudis::all();
+		return redirect('/empresa/llistarOfertes/'.$idE)->with('empresa',$empresa)->with('ofertes',$ofertes);
+	}
 
     public function getCandidats(Request $request){
         $idE = $request->idE;

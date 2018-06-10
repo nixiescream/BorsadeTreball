@@ -8,7 +8,7 @@
         <li class="nav-item px-3">
         <li class="breadcrumb-item">Empresa</li>
         <li class="breadcrumb-item"><a href="{{ secure_url('/empresa', $empresa->user_id) }}">{{ $empresa->empresa_nom }}</a></li>
-        <li class="breadcrumb-item active">Crear oferta</li>
+        <li class="breadcrumb-item active">Editar oferta</li>
     </ul>
     <ul class="nav navbar-nav ml-auto">
         <li class="nav-item dropdown">
@@ -91,17 +91,18 @@
             Crear oferta
         </div>
         <div class="card-body">
-            <form method="POST" action="{{ secure_url('empresa/crearOferta') }}">
+            <form method="POST" action="{{ secure_url('empresa/editarOferta') }}">
                 {{ csrf_field() }}
-                <input type="hidden" value="{{ $empresa->user_id }}" name="id">
+                <input type="hidden" value="{{ $empresa->user_id }}" name="idE">
+                <input type="hidden" value="{{ $oferta->id }}" name="idO">
                 <div class="card">
                         <div class="row card-body">
                             <div class="col-md-12 input-group mb-3 {{ $errors->has('titol') ? ' has-error' : '' }}">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-user"></i></span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Títol" name="titol" value="{{ empresa->titol }}" required autofocus>
-                                @if ($errors->has('name'))
+                                <input type="text" class="form-control" placeholder="Títol" name="titol" value="{{ $oferta->titol }}" required autofocus>
+                                @if($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
                                     </span>
@@ -109,7 +110,7 @@
                             </div>
                             <div class="col-md-12 input-group mb-3 {{ $errors->has('descripcio') ? ' has-error' : '' }}">
                                 <textarea class="form-control" name="descripcio" placeholder="Descripció" rows="3"></textarea>
-                                @if ($errors->has('name'))
+                                @if($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
                                     </span>
@@ -119,7 +120,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">$$</span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Salari" name="sou" value="{{ old('sou') }}" required>
+                                <input type="text" class="form-control" placeholder="Salari" name="sou" value="{{ $oferta->sou }}" required>
                                 @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
@@ -128,9 +129,9 @@
                             </div>
                             <div class="col-md-6 input-group mb-3 {{ $errors->has('horari') ? ' has-error' : '' }}">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text">@</span>
+                                    <span class="input-group-text">#</span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Horari" name="horari" value="{{ old('horari') }}" required>
+                                <input type="text" class="form-control" placeholder="Horari" name="horari" value="{{ $oferta->horari }}" required>
                                 @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
@@ -141,7 +142,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-user"></i></span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Tipus de feina" name="tipus" value="{{ old('tipus') }}" required>
+                                <input type="text" class="form-control" placeholder="Tipus de feina" name="tipus" value="{{ $oferta->tipus }}" required>
                                 @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
@@ -154,7 +155,11 @@
                                 </div>
                                 <select name="estudis_emprats" class="custom-select form-control">
                                     @foreach($estudis as $estudi)
-                                        <option value="{{ $estudi->sigles }}">
+                                    @if($estudi->sigles == $oferta->estudis_sigles)
+                    				<option value="{{ $estudi->sigles }}" selected>
+                    				@else
+                    					<option value="{{ $estudi->sigles }}">
+                    				@endif
                                     {{ $estudi->nom }}</option>
                                     @endforeach
                                 </select>

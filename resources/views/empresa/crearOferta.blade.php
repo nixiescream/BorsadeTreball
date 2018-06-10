@@ -101,7 +101,7 @@
                                     <span class="input-group-text"><i class="icon-user"></i></span>
                                 </div>
                                 <input type="text" class="form-control" placeholder="Títol" name="titol" value="{{ old('titol') }}" required autofocus>
-                                @if ($errors->has('name'))
+                                @if($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
                                     </span>
@@ -109,7 +109,7 @@
                             </div>
                             <div class="col-md-12 input-group mb-3 {{ $errors->has('descripcio') ? ' has-error' : '' }}">
                                 <textarea class="form-control" name="descripcio" placeholder="Descripció" rows="3"></textarea>
-                                @if ($errors->has('name'))
+                                @if($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
                                     </span>
@@ -120,7 +120,7 @@
                                     <span class="input-group-text">$$</span>
                                 </div>
                                 <input type="text" class="form-control" placeholder="Salari" name="sou" value="{{ old('sou') }}" required>
-                                @if ($errors->has('name'))
+                                @if($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
                                     </span>
@@ -131,7 +131,7 @@
                                     <span class="input-group-text">@</span>
                                 </div>
                                 <input type="text" class="form-control" placeholder="Horari" name="horari" value="{{ old('horari') }}" required>
-                                @if ($errors->has('name'))
+                                @if($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
                                     </span>
@@ -142,7 +142,7 @@
                                     <span class="input-group-text"><i class="icon-user"></i></span>
                                 </div>
                                 <input type="text" class="form-control" placeholder="Tipus de feina" name="tipus" value="{{ old('tipus') }}" required>
-                                @if ($errors->has('name'))
+                                @if($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
                                     </span>
