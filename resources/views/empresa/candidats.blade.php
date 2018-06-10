@@ -105,11 +105,17 @@
                         </ul>
                         <br>
                         Candidats
+                        @if($alumnes->isEmpty())
+                        <ul class="list-group">
+                            <li class="list-group-item">No hi ha alumnes</li>
+                        </ul>
+                        @else
                         @foreach($alumnes as $alumne)
                         <ul class="list-group">
                             <li class="list-group-item">{{ $alumne->alumne_nom }} {{ $alumne->alumne_cognom1 }} {{ $alumne->alumne_cognom2 }}</li>
                         </ul>
                         @endforeach
+                        @endif
                 </div>
         </div>
     </div>

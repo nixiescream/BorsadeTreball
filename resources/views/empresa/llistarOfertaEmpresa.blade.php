@@ -106,6 +106,7 @@
                                                 @endforeach</li>
                 </ul>
                 <br>
+                <button value="editar" class="btn btn-primary" onclick="window.location='{{ secure_url('/empresa/candidats/'.$empresa->user_id.'/'.$oferta->id) }}'">Candidats</button>
                 <button value="editar" class="btn btn-success" onclick="window.location='{{ secure_url('/empresa/editarOferta/'.$empresa->user_id.'/'.$oferta->id) }}'">Editar Oferta</button>
                 <button value="editar" class="btn btn-danger" onclick="window.location='{{ secure_url('/empresa/esborrarOferta/'.$empresa->user_id.'/'.$oferta->id) }}'">Esborrar Oferta</button>
             </div>
