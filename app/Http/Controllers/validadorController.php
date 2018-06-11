@@ -10,6 +10,7 @@ use App\User;
 use App\Empresa;
 use App\Oferta;
 use App\Estudis;
+use Illuminate\Support\Facades\Hash;
 
 class validadorController extends Controller{
     public function __construct(){
@@ -40,8 +41,8 @@ class validadorController extends Controller{
 
         if($password == $password_confirmation){
             $validador = Validador::findOrFail($id);
-            $validador->validador_email = $email;
-            $validador->validador_password = Hash::make($password);
+            $validador->email = $email;
+            $validador->password = Hash::make($password);
             $validador->save();
 
             $user = User::findOrFail($id);

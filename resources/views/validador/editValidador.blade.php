@@ -80,7 +80,7 @@
             Editar Perfil
         </div>
         <div class="card-body">
-            <form method="POST" action="{{ secure_url('validador/editarAlumne') }}">
+            <form method="POST" action="{{ secure_url('validador/editarValidador') }}">
                 {{ csrf_field() }}
                 <input type="hidden" value="{{ $validador->user_id }}" name="id">
                 <div class="card">
