@@ -61,7 +61,8 @@ class ValidadorsSeeder extends Seeder{
         php artisan migrate:fresh
         o
         php artisan migrate:refresh (depèn del sistema operatiu funciona un o l'altre)
-        i amb això et carregues tota la BBDD, llavors descomentes tot el codi comentat aquí i a EstudisSeeder.php i tornes a fer un
+        i amb això et carregues tota la BBDD, llavors descomentes tot el codi comentat aquí, descomentes
+        la crida del EstudisSeeder.php al DatabaseSeeder.php i tornes a fer un:
         php artisan db:seed
 
         Tot i que tal i com està ara no hauria de donar problemes.
