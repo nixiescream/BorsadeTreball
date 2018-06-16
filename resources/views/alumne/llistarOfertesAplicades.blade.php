@@ -88,7 +88,7 @@
             {{ $oferta->titol }}
         </div>
         <div class="card-body">
-            <form method="POST" action="{{ secure_url('/alumne/#') }}">
+            <form method="POST" action="{{ secure_url('/alumne/eliminarOfertaInscrita') }}" onsubmit="return confirm('Segur que vols eliminar aquesta oferta?');">
                 {{ csrf_field() }}
                 <input type="hidden" value="{{ $alumne->user_id }}" name="idA">
                 <input type="hidden" value="{{ $oferta->id }}" name="idO">

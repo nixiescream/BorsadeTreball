@@ -110,4 +110,11 @@ class alumnesController extends Controller{
         $estudis = Estudis::all();
 		return view('alumne.llistarOfertesAplicades')->with('alumne',$alumne)->with('ofertes',$ofertes)->with('estudis',$estudis);
     }
+
+    public function eliminarOfertaInscrita(Request $request){
+        $id = $request->idA;
+        $alumne = Alumne::findOrFail($id);
+        $alumne->ofertes()->detach($request->idO);
+        return redirect('/alumne/'.$id)->with('alumne',$alumne);
+    }
 }
