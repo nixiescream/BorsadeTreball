@@ -8,6 +8,7 @@ use App\User;
 use App\Oferta;
 use App\Estudis;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class alumnesController extends Controller{
     public function __construct(){
@@ -86,11 +87,9 @@ class alumnesController extends Controller{
 
     public function llistarOfertes(Request $request){
         $id = $request->id;
+        $idO = $request->get('idO');
 		$alumne = Alumne::findOrFail($id);
-        $ofertes = Oferta::whereIn('estudis_sigles', $alumne)->where('validada',1)->get();
-        /*foreach ($ofertesA as $ofertaA) {
-            $ofertes = $ofertesA->where('id','!=',$ofertaA->pivot->oferta_id);
-        }*/
+        $ofertes = Oferta::whereIn('estudis_sigles', $alumne)->where('validada',1)/*->select(DB::raw("not exists(select alumne_user_id, oferta_id from alumne_oferta as ao where ao.alumne_user_id = ".$id." AND ao.oferta_id = ".$idO.")"))*/->get();
         $estudis = Estudis::all();
 		return view('alumne.llistarOfertaAlumne')->with('alumne',$alumne)->with('ofertes',$ofertes)->with('estudis',$estudis);
     }

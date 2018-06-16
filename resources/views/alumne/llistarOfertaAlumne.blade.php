@@ -78,7 +78,7 @@
 @endsection
 
 @section('content')
-<form method="post" action="{{ secure_url('/alumne') }}">
+<form method="POST" action="{{ secure_url('/alumne') }}">
     {{ csrf_field() }}
     <input type="hidden" value="{{ $alumne->user_id }}" name="id">
 </form>
@@ -91,8 +91,11 @@
         <div class="card-body">
             <form method="POST" action="{{ url('/alumne/aplicarOferta') }}">
                 {{ csrf_field() }}
-                <input type="hidden" value="{{ $alumne->user_id }}" name="idA">
-                <input type="hidden" value="{{ $oferta->id }}" name="idO">
+                <form method="GET">
+                    {{ csrf_field() }}
+                    <input type="hidden" value="{{ $alumne->user_id }}" name="idA">
+                    <input type="hidden" value="{{ $oferta->id }}" name="idO">
+                </form>
                     <div class="card-body">
                             <ul class="list-group">
                                 <li class="list-group-item">{{ $oferta->descripcio }}</li>
