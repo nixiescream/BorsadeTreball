@@ -121,7 +121,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <!--<div class="col-md-4">
             <div class="card border-info mb-3 rounded">
                 <div class="card-header bg-info">
                     Idiomes
@@ -167,7 +167,7 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </div>-->
    </div>
 </div>
 @endsection
