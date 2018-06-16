@@ -20,7 +20,10 @@ class validadorController extends Controller{
     public function index(Request $request){
         $id = $request->id;
         $validador = Validador::findOrFail($id);
-		return view('validador.validador')->with('validador',$validador);
+        $alumnes = Alumne::where('alumne_validat', 0)->count();
+        $empreses = Empresa::where('empresa_validat', 0)->count();
+        $ofertes = Oferta::where('validada', 0)->count();
+		return view('validador.validador')->with('validador',$validador)->with('alumnes',$alumnes)->with('empreses',$empreses)->with('ofertes',$ofertes);
     }
 
     public function linkEditarValidador(Request $request){

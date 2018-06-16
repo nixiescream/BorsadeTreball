@@ -75,7 +75,34 @@
     <input type="hidden" value="{{ $validador->user_id }}" name="id">
 </form>
 <div class="content container-fluid">
-
+    <div class="card border-info mb-3 rounded">
+        <div class="card-header bg-info">
+            Alumnes
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Tens {{ $alumnes }} @if($alumnes>1) alumnes @else alumne @endif per validar</h5>
+        </div>
+    </div>
+</div>
+<div class="content container-fluid">
+    <div class="card border-info mb-3 rounded">
+        <div class="card-header bg-info">
+            Empreses
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Tens {{ $empreses }} @if($empreses>1) empreses @else empresa @endif per validar</h5>
+        </div>
+    </div>
+</div>
+<div class="content container-fluid">
+    <div class="card border-info mb-3 rounded">
+        <div class="card-header bg-info">
+            Ofertes
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Tens {{ $ofertes }} @if($ofertes>1) ofertes @else oferta @endif per validar</h5>
+        </div>
+    </div>
 </div>
 @endsection
 
