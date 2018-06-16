@@ -18,8 +18,9 @@ class alumnesController extends Controller{
 	public function index(Request $request){
         $id = $request->id;
         $alumne = Alumne::findOrFail($id);
+        $ofertes = $alumne->ofertes()->paginate(5);
         $estudis = Estudis::all();
-		return view('alumne.alumne')->with('alumne',$alumne)->with('estudis',$estudis);
+		return view('alumne.alumne')->with('alumne',$alumne)->with('estudis',$estudis)->with('ofertes',$ofertes);
     }
 
     public function linkEditarAlumne(Request $request){
@@ -90,7 +91,7 @@ class alumnesController extends Controller{
         $idO = $request->get('idO');
 		$alumne = Alumne::findOrFail($id);
         $ofertes = Oferta::whereIn('estudis_sigles', $alumne)->where('validada',1)->get();
-        /*->select(DB::raw("not exists(select alumne_user_id, oferta_id from alumne_oferta as ao where ao.alumne_user_id = ".$id." AND ao.oferta_id = ".$idO.")"))*/->get();
+        /*->select(DB::raw("not exists(select alumne_user_id, oferta_id from alumne_oferta as ao where ao.alumne_user_id = ".$id." AND ao.oferta_id = ".$idO.")"))*/
         $estudis = Estudis::all();
 		return view('alumne.llistarOfertaAlumne')->with('alumne',$alumne)->with('ofertes',$ofertes)->with('estudis',$estudis);
     }

@@ -121,6 +121,36 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-4">
+            <div class="card border-info mb-3 rounded">
+                <div class="card-header bg-info">
+                    Ofertes inscrites
+                </div>
+                <div class="card-body">
+                    @if(!$ofertes->isEmpty())
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th scope="col">Oferta</th>
+                          <th scope="col">Descripció</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                    @foreach($ofertes as $oferta)
+                        <tr>
+                          <td>{{ $oferta->titol }}</td>
+                          <td>{{ $oferta->descripcio }}</td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                    </table>
+                    {{ $ofertes->links() }}
+                    @else
+                    No hi ha ofertes disponibles
+                    @endif
+                </div>
+            </div>
+        </div>
         <!--<div class="col-md-4">
             <div class="card border-info mb-3 rounded">
                 <div class="card-header bg-info">
