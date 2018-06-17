@@ -106,9 +106,11 @@
                                                 @endforeach</li>
                 </ul>
                 <br>
-                <button value="editar" class="btn btn-primary" onclick="window.location='{{ secure_url('/empresa/candidats/'.$empresa->user_id.'/'.$oferta->id) }}'">Candidats</button>
+                @if($oferta->validada == 1)
+                <button value="candidats" class="btn btn-primary" onclick="window.location='{{ secure_url('/empresa/candidats/'.$empresa->user_id.'/'.$oferta->id) }}'">Candidats</button>
+                @endif
                 <button value="editar" class="btn btn-success" onclick="window.location='{{ secure_url('/empresa/editarOferta/'.$empresa->user_id.'/'.$oferta->id) }}'">Editar Oferta</button>
-                <button value="editar" class="btn btn-danger" onclick="window.location='{{ secure_url('/empresa/esborrarOferta/'.$empresa->user_id.'/'.$oferta->id) }}'">Esborrar Oferta</button>
+                <button value="esborrar" class="btn btn-danger" onclick="return confirm('Segur que vols eliminar aquesta oferta?')?window.location='{{ secure_url('/empresa/esborrarOferta/'.$empresa->user_id.'/'.$oferta->id) }}':'';">Esborrar Oferta</button>
             </div>
         </div>
     </div>
