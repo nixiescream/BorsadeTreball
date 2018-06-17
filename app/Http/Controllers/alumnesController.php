@@ -88,13 +88,14 @@ class alumnesController extends Controller{
 
     public function llistarOfertes(Request $request){
         $id = $request->id;
-        $idO = $request->idO;
-		$alumne = Alumne::findOrFail($id);
-        $ofertes = Oferta::whereIn('estudis_sigles', $alumne)->where('validada',1)->where(DB::raw("not exists(select alumne_user_id, oferta_id from alumne_oferta as ao where ao.alumne_user_id = ".$id." AND ao.oferta_id = id)"))->get();
-        $str = Oferta::whereIn('estudis_sigles', $alumne)->where('validada',1)->where(DB::raw("not exists(select alumne_user_id, oferta_id from alumne_oferta as ao where ao.alumne_user_id = ".$id." AND ao.oferta_id = ".$idO.")"))->toSql();
-        /*->select(DB::raw("not exists(select alumne_user_id, oferta_id from alumne_oferta as ao where ao.alumne_user_id = ".$id." AND ao.oferta_id = ".$idO.")"))*/
+        $idO = $request->input('idO');
+        $alumne = Alumne::findOrFail($id);
+        $ofertes = Oferta::whereIn('estudis_sigles', $alumne)->where('validada',1)->whereDoesntHave('alumnes',
+        function ($query) use ($id) {
+            $query->where('alumne_user_id', $id);
+        })->get();
         $estudis = Estudis::all();
-		return view('alumne.llistarOfertaAlumne')->with('alumne',$alumne)->with('ofertes',$ofertes)->with('estudis',$estudis)->with('str',$str);
+		return view('alumne.llistarOfertaAlumne')->with('alumne',$alumne)->with('ofertes',$ofertes)->with('estudis',$estudis);
     }
 
     public function aplicarOferta(Request $request){

@@ -91,8 +91,8 @@
         <div class="card-body">
             <form method="POST" action="{{ url('/alumne/aplicarOferta') }}">
                 {{ csrf_field() }}
-                    <input type="hidden" value="{{ $alumne->user_id }}" name="idA">
-                    <input type="hidden" value="{{ $oferta->id }}" name="idO">
+                <input type="hidden" value="{{ $alumne->user_id }}" name="idA">
+                <input type="hidden" value="{{ $oferta->id }}" name="idO">
                     <div class="card-body">
                             <ul class="list-group">
                                 <li class="list-group-item">{{ $oferta->descripcio }}</li>
@@ -107,7 +107,6 @@
                             </ul>
                             <br>
                             <button type="submit" value="aplicar" class="btn btn-success">Inscriure's</button>
-                            {{$str}}
                     </div>
             </form>
         </div>
