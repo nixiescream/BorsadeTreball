@@ -18,8 +18,8 @@ class empresesController extends Controller{
 	public function index(Request $request){
         $id = $request->id;
 		$empresa = Empresa::findOrFail($id);
-        $ofertes = Oferta::whereIn('empresa_id', $empresa)->paginate(5,['*'], 'o1');
-        $ofertesV = Oferta::whereIn('empresa_id', $empresa)->where('validada',1)->paginate(5,['*'], 'o2');
+        $ofertes = Oferta::whereIn('empresa_user_id', $empresa)->paginate(5,['*'], 'o1');
+        $ofertesV = Oferta::whereIn('empresa_user_id', $empresa)->where('validada',1)->paginate(5,['*'], 'o2');
 		return view('empresa.empresa')->with('empresa',$empresa)->with('ofertes',$ofertes)->with('ofertesV',$ofertesV);
 	}
 
@@ -35,7 +35,6 @@ class empresesController extends Controller{
 			'email' => 'required',
             'telf' => 'required|max:9',
             'addr' => 'required',
-            'cif' => 'required|max:10',
 			'password' => 'required'
 		]);
         $id = $request->id;
@@ -43,7 +42,6 @@ class empresesController extends Controller{
         $email = $request->email;
         $telefon = $request->telf;
         $adresa = $request->addr;
-        $cif = $request->cif;
         $password = $request->password;
         $password_confirmation = $request->password_confirmation;
 
@@ -53,7 +51,6 @@ class empresesController extends Controller{
             $empresa->empresa_email = $email;
             $empresa->empresa_telefon = $telefon;
             $empresa->empresa_addr = $adresa;
-            $empresa->empresa_cif = $cif;
             $empresa->empresa_password = Hash::make($password);
             $empresa->empresa_validat = 0;
             $empresa->save();
@@ -107,7 +104,7 @@ class empresesController extends Controller{
         $oferta->horari = $horari;
         $oferta->tipus = $tipus;
         $oferta->estudis_sigles = $estudis_emprats;
-        $oferta->empresa_id = $id;
+        $oferta->empresa_user_id = $id;
         $oferta->save();
 
         $empresa = Empresa::findOrFail($id);
@@ -139,12 +136,12 @@ class empresesController extends Controller{
         $oferta->horari = $horari;
         $oferta->tipus = $tipus;
         $oferta->estudis_sigles = $estudis_emprats;
-        $oferta->empresa_id = $idE;
+        $oferta->empresa_user_id = $idE;
         $oferta->validada = 0;
         $oferta->save();
 
         $empresa = Empresa::findOrFail($idE);
-        $ofertes = Oferta::whereIn('empresa_id', $empresa)->get();
+        $ofertes = Oferta::whereIn('empresa_user_id', $empresa)->get();
         $estudis = Estudis::all();
         return redirect('/empresa/llistarOfertes/'.$idE)->with('empresa',$empresa)->with('ofertes',$ofertes);
     }
@@ -153,7 +150,7 @@ class empresesController extends Controller{
     public function llistarOfertes(Request $request){
         $id = $request->id;
 		$empresa = Empresa::findOrFail($id);
-        $ofertes = Oferta::whereIn('empresa_id', $empresa)->get();
+        $ofertes = Oferta::whereIn('empresa_user_id', $empresa)->get();
         $estudis = Estudis::all();
 		return view('empresa.llistarOfertaEmpresa')->with('empresa',$empresa)->with('ofertes',$ofertes)->with('estudis',$estudis);
     }
@@ -164,7 +161,7 @@ class empresesController extends Controller{
 		$oferta = Oferta::findOrFail($idO);
 		$oferta->delete();
         $empresa = Empresa::findOrFail($idE);
-        $ofertes = Oferta::whereIn('empresa_id', $empresa)->get();
+        $ofertes = Oferta::whereIn('empresa_user_id', $empresa)->get();
         $estudis = Estudis::all();
 		return redirect('/empresa/llistarOfertes/'.$idE)->with('empresa',$empresa)->with('ofertes',$ofertes);
 	}

@@ -104,7 +104,7 @@
                                                     @endif
                                                     @endforeach</td>
                         <td>@foreach($empreses as $empresa)
-                                                    @if($oferta->empresa_id == $empresa->user_id)
+                                                    @if($oferta->empresa_user_id == $empresa->user_id)
                                                         {{ $empresa->empresa_nom }}
                                                     @endif
                                                     @endforeach</td>

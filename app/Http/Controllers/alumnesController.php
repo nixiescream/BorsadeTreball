@@ -39,8 +39,7 @@ class alumnesController extends Controller{
             'dni' => 'required|max:10',
             /*'familiaE' => 'required',*/
             'telf' => 'required|max:9',
-            'biografia' => 'required',
-			'estudis' => 'required',
+            'experiencia' => 'required',
             'carnet' => 'required',
             'disponibilitat' => 'required',
 			'password' => 'required'
@@ -53,8 +52,7 @@ class alumnesController extends Controller{
         $dni = $request->dni;
         /*$familiaE = $request->familiaE;*/
         $telf = $request->telf;
-        $bio = $request->biografia;
-        $estudis = $request->estudis;
+        $exp = $request->experiencia;
         $carnet = $request->carnet;
         $disponibilitat = $request->disponibilitat;
         $password = $request->password;
@@ -69,8 +67,7 @@ class alumnesController extends Controller{
             $alumne->alumne_dni = $dni;
             /*$alumne->familiaE = $familiaE;*/
             $alumne->alumne_telefon = $telf;
-            $alumne->alumne_bio = $bio;
-            $alumne->estudis_sigles = $estudis;
+            $alumne->alumne_experiencia = $exp;
             $alumne->alumne_carnet = $carnet;
             $alumne->alumne_tempsTotal = $disponibilitat;
             $alumne->alumne_password = Hash::make($password);

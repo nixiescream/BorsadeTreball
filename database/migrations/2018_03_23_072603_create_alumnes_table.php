@@ -21,7 +21,7 @@ class CreateAlumnesTable extends Migration{
             $table->integer('alumne_validat')->default(0);
     		$table->string('alumne_cognom1')->default("");
             $table->string('alumne_cognom2')->default("");
-            $table->string('alumne_experiencia')->default("");
+            $table->string('alumne_experiencia',300)->default("");
             $table->string('alumne_dni')->default("")->unique();
             $table->string('alumne_telefon')->default("");
             $table->integer('alumne_carnet')->default(0);

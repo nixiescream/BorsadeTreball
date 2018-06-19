@@ -80,7 +80,9 @@
             Alumnes
         </div>
         <div class="card-body">
-            <h5 class="card-title">Tens {{ $alumnes }} @if($alumnes>1) alumnes @else alumne @endif per validar</h5>
+            <h5 class="card-title">@if($alumnes>1)Tens {{ $alumnes }} @if($alumnes>1) alumnes @else alumne @endif per validar
+                <a href="{{ secure_url('/validador/validarAlumnes', $validador->user_id) }}"> Validar alumnes </a>
+                @else No tens alumnes per validar @endif</h5>
         </div>
     </div>
 </div>
@@ -90,7 +92,9 @@
             Empreses
         </div>
         <div class="card-body">
-            <h5 class="card-title">Tens {{ $empreses }} @if($empreses>1) empreses @else empresa @endif per validar</h5>
+            <h5 class="card-title">@if($empreses>1)Tens {{ $empreses }} @if($empreses>1) empreses @else empresa @endif per validar
+                <a href="{{ secure_url('/validador/validarEmpreses', $validador->user_id) }}"> Validar empreses </a>
+                @else No tens empreses per validar @endif</h5>
         </div>
     </div>
 </div>
@@ -100,7 +104,9 @@
             Ofertes
         </div>
         <div class="card-body">
-            <h5 class="card-title">Tens {{ $ofertes }} @if($ofertes>1) ofertes @else oferta @endif per validar</h5>
+            <h5 class="card-title">@if($ofertes>1)Tens {{ $ofertes }} @if($ofertes>1) ofertes @else oferta @endif per validar
+                <a href="{{ secure_url('/validador/validarOfertes', $validador->user_id) }}"> Validar ofertes </a>
+                @else No tens ofertes per validar @endif</h5>
         </div>
     </div>
 </div>

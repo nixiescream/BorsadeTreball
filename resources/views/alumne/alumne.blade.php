@@ -151,41 +151,6 @@
                 </div>
             </div>
         </div>
-        <!--<div class="col-md-4">
-            <div class="card border-info mb-3 rounded">
-                <div class="card-header bg-info">
-                    Idiomes
-                </div>
-                <div class="card-body">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Idioma</th>
-                                <th scope="col">Nivell</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Català</td>
-                                <td>Natiu</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Castellà</td>
-                                <td>Natiu</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Anglès</td>
-                                <td>B2</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>-->
         <div class="col-md-4">
         <div class="card border-info mb-3 rounded">
                 <div class="card-header bg-info">
@@ -193,7 +158,7 @@
                 </div>
                 <div class="card-body">
                     <ul class="list-group">
-                        <li class="list-group-item">{{ $alumne->experiencia }} </li>
+                        <li class="list-group-item">{{ $alumne->alumne_experiencia }} </li>
                     </ul>
                 </div>
             </div>

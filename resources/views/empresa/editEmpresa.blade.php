@@ -154,7 +154,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-user"></i></span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="CIF" name="cif" value="{{ $empresa->empresa_cif }}" required>
+                                <input type="text" class="form-control" placeholder="CIF" name="cif" value="{{ $empresa->empresa_cif }}" disabled>
                                 @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>

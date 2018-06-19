@@ -112,7 +112,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-user"></i></span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="DNI" name="dni" value="{{ $alumne->alumne_dni }}" required>
+                                <input type="text" class="form-control" placeholder="DNI" name="dni" value="{{ $alumne->alumne_dni }}" disabled>
                                 @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
