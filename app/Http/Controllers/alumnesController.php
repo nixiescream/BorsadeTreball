@@ -36,8 +36,6 @@ class alumnesController extends Controller{
             'cognom1' => 'required|max:80',
             'cognom2' => 'required|max:80',
 			'email' => 'required',
-            'dni' => 'required|max:10',
-            /*'familiaE' => 'required',*/
             'telf' => 'required|max:9',
             'experiencia' => 'required',
             'carnet' => 'required',
@@ -49,8 +47,6 @@ class alumnesController extends Controller{
         $cognom1 = $request->cognom1;
         $cognom2 = $request->cognom2;
         $email = $request->email;
-        $dni = $request->dni;
-        /*$familiaE = $request->familiaE;*/
         $telf = $request->telf;
         $exp = $request->experiencia;
         $carnet = $request->carnet;
@@ -64,8 +60,6 @@ class alumnesController extends Controller{
             $alumne->alumne_cognom1 = $cognom1;
             $alumne->alumne_cognom2 = $cognom2;
             $alumne->alumne_email = $email;
-            $alumne->alumne_dni = $dni;
-            /*$alumne->familiaE = $familiaE;*/
             $alumne->alumne_telefon = $telf;
             $alumne->alumne_experiencia = $exp;
             $alumne->alumne_carnet = $carnet;

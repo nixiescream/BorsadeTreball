@@ -91,7 +91,7 @@
             Empresa
         </div>
         <div class="card-body">
-            <h5 class="card-title">{{ $empresa->empresa_nom }}</h5>
+            <h5 class="card-title">{{ $empresa->empresa_nom }}</h5> @if($empresa->empresa_validat == 0) <p>(No validada)</p> @endif
         </div>
     </div>
 </div>

@@ -90,6 +90,7 @@
         </div>
         <div class="card-body">
             <h5 class="card-title">{{ $alumne->alumne_nom }} {{ $alumne->alumne_cognom1 }} {{ $alumne->alumne_cognom2 }}</h5>
+            @if($alumne->alumne_validat == 0) <p>(No validat)</p> @endif
         </div>
     </div>
 </div>
