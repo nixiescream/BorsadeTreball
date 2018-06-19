@@ -7,7 +7,7 @@
         <li class="nav-item px-3">
         <li class="breadcrumb-item">Empresa</li>
         <li class="breadcrumb-item"><a href="{{ secure_url('/empresa', $empresa->user_id) }}">{{ $empresa->empresa_nom }}</a></li>
-        <li class="breadcrumb-item active">Llistar ofertes (candidats)</li>
+        <li class="breadcrumb-item active">Candidats</li>
     </ul>
     <ul class="nav navbar-nav ml-auto">
         <li class="nav-item dropdown">
@@ -21,8 +21,7 @@
                 <a class="dropdown-item" href="{{ secure_url('/empresa/editarEmpresa',$empresa->user_id) }}"><i class="fa fa-wrench"></i> Editar perfil</a>
                 <div class="divider"></div>
                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                         document.getElementById('logout-form').submit();"><i class="fa fa-lock"></i> Desconnecta</a>
-                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                         document.getElementById('logout-form').submit();"><i class="fa fa-lock"></i> Desconnecta</a><form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                          {{ csrf_field() }}
                      </form>
             </div>
@@ -38,7 +37,7 @@
       <nav class="sidebar-nav">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="{{ secure_url('/empresa', $empresa->user_id) }}"><i class="icon-speedometer"></i> Panell d'usuari</a>
+            <a class="nav-link" href="{{ secure_url('/empresa', $empresa->user_id) }}"><i class="icon-speedometer"></i> Panell d'usuari </a>
           </li>
 
           <li class="nav-title">
@@ -80,6 +79,7 @@
     </div>
 @endsection
 
+<!-- Contingut central -->
 @section('content')
 <form method="post" action="{{ secure_url('/empresa') }}">
     {{ csrf_field() }}
@@ -88,39 +88,57 @@
 <div class="content container-fluid">
     <div class="card border-info mb-3 rounded">
         <div class="card-header bg-info">
-            {{ $oferta->titol }}
+            Perfil
         </div>
         <div class="card-body">
-                <div class="card-body">
-                        <ul class="list-group">
-                            <li class="list-group-item">{{ $oferta->descripcio }}</li>
-                            <li class="list-group-item">{{ $oferta->sou }}€/hora</li>
-                            <li class="list-group-item">{{ $oferta->horari }}</li>
-                            <li class="list-group-item">{{ $oferta->tipus }}</li>
-                            <li class="list-group-item">@foreach($estudis as $estudi)
-                                                        @if($oferta->estudis_sigles == $estudi->sigles)
-                                                            {{ $estudi->nom }}
-                                                        @endif
-                                                        @endforeach</li>
-                        </ul>
-                        <br>
-                        Candidats
-                        @if($alumnes->isEmpty())
-                        <ul class="list-group">
-                            <li class="list-group-item">No hi ha alumnes</li>
-                        </ul>
-                        @else
-                        @foreach($alumnes as $alumne)
-                        <ul class="list-group">
-                            <li class="list-group-item"><a href="{{ secure_url('/empresa/candidats/alumne/'.$empresa->user_id.'/'.$alumne->user_id) }}">{{ $alumne->alumne_nom }} {{ $alumne->alumne_cognom1 }} {{ $alumne->alumne_cognom2 }}</a></li>
-                        </ul>
-                        @endforeach
-                        @endif
-                </div>
+            <h5 class="card-title">{{ $alumne->alumne_nom }} {{ $alumne->alumne_cognom1 }} {{ $alumne->alumne_cognom2 }}</h5>
         </div>
     </div>
 </div>
+<div class="content container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card border-info mb-3 rounded">
+                <div class="card-header bg-info">
+                    Informació usuari
+                </div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">{{ $alumne->alumne_nom }} {{ $alumne->alumne_cognom1 }} {{ $alumne->alumne_cognom2 }}</li>
+                        <li class="list-group-item">{{ $alumne->alumne_telefon }}</li>
+                        <li class="list-group-item">{{ $alumne->alumne_email }}</li>
+                        <li class="list-group-item">@foreach($estudis as $estudi)
+                                                    @if($alumne->estudis_sigles == $estudi->sigles)
+                                                        {{ $estudi->nom }}
+                                                    @endif
+                                                    @endforeach
+                                                    </li>
+                        <li class="list-group-item">@if($alumne->alumne_carnet == 1)
+                                                        Té carnet de conduïr
+                                                    @endif
+                                                    @if($alumne->alumne_carnet == 0)
+                                                        No té carnet de conduïr
+                                                    @endif</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+        <div class="card border-info mb-3 rounded">
+                <div class="card-header bg-info">
+                    Experiència
+                </div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">{{ $alumne->alumne_experiencia }} </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+   </div>
+</div>
 @endsection
+
 
 @section('footer')
 <footer class="app-footer">

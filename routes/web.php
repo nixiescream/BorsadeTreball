@@ -36,6 +36,7 @@ Route::get('/empresa/editarOferta/{idE}/{idO}','empresesController@linkEditarOfe
 Route::post('/empresa/editarOferta','empresesController@editarOfertaEmpresa')->middleware('isEmpresa')->name('editarOfertaEmpresa');
 Route::get('/empresa/esborrarOferta/{idE}/{idO}','empresesController@esborrarOferta')->middleware('isEmpresa')->name('esborrarOferta');
 Route::get('/empresa/candidats/{idE}/{idO}','empresesController@getCandidats')->middleware('isEmpresa')->name('getCandidats');
+Route::get('/empresa/candidats/alumne/{idE}/{idA}','empresesController@getAlumne')->middleware('isEmpresa')->name('getAlumne');
 
 //validador
 Route::get('/validador/{id}', 'validadorController@index')->middleware('isValidador')->name('validador');

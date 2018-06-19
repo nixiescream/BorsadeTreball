@@ -8,6 +8,7 @@ use App\Empresa;
 use App\Estudis;
 use App\User;
 use App\Oferta;
+use App\Alumne;
 use Illuminate\Support\Facades\Hash;
 
 class empresesController extends Controller{
@@ -174,5 +175,14 @@ class empresesController extends Controller{
         $alumnes = $oferta->alumnes()->get();
         $estudis = Estudis::all();
         return view('empresa.candidats')->with('empresa',$empresa)->with('oferta',$oferta)->with('estudis',$estudis)->with('alumnes',$alumnes);
+    }
+
+    public function getAlumne(Request $request){
+        $idE = $request->idE;
+        $idA = $request->idA;
+        $empresa = Empresa::findOrFail($idE);
+        $alumne = Alumne::findOrFail($idA);
+        $estudis = Estudis::all();
+        return view('empresa.alumne')->with('empresa',$empresa)->with('alumne',$alumne)->with('estudis',$estudis);
     }
 }
