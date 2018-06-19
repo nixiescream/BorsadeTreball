@@ -190,7 +190,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-pencil"></i></span>
                                 </div>
-                                    <select name="estudis" class="custom-select form-control">
+                                    <select name="estudis" class="custom-select form-control" disabled>
                                         @foreach($estudis as $estudi)
                                         @if($estudi->sigles == $alumne->estudis_sigles)
                                         <option value="{{ $estudi->sigles }}" selected>
@@ -211,12 +211,9 @@
                             </div>
 
                             <!-- BIOGRAFIA -->
-                            <div class="col-md-6 input-group mb-4 {{ $errors->has('bio') ? ' has-error' : '' }}">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="icon-user"></i></span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="Biografia" name="biografia" value="{{ $alumne->alumne_biografia }}" required>
-                                @if ($errors->has('name'))
+                            <div class="col-md-12 input-group mb-3 {{ $errors->has('experiencia') ? ' has-error' : '' }}">
+                                <textarea class="form-control" name="experiencia" placeholder="Experiència" rows="3">{{ $alumne->experiencia }}</textarea>
+                                @if($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
                                     </span>

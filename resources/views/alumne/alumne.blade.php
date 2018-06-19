@@ -185,19 +185,19 @@
                     </table>
                 </div>
             </div>
-        </div>
+        </div>-->
         <div class="col-md-4">
         <div class="card border-info mb-3 rounded">
                 <div class="card-header bg-info">
-                    Biografia
+                    Experiència
                 </div>
                 <div class="card-body">
                     <ul class="list-group">
-                        <li class="list-group-item">{{ $alumne->alumne_bio }} </li>
+                        <li class="list-group-item">{{ $alumne->experiencia }} </li>
                     </ul>
                 </div>
             </div>
-        </div>-->
+        </div>
    </div>
 </div>
 @endsection
